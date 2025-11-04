@@ -16,6 +16,18 @@ class MenuController: UIViewController {
         self.view.backgroundColor = .bgCol
         self.mainView.frame = view.bounds
         self.mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        addActions()
+    }
+    
+    func addActions() {
+        let startAction = UIAction {
+            [weak self] _ in
+            let vc = GameViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self?.present(vc, animated: true)
+        }
+        
+        mainView.startButton.addAction(startAction, for: .touchUpInside)
     }
 }
 
