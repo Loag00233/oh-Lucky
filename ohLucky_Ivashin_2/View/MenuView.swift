@@ -43,7 +43,7 @@ class MenuView: UIView {
         startB.layer.cornerRadius = 23
 
         let gradient = UIColor.makeGradientLayer()
-        gradient.frame = CGRect(x: 0, y: 0, width: 334, height: 63)
+        gradient.frame = startButton.bounds
         startB.layer.insertSublayer(gradient, at: 0)
         gradient.cornerRadius = 23
 
@@ -96,7 +96,7 @@ class MenuView: UIView {
         exitBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         exitBtn.backgroundColor = .exitBtnC
         exitBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        exitBtn.widthAnchor.constraint(equalToConstant: 334).isActive = true
+        exitBtn.widthAnchor.constraint(equalTo: vStack.widthAnchor ).isActive = true
         exitBtn.layer.cornerRadius = 23
 
         return exitBtn
@@ -144,8 +144,8 @@ class MenuView: UIView {
 
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 56),
-            vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
-            vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
+            vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 54),
+            vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -84),
         ])
     }
 

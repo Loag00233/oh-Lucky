@@ -8,13 +8,11 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    //let gameView = GameView()
+    let gameView = GameView()
+    let answers: [String] = ["Ответ 1", "Ответ 2" ,"Ответ 3" ,"Ответ 4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view = self.gameView
-        self.view.backgroundColor = .green
-//        self.gameView.frame = view.bounds
-//        self.gameView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view = self.gameView
     }
 }
