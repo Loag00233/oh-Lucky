@@ -33,21 +33,21 @@ class MenuView: UIView {
     }()
 
     lazy var startButton: UIButton = {
-        let startB = UIButton(type: .system)
-        startB.setTitle("Начать игру!", for: .normal)
-        startB.setTitleColor(.white, for: .normal)
-        startB.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
+        let btn = UIButton(type: .system)
+        btn.setTitle("Начать игру!", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
+        btn.heightAnchor.constraint(equalToConstant: 63).isActive = true
+        btn.widthAnchor.constraint(equalToConstant: 314).isActive = true
+        btn.layer.cornerRadius = 23
 
-        startB.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        startB.widthAnchor.constraint(equalToConstant: 334).isActive = true
-        startB.layer.cornerRadius = 23
-
+        // Добавляем градиент
         let gradient = UIColor.makeGradientLayer()
-        gradient.frame = startButton.bounds
-        startB.layer.insertSublayer(gradient, at: 0)
+        gradient.frame = CGRect(x: 0, y: 0, width: 314, height: 63)
         gradient.cornerRadius = 23
+        btn.layer.insertSublayer(gradient, at: 0)
 
-        return startB
+        return btn
     }()
 
     lazy var settingsButton: UIButton = {
@@ -57,7 +57,6 @@ class MenuView: UIView {
         setBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         setBtn.backgroundColor = .menuBtns
         setBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        setBtn.widthAnchor.constraint(equalToConstant: 334).isActive = true
         setBtn.layer.cornerRadius = 23
 
         return setBtn
@@ -70,7 +69,6 @@ class MenuView: UIView {
         topBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         topBtn.backgroundColor = .menuBtns
         topBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        topBtn.widthAnchor.constraint(equalToConstant: 334).isActive = true
         topBtn.layer.cornerRadius = 23
 
         return topBtn
@@ -83,7 +81,6 @@ class MenuView: UIView {
         statBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         statBtn.backgroundColor = .menuBtns
         statBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        statBtn.widthAnchor.constraint(equalToConstant: 334).isActive = true
         statBtn.layer.cornerRadius = 23
 
         return statBtn
@@ -96,7 +93,6 @@ class MenuView: UIView {
         exitBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         exitBtn.backgroundColor = .exitBtnC
         exitBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        exitBtn.widthAnchor.constraint(equalTo: vStack.widthAnchor ).isActive = true
         exitBtn.layer.cornerRadius = 23
 
         return exitBtn
@@ -110,6 +106,7 @@ class MenuView: UIView {
         setConstraints()
     }
 
+    
     //MARK: дизайн view
     func setViews() { }
 
@@ -144,8 +141,7 @@ class MenuView: UIView {
 
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 56),
-            vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 54),
-            vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -84),
+            vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 44),
         ])
     }
 
