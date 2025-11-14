@@ -39,7 +39,6 @@ class GameView: UIView {
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         btn.backgroundColor = .menuBtns
         btn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        btn.widthAnchor.constraint(equalToConstant: 334).isActive = true
         btn.layer.cornerRadius = 23
 
         return btn
@@ -75,24 +74,10 @@ class GameView: UIView {
         
         questionNumberLabel.textColor = .white
         questionTextLabel.textColor = .white
-        
         questionTextLabel.numberOfLines = 0 // чтобы переносился по строчкам, В констрейны у правого трейлинга добавил lessThanOrEqualTo
         
         answersTableView.backgroundColor = .clear
         answersTableView.register(AnswerCell.self, forCellReuseIdentifier: AnswerCell.reusedID)
-        
-        let answer1 = AnswerCell(style: .default, reuseIdentifier: "AnswerCell")
-        answer1.frame = CGRect(x: 0, y: 0, width: 334, height: 63)
-        let answer2 = AnswerCell(style: .default, reuseIdentifier: "AnswerCell")
-        answer2.frame = CGRect(x: 0, y: 70, width: 334, height: 63)
-        let answer3 = AnswerCell(style: .default, reuseIdentifier: "AnswerCell")
-        answer3.frame = CGRect(x: 0, y: 140, width: 334, height: 63)
-        let answer4 = AnswerCell(style: .default, reuseIdentifier: "AnswerCell")
-        answer4.frame = CGRect(x: 0, y: 210, width: 334, height: 63)
-        answersTableView.addSubview(answer1)
-        answersTableView.addSubview(answer2)
-        answersTableView.addSubview(answer3)
-        answersTableView.addSubview(answer4)
     }
     
     //MARK: добавляем на экран через addsubview, маску авторесайзинга выкл и констрейены
@@ -131,9 +116,9 @@ class GameView: UIView {
         
         
         NSLayoutConstraint.activate([
-            rectangleBankView.centerXAnchor.constraint(equalTo: centerXAnchor),
             rectangleBankView.topAnchor.constraint(equalTo: topAnchor, constant: 70),
-            rectangleBankView.widthAnchor.constraint(equalToConstant: 334),
+            rectangleBankView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
+            rectangleBankView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
             rectangleBankView.heightAnchor.constraint(equalToConstant: 125)
         ])
         
@@ -185,7 +170,7 @@ class GameView: UIView {
             answersTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
             answersTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
             answersTableView.topAnchor.constraint(equalTo: questionTextLabel.bottomAnchor, constant: 20),
-            answersTableView.bottomAnchor.constraint(equalTo:  bottomAnchor, constant: 63)
+            answersTableView.bottomAnchor.constraint(equalTo:  bottomAnchor, constant: -40)
         ])
         
         
