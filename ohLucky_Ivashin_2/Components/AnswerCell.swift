@@ -11,6 +11,8 @@ class AnswerCell: UITableViewCell {
     
     static let reusedID = "WordCell"
 
+    lazy var cardView = UIView() // на нее все кладем, чтобы ячейки могли "разлепиться" друг от друга
+
     lazy var circleView: UIImageView = {
         let circle = UIImageView()
         circle.image = UIImage(named: "EllipseAnswer")
@@ -23,11 +25,12 @@ class AnswerCell: UITableViewCell {
     
     lazy var letterLabel = UILabel(text: "A")
     lazy var wordLabel = UILabel(text: "Вариант 1")
-        
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        selectionStyle = .none
+        selectionStyle = .none // из-за этого ячейка и не меняла цвет. Но если изменить, то появится прямоугольная обводка
         backgroundColor = .clear
+        cardView.backgroundColor = .white
         layoutSubviews()
         setViews()
         setConstraints()
@@ -35,36 +38,49 @@ class AnswerCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.layer.cornerRadius = 20
-        contentView.layer.masksToBounds = true
-        contentView.backgroundColor = .white
+        cardView.layer.cornerRadius = 20
+        cardView.layer.masksToBounds = true
     }
     
     func setViews() {
         letterLabel.regularDecoration()
         wordLabel.regularDecoration()
     }
-    
+
+    func updateColorOfSelectedCell(_ isSelected: Bool) {
+        cardView.backgroundColor = isSelected ? .gradientEnd : .white
+    }
+
     func setConstraints() {
-        contentView.addSubview(circleView)
-        contentView.addSubview(letterLabel)
-        contentView.addSubview(wordLabel)
-        
+        contentView.addSubview(cardView)
+        cardView.addSubview(circleView)
+        cardView.addSubview(letterLabel)
+        cardView.addSubview(wordLabel)
+
         circleView.translatesAutoresizingMaskIntoConstraints = false
         letterLabel.translatesAutoresizingMaskIntoConstraints = false
         wordLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+        cardView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            circleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            circleView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+
+            cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
+            cardView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2),
+            cardView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            cardView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+
+
+
+            circleView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 20),
+            circleView.centerYAnchor.constraint(equalTo: cardView.centerYAnchor),
             circleView.widthAnchor.constraint(equalToConstant: 32),
             circleView.heightAnchor.constraint(equalToConstant: 32),
             
             letterLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             letterLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
             
-            wordLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            wordLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            wordLabel.centerXAnchor.constraint(equalTo: cardView.centerXAnchor),
+            wordLabel.centerYAnchor.constraint(equalTo: cardView.centerYAnchor)
         ])
     }
     

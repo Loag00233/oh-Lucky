@@ -79,7 +79,7 @@ class GameView: UIView {
         answersTableView.backgroundColor = .clear
         answersTableView.register(AnswerCell.self, forCellReuseIdentifier: AnswerCell.reusedID)
     }
-    
+
     //MARK: добавляем на экран через addsubview, маску авторесайзинга выкл и констрейены
     func setConstraints() {
         addSubview(rectangleBankView)
@@ -89,12 +89,9 @@ class GameView: UIView {
         addSubview(bankMoneyLabel)
         addSubview(bankSubLabel)
         addSubview(bankQuestionSumSubLabel)
-        
         addSubview(questionNumberLabel)
         addSubview(questionTextLabel)
-        
         addSubview(answersTableView)
-        
         addSubview(nextButton)
         
         
@@ -157,7 +154,7 @@ class GameView: UIView {
         
         NSLayoutConstraint.activate([
             questionNumberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
-            questionNumberLabel.topAnchor.constraint(equalTo: topAnchor, constant: 317),
+            questionNumberLabel.topAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: 117),
         ])
         
         NSLayoutConstraint.activate([
@@ -170,7 +167,7 @@ class GameView: UIView {
             answersTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
             answersTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
             answersTableView.topAnchor.constraint(equalTo: questionTextLabel.bottomAnchor, constant: 20),
-            answersTableView.bottomAnchor.constraint(equalTo:  bottomAnchor, constant: -40)
+            answersTableView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: 20)
         ])
         
         

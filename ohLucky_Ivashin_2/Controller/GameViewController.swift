@@ -14,7 +14,8 @@ class GameViewController: UIViewController, UITableViewDelegate {
             self.gameView.answersTableView.reloadData()
         }
     }
-    
+    var selectedIndexPath: IndexPath?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,12 +30,19 @@ class GameViewController: UIViewController, UITableViewDelegate {
 }
 
 extension GameViewController: UITableViewDataSource {
-    
+
+    //MARK: высота ячейки
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60
+    }
+
+    //MARK: задано количество ячеек
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return answers.count
     }
-    
+
+    //MARK: ячейка создана и если выбрана, то изменяет цвет
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AnswerCell.reusedID) as! AnswerCell
@@ -49,7 +57,18 @@ extension GameViewController: UITableViewDataSource {
         case 3: cell.letterLabel.text = "D"
         default: break
         }
+
+        let isSelected = (selectedIndexPath == indexPath)
+        cell.updateColorOfSelectedCell(isSelected)
+
         return cell
     }
-    
+
+    //MARK: ячейка выбрана
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+        tableView.reloadData()
+        print(indexPath.row)
+    }
+
 }
