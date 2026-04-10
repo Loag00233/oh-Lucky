@@ -6,30 +6,45 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FAE0AEEE2F88D66800235B83 /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AED72F88D66800235B83 /* AnswerCell.swift */; };
+		FAE0AEEF2F88D66800235B83 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AED92F88D66800235B83 /* GameViewController.swift */; };
+		FAE0AEF02F88D66800235B83 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEDA2F88D66800235B83 /* MenuController.swift */; };
+		FAE0AEF12F88D66800235B83 /* Label + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEDC2F88D66800235B83 /* Label + Ext.swift */; };
+		FAE0AEF22F88D66800235B83 /* UiColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEDD2F88D66800235B83 /* UiColor.swift */; };
+		FAE0AEF32F88D66800235B83 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEDF2F88D66800235B83 /* Question.swift */; };
+		FAE0AEF42F88D66800235B83 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEE12F88D66800235B83 /* APIClient.swift */; };
+		FAE0AEF52F88D66800235B83 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEE22F88D66800235B83 /* APIError.swift */; };
+		FAE0AEF62F88D66800235B83 /* QuestionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEE32F88D66800235B83 /* QuestionNetworkService.swift */; };
+		FAE0AEF72F88D66800235B83 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEE52F88D66800235B83 /* GameView.swift */; };
+		FAE0AEF82F88D66800235B83 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEE62F88D66800235B83 /* MenuView.swift */; };
+		FAE0AEF92F88D66800235B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEE82F88D66800235B83 /* AppDelegate.swift */; };
+		FAE0AEFA2F88D66800235B83 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEEC2F88D66800235B83 /* SceneDelegate.swift */; };
+		FAE0AEFB2F88D66800235B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE0AEE92F88D66800235B83 /* Assets.xcassets */; };
+		FAE0AEFD2F88D66800235B83 /* Montserrat-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAE0AEEB2F88D66800235B83 /* Montserrat-VariableFont_wght.ttf */; };
+		FAE0AEFF2F88D94E00235B83 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE0AEFE2F88D94E00235B83 /* NetworkModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		E951B62E2EA502B300526083 /* ohLucky_Ivashin_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ohLucky_Ivashin_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAE0AED72F88D66800235B83 /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
+		FAE0AED92F88D66800235B83 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FAE0AEDA2F88D66800235B83 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		FAE0AEDC2F88D66800235B83 /* Label + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label + Ext.swift"; sourceTree = "<group>"; };
+		FAE0AEDD2F88D66800235B83 /* UiColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiColor.swift; sourceTree = "<group>"; };
+		FAE0AEDF2F88D66800235B83 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		FAE0AEE12F88D66800235B83 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		FAE0AEE22F88D66800235B83 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		FAE0AEE32F88D66800235B83 /* QuestionNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionNetworkService.swift; sourceTree = "<group>"; };
+		FAE0AEE52F88D66800235B83 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		FAE0AEE62F88D66800235B83 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		FAE0AEE82F88D66800235B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAE0AEE92F88D66800235B83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAE0AEEA2F88D66800235B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE0AEEB2F88D66800235B83 /* Montserrat-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		FAE0AEEC2F88D66800235B83 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FAE0AEFE2F88D94E00235B83 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E951B6402EA502B400526083 /* Exceptions for "ohLucky_Ivashin_2" folder in "ohLucky_Ivashin_2" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = E951B62D2EA502B300526083 /* ohLucky_Ivashin_2 */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		E951B6302EA502B300526083 /* ohLucky_Ivashin_2 */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				E951B6402EA502B400526083 /* Exceptions for "ohLucky_Ivashin_2" folder in "ohLucky_Ivashin_2" target */,
-			);
-			path = ohLucky_Ivashin_2;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E951B62B2EA502B300526083 /* Frameworks */ = {
@@ -45,7 +60,7 @@
 		E951B6252EA502B300526083 = {
 			isa = PBXGroup;
 			children = (
-				E951B6302EA502B300526083 /* ohLucky_Ivashin_2 */,
+				FAE0AEED2F88D66800235B83 /* ohLucky_Ivashin_2 */,
 				E951B62F2EA502B300526083 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +71,78 @@
 				E951B62E2EA502B300526083 /* ohLucky_Ivashin_2.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FAE0AED82F88D66800235B83 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0AED72F88D66800235B83 /* AnswerCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FAE0AEDB2F88D66800235B83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0AED92F88D66800235B83 /* GameViewController.swift */,
+				FAE0AEDA2F88D66800235B83 /* MenuController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAE0AEDE2F88D66800235B83 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0AEDC2F88D66800235B83 /* Label + Ext.swift */,
+				FAE0AEDD2F88D66800235B83 /* UiColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FAE0AEE02F88D66800235B83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0AEDF2F88D66800235B83 /* Question.swift */,
+				FAE0AEFE2F88D94E00235B83 /* NetworkModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAE0AEE42F88D66800235B83 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0AEE12F88D66800235B83 /* APIClient.swift */,
+				FAE0AEE22F88D66800235B83 /* APIError.swift */,
+				FAE0AEE32F88D66800235B83 /* QuestionNetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		FAE0AEE72F88D66800235B83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0AEE52F88D66800235B83 /* GameView.swift */,
+				FAE0AEE62F88D66800235B83 /* MenuView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAE0AEED2F88D66800235B83 /* ohLucky_Ivashin_2 */ = {
+			isa = PBXGroup;
+			children = (
+				FAE0AEE82F88D66800235B83 /* AppDelegate.swift */,
+				FAE0AEEC2F88D66800235B83 /* SceneDelegate.swift */,
+				FAE0AED82F88D66800235B83 /* Components */,
+				FAE0AEDB2F88D66800235B83 /* Controller */,
+				FAE0AEDE2F88D66800235B83 /* Extensions */,
+				FAE0AEE42F88D66800235B83 /* Networking */,
+				FAE0AEE02F88D66800235B83 /* Model */,
+				FAE0AEE72F88D66800235B83 /* View */,
+				FAE0AEE92F88D66800235B83 /* Assets.xcassets */,
+				FAE0AEEA2F88D66800235B83 /* Info.plist */,
+				FAE0AEEB2F88D66800235B83 /* Montserrat-VariableFont_wght.ttf */,
+			);
+			path = ohLucky_Ivashin_2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,9 +159,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				E951B6302EA502B300526083 /* ohLucky_Ivashin_2 */,
 			);
 			name = ohLucky_Ivashin_2;
 			packageProductDependencies = (
@@ -122,6 +206,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE0AEFB2F88D66800235B83 /* Assets.xcassets in Resources */,
+				FAE0AEFD2F88D66800235B83 /* Montserrat-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +218,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE0AEEE2F88D66800235B83 /* AnswerCell.swift in Sources */,
+				FAE0AEEF2F88D66800235B83 /* GameViewController.swift in Sources */,
+				FAE0AEF02F88D66800235B83 /* MenuController.swift in Sources */,
+				FAE0AEF12F88D66800235B83 /* Label + Ext.swift in Sources */,
+				FAE0AEF22F88D66800235B83 /* UiColor.swift in Sources */,
+				FAE0AEF32F88D66800235B83 /* Question.swift in Sources */,
+				FAE0AEF42F88D66800235B83 /* APIClient.swift in Sources */,
+				FAE0AEF52F88D66800235B83 /* APIError.swift in Sources */,
+				FAE0AEF62F88D66800235B83 /* QuestionNetworkService.swift in Sources */,
+				FAE0AEF72F88D66800235B83 /* GameView.swift in Sources */,
+				FAE0AEF82F88D66800235B83 /* MenuView.swift in Sources */,
+				FAE0AEF92F88D66800235B83 /* AppDelegate.swift in Sources */,
+				FAE0AEFF2F88D94E00235B83 /* NetworkModel.swift in Sources */,
+				FAE0AEFA2F88D66800235B83 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

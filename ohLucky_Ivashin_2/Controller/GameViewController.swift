@@ -8,6 +8,11 @@
 import UIKit
 
 class GameViewController: UIViewController, UITableViewDelegate {
+    var gameQuestion: [MultipleQuestion] = []
+    var currentQuestionIndex: Int = 0
+    var currentQuestion: MultipleQuestion {gameQuestion[currentQuestionIndex]}
+    var currentQuestionNumber: Int { currentQuestionIndex + 1 }
+    
     let gameView = GameView()
     var answers: [String] = [] {
         didSet {
@@ -26,6 +31,14 @@ class GameViewController: UIViewController, UITableViewDelegate {
         self.view = gameView
         gameView.answersTableView.dataSource = self
         gameView.answersTableView.delegate = self
+    }
+    
+    func getQuestions() {
+        //TODO: написать запрос для сетевого слоя 
+        let networkQuestions = [MultipleQuestion]()
+        DispatchQueue.main.async {
+            self.gameQuestion = networkQuestions
+        }
     }
 }
 
