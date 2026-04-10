@@ -28,10 +28,21 @@ class QuestionNetworkService: QuestionNetworkServiceType {
         return url
     }
     
-    func fetchQuestions(isMultiple: Bool) -> [MultipleQuestion] {
-        //create URL
-        // send query
-        // get 5 questions
+    func fetchQuestions(isMultiple: Bool) async throws -> [MultipleQuestion] {
+                
+        let easyURL = try buildURL(difficulty: .easy, isMultiple: isMultiple)
+        let easyResponse: NetworkModel = try await client.request(url: easyURL)
+        
+        let mediumURL = try buildURL(difficulty: .medium, isMultiple: isMultiple)
+        let mediumResponse: NetworkModel = try await client.request(url: mediumURL)
+        
+        let hardURL = try buildURL(difficulty: .hard, isMultiple: isMultiple)
+        let hardResponse: NetworkModel = try await client.request(url: hardURL)
+        
+        let questionsArray: [MultipleQuestion] = easyResponse.responseResult + mediumResponse.responseResult + hardResponse.responseResult
+        
+        return questionsArray
+        
     }
 }
 
