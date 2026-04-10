@@ -8,8 +8,7 @@
 import Foundation
 
 protocol QuestionNetworkServiceType {
-    func fetchMultipleQuestions() -> [MultipleQuestion]
-    
+    func fetchQuestions(isMultiple: Bool) async throws -> [MultipleQuestion]
 }
 
 class QuestionNetworkService: QuestionNetworkServiceType {
@@ -22,16 +21,18 @@ class QuestionNetworkService: QuestionNetworkServiceType {
             URLQueryItem(name: "amount", value: amount.description),
             URLQueryItem(name: "category", value: category.description),
             URLQueryItem(name: "difficulty", value: difficulty.rawValue),
-            URLQueryItem(name: "isMultiple", value: isMultiple.description)
+            URLQueryItem(name: "type", value: isMultiple ? "multiple" : "boolean")
         ]
         components?.queryItems = queryItems
         guard let url = components?.url else { throw APIError.invalidURL }
         return url
     }
     
-    func fetchMultipleQuestions() -> [MultipleQuestion] {
+    func fetchQuestions(isMultiple: Bool) -> [MultipleQuestion] {
         //create URL
         // send query
         // get 5 questions
     }
 }
+
+
