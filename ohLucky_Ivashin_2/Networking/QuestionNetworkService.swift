@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol QuestionNetworkServiceType {
-    func fetchQuestions(isMultiple: Bool) async throws -> [MultipleQuestion]
-}
+//protocol QuestionNetworkServiceType {
+//    func fetchQuestions(isMultiple: Bool) async throws -> [MultipleQuestion]
+//}
 
-class QuestionNetworkService: QuestionNetworkServiceType {
+class QuestionNetworkService/*: QuestionNetworkServiceType*/ {
     private let baseURL = "https://opentdb.com/api.php"
     private let client = APIClient()
     

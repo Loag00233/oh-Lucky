@@ -12,7 +12,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
     var currentQuestionIndex: Int = 0
     var currentQuestion: MultipleQuestion {gameQuestion[currentQuestionIndex]}
     var currentQuestionNumber: Int { currentQuestionIndex + 1 }
-    
+    var networkQuestions = QuestionNetworkService()
     let gameView = GameView()
     var answers: [String] = [] {
         didSet {
@@ -20,7 +20,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
         }
     }
     var selectedIndexPath: IndexPath?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,8 +33,10 @@ class GameViewController: UIViewController, UITableViewDelegate {
         gameView.answersTableView.delegate = self
     }
     
-    func getQuestions() {
-        //TODO: написать запрос для сетевого слоя 
+    func getQuestions() async thorws -> [MultipleQuestion] {
+        
+        try await networkQuestions.fetchQuestions(isMultiple: true)
+        
         let networkQuestions = [MultipleQuestion]()
         DispatchQueue.main.async {
             self.gameQuestion = networkQuestions
