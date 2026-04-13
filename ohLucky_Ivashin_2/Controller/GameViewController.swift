@@ -7,12 +7,13 @@
 
 import UIKit
 
+@MainActor
 class GameViewController: UIViewController, UITableViewDelegate {
     var gameQuestion: [MultipleQuestion] = []
     var currentQuestionIndex: Int = 0
     var currentQuestion: MultipleQuestion {gameQuestion[currentQuestionIndex]}
     var currentQuestionNumber: Int { currentQuestionIndex + 1 }
-    var networkQuestions = QuestionNetworkService()
+    var networkService = QuestionNetworkService()
     let gameView = GameView()
     var answers: [String] = [] {
         didSet {
@@ -24,23 +25,70 @@ class GameViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if answers.isEmpty {
-            answers = ["Лиса", "Кот", "Слон", "Олень"]
+        loadQuestions()
+        setupTableView()
+        setupAction()
+    }
+    
+    func updateUI() {
+        gameView.questionNumberLabel.text = String(currentQuestionNumber)
+        gameView.questionTextLabel.text = currentQuestion.question
+        self.answers = currentQuestion.answers
+    }
+    
+    func getQuestions() async throws {
+        let questions = try await networkService.fetchBatch(difficulty: .easy, isMultiple: true)
+        gameQuestion = questions
+        print(gameQuestion.count)
+        updateUI()
+    }
+    
+    func loadQuestions() {
+        Task {
+            do {
+                try await getQuestions()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
-            
+    }
+    
+    func nextQuestion() {
+        self.currentQuestionIndex += 1
+        
+        if self.currentQuestionIndex == 3 {
+            Task {
+                do {
+                    let questions = try await networkService.fetchBatch(difficulty: .medium, isMultiple: true)
+                    gameQuestion.append(contentsOf: questions)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        else if self.currentQuestionIndex == 9 {
+            Task {
+                do {
+                    let questions = try await networkService.fetchBatch(difficulty: .hard, isMultiple: true)
+                    gameQuestion.append(contentsOf: questions)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        updateUI()
+    }
+    
+    func setupAction() {
+        gameView.nextButton.addAction(UIAction { [weak self] _ in
+            self?.nextQuestion()
+        }, for: .touchUpInside)
+    }
+    
+    func setupTableView() {
         self.view = gameView
         gameView.answersTableView.dataSource = self
         gameView.answersTableView.delegate = self
-    }
-    
-    func getQuestions() async thorws -> [MultipleQuestion] {
-        
-        try await networkQuestions.fetchQuestions(isMultiple: true)
-        
-        let networkQuestions = [MultipleQuestion]()
-        DispatchQueue.main.async {
-            self.gameQuestion = networkQuestions
-        }
     }
 }
 

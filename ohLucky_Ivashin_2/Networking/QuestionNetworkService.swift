@@ -15,7 +15,10 @@ class QuestionNetworkService/*: QuestionNetworkServiceType*/ {
     private let baseURL = "https://opentdb.com/api.php"
     private let client = APIClient()
     
-    private func buildURL(amount: Int = 5, category: Int = 9, difficulty: Difficulty, isMultiple: Bool) throws -> URL {
+    private func buildURL(amount: Int = 5,
+                          category: Int = 9,
+                          difficulty: Difficulty,
+                          isMultiple: Bool) throws -> URL {
         var components = URLComponents(string: "\(baseURL)")
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "amount", value: amount.description),
@@ -28,22 +31,13 @@ class QuestionNetworkService/*: QuestionNetworkServiceType*/ {
         return url
     }
     
-    func fetchQuestions(isMultiple: Bool) async throws -> [MultipleQuestion] {
-                
-        let easyURL = try buildURL(difficulty: .easy, isMultiple: isMultiple)
+    func fetchBatch(difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion] {
+        let easyURL = try buildURL( difficulty: .easy, isMultiple: isMultiple)
         let easyResponse: NetworkModel = try await client.request(url: easyURL)
         
-        let mediumURL = try buildURL(difficulty: .medium, isMultiple: isMultiple)
-        let mediumResponse: NetworkModel = try await client.request(url: mediumURL)
-        
-        let hardURL = try buildURL(difficulty: .hard, isMultiple: isMultiple)
-        let hardResponse: NetworkModel = try await client.request(url: hardURL)
-        
-        let questionsArray: [MultipleQuestion] = easyResponse.responseResult + mediumResponse.responseResult + hardResponse.responseResult
+        let questionsArray: [MultipleQuestion] = easyResponse.responseResult
         
         return questionsArray
-        
     }
 }
-
 

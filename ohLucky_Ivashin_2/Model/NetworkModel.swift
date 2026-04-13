@@ -10,4 +10,9 @@ import Foundation
 struct NetworkModel: Decodable {
     let responseCode: Int
     let responseResult: [MultipleQuestion]
+    
+    enum CodingKeys: String, CodingKey {
+        case responseResult = "results"
+        case responseCode
+    }
 }
