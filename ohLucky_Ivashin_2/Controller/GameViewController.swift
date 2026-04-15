@@ -53,7 +53,29 @@ class GameViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    func nextQuestion() {
+    func chooseAnswerAndProceed() async {
+        guard selectedIndexPath != nil else { return }
+        let allCells = gameView.answersTableView.visibleCells.compactMap{ $0 as? AnswerCell}
+        for cell in allCells {
+            let isCorrect = cell.wordLabel.text == currentQuestion.correctAnswer
+            cell.updateColorForResult(isCorrect)
+        }
+                
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        selectedIndexPath = nil
+        goToNextQuestion()
+        gameView.nextButton.isEnabled = false
+    }
+    
+    func checkAnswer() -> Bool {
+        guard let selectedAnswerRow = self.selectedIndexPath?.row else {
+            return false
+        }
+        let selectedAnswerText = answers[selectedAnswerRow]
+        return selectedAnswerText == currentQuestion.correctAnswer
+    }
+    
+    func goToNextQuestion() {
         self.currentQuestionIndex += 1
         
         if self.currentQuestionIndex == 3 {
@@ -81,7 +103,9 @@ class GameViewController: UIViewController, UITableViewDelegate {
     
     func setupAction() {
         gameView.nextButton.addAction(UIAction { [weak self] _ in
-            self?.nextQuestion()
+            Task {
+                await self?.chooseAnswerAndProceed()
+            }
         }, for: .touchUpInside)
     }
     
@@ -130,6 +154,7 @@ extension GameViewController: UITableViewDataSource {
     //MARK: ячейка выбрана
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
+        gameView.nextButton.isEnabled = true
         tableView.reloadData()
         print(indexPath.row)
     }

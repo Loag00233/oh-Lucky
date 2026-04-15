@@ -43,12 +43,16 @@ class AnswerCell: UITableViewCell {
     }
     
     func setViews() {
-        letterLabel.regularDecoration()
-        wordLabel.regularDecoration()
+        letterLabel.regularAnswersDecoration()
+        wordLabel.regularAnswersDecoration()
     }
 
     func updateColorOfSelectedCell(_ isSelected: Bool) {
-        cardView.backgroundColor = isSelected ? .gradientEnd : .white
+        cardView.backgroundColor = isSelected ? .chosenAns : .white
+    }
+    
+    func updateColorForResult(_ isCorrect: Bool) {
+        cardView.backgroundColor = isCorrect ? .correctAns : .wrongAns
     }
 
     func setConstraints() {

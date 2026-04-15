@@ -22,15 +22,27 @@ extension UILabel {
         self.font = UIFont(name: fontBold, size: fontSize)
     }
     
-    func boldDecoration() {
+    func boldBankCardDecoration() {
         self.textAlignment = .center
         self.textColor = UIColor(named: "bankColor")
         self.font = UIFont(name: "Montserrat-Bold", size: 16)
     }
     
-    func regularDecoration() {
+    func boldAnswersDecoration() {
+        self.textAlignment = .center
+        self.textColor = UIColor(named: "answersColor")
+        self.font = UIFont(name: "Montserrat-Bold", size: 16)
+    }
+    
+    func regularBankCardDecoration() {
         self.textAlignment = .center
         self.textColor = UIColor(named: "bankColor")
+        self.font = UIFont(name: "Montserrat-Regular", size: 16)
+    }
+    
+    func regularAnswersDecoration() {
+        self.textAlignment = .center
+        self.textColor = UIColor(named: "answersColor")
         self.font = UIFont(name: "Montserrat-Regular", size: 16)
     }
 }

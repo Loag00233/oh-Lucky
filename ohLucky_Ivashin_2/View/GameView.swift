@@ -34,6 +34,8 @@ class GameView: UIView {
     
     lazy var nextButton: UIButton = {
         let btn = UIButton(type: .system)
+        btn.isEnabled = false
+        btn.setTitleColor(.gray, for: .disabled)
         btn.setTitle("Далее", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
@@ -67,10 +69,10 @@ class GameView: UIView {
     }
 
     func setViews() {
-        bankLabel.boldDecoration()
-        bankMoneyLabel.boldDecoration()
-        bankSubLabel.regularDecoration()
-        bankQuestionSumSubLabel.regularDecoration()
+        bankLabel.boldBankCardDecoration()
+        bankMoneyLabel.boldBankCardDecoration()
+        bankSubLabel.regularBankCardDecoration()
+        bankQuestionSumSubLabel.regularBankCardDecoration()
         
         questionNumberLabel.textColor = .white
         questionTextLabel.textColor = .white
