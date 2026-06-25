@@ -13,7 +13,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
     var currentQuestionIndex: Int = 0
     var currentQuestion: MultipleQuestion {gameQuestion[currentQuestionIndex]}
     var currentQuestionNumber: Int { currentQuestionIndex + 1 }
-    var networkService = QuestionNetworkService()
+    let networkService: QuestionNetworkServiceType
     let gameView = GameView()
     var answers: [String] = [] {
         didSet {
@@ -21,6 +21,16 @@ class GameViewController: UIViewController, UITableViewDelegate {
         }
     }
     var selectedIndexPath: IndexPath?
+    
+    init(networkService: QuestionNetworkServiceType ) {
+        self.networkService = networkService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Blah Blah")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +49,6 @@ class GameViewController: UIViewController, UITableViewDelegate {
     func getQuestions() async throws {
         let questions = try await networkService.fetchBatch(difficulty: .easy, isMultiple: true)
         gameQuestion = questions
-        print(gameQuestion.count)
         updateUI()
     }
     
@@ -156,7 +165,6 @@ extension GameViewController: UITableViewDataSource {
         selectedIndexPath = indexPath
         gameView.nextButton.isEnabled = true
         tableView.reloadData()
-        print(indexPath.row)
     }
 
 }

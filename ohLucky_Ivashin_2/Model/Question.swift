@@ -9,24 +9,28 @@ import Foundation
 
 struct MultipleQuestion: Decodable {
     
-    let question: String
-    let correctAnswer: String
-    let incorrectAnswers: [String]
-    let difficulty: String
+    let question: String?
+    let correctAnswer: String?
+    let incorrectAnswers: [String]?
+    let difficulty: Difficulty?
     
     var answers: [String] {
+        guard let incorrectAnswers = incorrectAnswers else {
+            return []
+        }
         var ans = incorrectAnswers
-        ans.append(correctAnswer)
+        if let correctAnswer = correctAnswer {
+            ans.append(correctAnswer)
+        }
         return ans.shuffled()
     }
     
-    var diff: Difficulty {
-        switch difficulty {
-        case "easy": return .easy
-        case "medium": return .medium
-        default: return .hard
-        }
+    enum Difficulty: String, Decodable {
+        case easy
+        case medium
+        case hard
     }
+    
 }
 
 enum Difficulty: String {

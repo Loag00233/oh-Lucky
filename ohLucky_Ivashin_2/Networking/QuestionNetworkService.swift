@@ -7,11 +7,11 @@
 
 import Foundation
 
-//protocol QuestionNetworkServiceType {
-//    func fetchQuestions(isMultiple: Bool) async throws -> [MultipleQuestion]
-//}
+protocol QuestionNetworkServiceType {
+    func fetchBatch(difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion]
+}
 
-class QuestionNetworkService/*: QuestionNetworkServiceType*/ {
+class QuestionNetworkService: QuestionNetworkServiceType {
     private let baseURL = "https://opentdb.com/api.php"
     private let client = APIClient()
     
@@ -32,10 +32,10 @@ class QuestionNetworkService/*: QuestionNetworkServiceType*/ {
     }
     
     func fetchBatch(difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion] {
-        let easyURL = try buildURL( difficulty: .easy, isMultiple: isMultiple)
-        let easyResponse: NetworkModel = try await client.request(url: easyURL)
+        let url = try buildURL( difficulty: difficulty, isMultiple: isMultiple)
+        let response: NetworkModel = try await client.request(url: url)
         
-        let questionsArray: [MultipleQuestion] = easyResponse.responseResult
+        let questionsArray: [MultipleQuestion] = response.responseResult
         
         return questionsArray
     }
