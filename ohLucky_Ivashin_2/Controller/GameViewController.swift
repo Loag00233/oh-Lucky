@@ -9,10 +9,9 @@ import UIKit
 
 @MainActor
 class GameViewController: UIViewController, UITableViewDelegate {
-    var gameQuestion: [MultipleQuestion] = []
-    var currentQuestionIndex: Int = 0
-    var currentQuestion: MultipleQuestion {gameQuestion[currentQuestionIndex]}
-    var currentQuestionNumber: Int { currentQuestionIndex + 1 }
+    
+    let game = QuizGame()
+    
     let networkService: QuestionNetworkServiceType
     let gameView = GameView()
     var answers: [String] = [] {
@@ -41,14 +40,15 @@ class GameViewController: UIViewController, UITableViewDelegate {
     }
     
     func updateUI() {
-        gameView.questionNumberLabel.text = String(currentQuestionNumber)
-        gameView.questionTextLabel.text = currentQuestion.question
-        self.answers = currentQuestion.answers
+        gameView.questionNumberLabel.text = String(game.currentQuestionNumber)
+        gameView.questionTextLabel.text = game.currentQuestion.question
+        self.answers = game.currentAnswers
     }
     
     func getQuestions() async throws {
         let questions = try await networkService.fetchBatch(difficulty: .easy, isMultiple: true)
-        gameQuestion = questions
+        game.gameQuestion = questions
+        game.prepareAnswers()
         updateUI()
     }
     
@@ -66,7 +66,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
         guard selectedIndexPath != nil else { return }
         let allCells = gameView.answersTableView.visibleCells.compactMap{ $0 as? AnswerCell}
         for cell in allCells {
-            let isCorrect = cell.wordLabel.text == currentQuestion.correctAnswer
+            let isCorrect = game.isCorrect(cell.wordLabel.text ?? "")
             cell.updateColorForResult(isCorrect)
         }
                 
@@ -76,32 +76,25 @@ class GameViewController: UIViewController, UITableViewDelegate {
         gameView.nextButton.isEnabled = false
     }
     
-    func checkAnswer() -> Bool {
-        guard let selectedAnswerRow = self.selectedIndexPath?.row else {
-            return false
-        }
-        let selectedAnswerText = answers[selectedAnswerRow]
-        return selectedAnswerText == currentQuestion.correctAnswer
-    }
     
     func goToNextQuestion() {
-        self.currentQuestionIndex += 1
+        game.goToNext()
         
-        if self.currentQuestionIndex == 3 {
+        if game.currentQuestionIndex == 3 {
             Task {
                 do {
                     let questions = try await networkService.fetchBatch(difficulty: .medium, isMultiple: true)
-                    gameQuestion.append(contentsOf: questions)
+                    game.gameQuestion.append(contentsOf: questions)
                 } catch {
                     print(error.localizedDescription)
                 }
             }
         }
-        else if self.currentQuestionIndex == 9 {
+        else if game.currentQuestionIndex == 9 {
             Task {
                 do {
                     let questions = try await networkService.fetchBatch(difficulty: .hard, isMultiple: true)
-                    gameQuestion.append(contentsOf: questions)
+                    game.gameQuestion.append(contentsOf: questions)
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -111,11 +104,9 @@ class GameViewController: UIViewController, UITableViewDelegate {
     }
     
     func setupAction() {
-        gameView.nextButton.addAction(UIAction { [weak self] _ in
-            Task {
-                await self?.chooseAnswerAndProceed()
-            }
-        }, for: .touchUpInside)
+        gameView.onNextTapped = {[weak self] in
+            Task { await self?.chooseAnswerAndProceed() }
+        }
     }
     
     func setupTableView() {

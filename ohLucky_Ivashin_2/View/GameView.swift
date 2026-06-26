@@ -61,11 +61,14 @@ class GameView: UIView {
     
     lazy var answersTableView = UITableView()
     
+    var onNextTapped: (() -> Void)?
+    
     init() {
         super.init(frame: .zero)
         backgroundColor = .bgCol
         setViews()
         setConstraints()
+        setupActions()
     }
 
     func setViews() {
@@ -118,68 +121,56 @@ class GameView: UIView {
             rectangleBankView.topAnchor.constraint(equalTo: topAnchor, constant: 70),
             rectangleBankView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
             rectangleBankView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
-            rectangleBankView.heightAnchor.constraint(equalToConstant: 125)
-        ])
+            rectangleBankView.heightAnchor.constraint(equalToConstant: 125),
         
-        NSLayoutConstraint.activate([
             moneyPicView.trailingAnchor.constraint(equalTo: rectangleBankView.trailingAnchor, constant:  -10),
             moneyPicView.topAnchor.constraint(equalTo: rectangleBankView.topAnchor, constant: -10),
             moneyPicView.widthAnchor.constraint(equalToConstant: 102),
-            moneyPicView.heightAnchor.constraint(equalToConstant: 91)
-        ])
+            moneyPicView.heightAnchor.constraint(equalToConstant: 91),
         
-        NSLayoutConstraint.activate([
             quitButton.leadingAnchor.constraint(equalTo: rectangleBankView.leadingAnchor, constant:  10),
             quitButton.topAnchor.constraint(equalTo: rectangleBankView.topAnchor, constant: 18),
-        ])
         
-        NSLayoutConstraint.activate([
             bankLabel.leadingAnchor.constraint(equalTo: rectangleBankView.leadingAnchor, constant:  14),
             bankLabel.bottomAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: -43),
-        ])
         
-        NSLayoutConstraint.activate([
             bankMoneyLabel.leadingAnchor.constraint(equalTo: bankLabel.trailingAnchor, constant:  4),
             bankMoneyLabel.bottomAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: -43),
-        ])
         
-        NSLayoutConstraint.activate([
             bankSubLabel.leadingAnchor.constraint(equalTo: rectangleBankView.leadingAnchor, constant: 14),
             bankSubLabel.bottomAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: -21),
-        ])
         
-        NSLayoutConstraint.activate([
             bankQuestionSumSubLabel.leadingAnchor.constraint(equalTo: bankSubLabel.trailingAnchor, constant: 4),
             bankQuestionSumSubLabel.bottomAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: -21),
-        ])
         
         
-        NSLayoutConstraint.activate([
             questionNumberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
             questionNumberLabel.topAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: 117),
-        ])
         
-        NSLayoutConstraint.activate([
             questionTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
             questionTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10), // прикол да?
             questionTextLabel.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 5),
-        ])
         
-        NSLayoutConstraint.activate([
+
             answersTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
             answersTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
             answersTableView.topAnchor.constraint(equalTo: questionTextLabel.bottomAnchor, constant: 20),
-            answersTableView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: 20)
-        ])
+            answersTableView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: 20),
         
         
-        NSLayoutConstraint.activate([
             nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -56),
             nextButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
             nextButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
         ])
         
     }
+    
+    func setupActions() {
+        nextButton.addAction(UIAction { [weak self] _ in
+            self?.onNextTapped?()
+        }, for: .touchUpInside)
+    }
+
 
 
     required init?(coder: NSCoder) {
