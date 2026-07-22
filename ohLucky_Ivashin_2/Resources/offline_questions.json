@@ -1,0 +1,95 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "question": "Какая планета Солнечной системы самая большая?",
+      "correct_answer": "Юпитер",
+      "incorrect_answers": ["Сатурн", "Нептун", "Уран"],
+      "difficulty": "easy"
+    },
+    {
+      "question": "Сколько дней в невисокосном году?",
+      "correct_answer": "365",
+      "incorrect_answers": ["364", "366", "360"],
+      "difficulty": "easy"
+    },
+    {
+      "question": "Какой газ растения поглощают в процессе фотосинтеза?",
+      "correct_answer": "Углекислый газ",
+      "incorrect_answers": ["Кислород", "Азот", "Водород"],
+      "difficulty": "easy"
+    },
+    {
+      "question": "Столицей какой страны является Париж?",
+      "correct_answer": "Франция",
+      "incorrect_answers": ["Германия", "Италия", "Испания"],
+      "difficulty": "easy"
+    },
+    {
+      "question": "Сколько сторон у треугольника?",
+      "correct_answer": "3",
+      "incorrect_answers": ["4", "5", "6"],
+      "difficulty": "easy"
+    },
+    {
+      "question": "Кто написал роман «Война и мир»?",
+      "correct_answer": "Лев Толстой",
+      "incorrect_answers": ["Фёдор Достоевский", "Антон Чехов", "Иван Тургенев"],
+      "difficulty": "medium"
+    },
+    {
+      "question": "Какой химический элемент обозначается символом Fe?",
+      "correct_answer": "Железо",
+      "incorrect_answers": ["Фтор", "Фосфор", "Франций"],
+      "difficulty": "medium"
+    },
+    {
+      "question": "В каком году произошёл распад СССР?",
+      "correct_answer": "1991",
+      "incorrect_answers": ["1989", "1993", "1985"],
+      "difficulty": "medium"
+    },
+    {
+      "question": "Как называется самая длинная река в мире?",
+      "correct_answer": "Нил",
+      "incorrect_answers": ["Амазонка", "Янцзы", "Миссисипи"],
+      "difficulty": "medium"
+    },
+    {
+      "question": "Сколько костей в теле взрослого человека?",
+      "correct_answer": "206",
+      "incorrect_answers": ["186", "216", "196"],
+      "difficulty": "medium"
+    },
+    {
+      "question": "Кто автор теории относительности?",
+      "correct_answer": "Альберт Эйнштейн",
+      "incorrect_answers": ["Исаак Ньютон", "Нильс Бор", "Макс Планк"],
+      "difficulty": "hard"
+    },
+    {
+      "question": "Как называется столица Австралии?",
+      "correct_answer": "Канберра",
+      "incorrect_answers": ["Сидней", "Мельбурн", "Брисбен"],
+      "difficulty": "hard"
+    },
+    {
+      "question": "В каком году была основана Организация Объединённых Наций?",
+      "correct_answer": "1945",
+      "incorrect_answers": ["1919", "1950", "1939"],
+      "difficulty": "hard"
+    },
+    {
+      "question": "Как называется самая глубокая точка Мирового океана?",
+      "correct_answer": "Марианская впадина",
+      "incorrect_answers": ["Пуэрто-Риканский жёлоб", "Яванская впадина", "Тонга"],
+      "difficulty": "hard"
+    },
+    {
+      "question": "Кто написал музыку к балету «Лебединое озеро»?",
+      "correct_answer": "Пётр Чайковский",
+      "incorrect_answers": ["Сергей Рахманинов", "Игорь Стравинский", "Николай Римский-Корсаков"],
+      "difficulty": "hard"
+    }
+  ]
+}

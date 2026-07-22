@@ -60,8 +60,17 @@ class GameView: UIView {
     }()
     
     lazy var answersTableView = UITableView()
-    
+
+    lazy var loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .white
+        return indicator
+    }()
+
+    lazy var loadingLabel = UILabel(text: "Загружаются вопросы...", isBold: true, alignement: .center)
+
     var onNextTapped: (() -> Void)?
+    var onQuitTapped: (() -> Void)?
     
     init() {
         super.init(frame: .zero)
@@ -69,6 +78,7 @@ class GameView: UIView {
         setViews()
         setConstraints()
         setupActions()
+        setLoading(true)
     }
 
     func setViews() {
@@ -83,6 +93,10 @@ class GameView: UIView {
         
         answersTableView.backgroundColor = .clear
         answersTableView.register(AnswerCell.self, forCellReuseIdentifier: AnswerCell.reusedID)
+        answersTableView.rowHeight = UITableView.automaticDimension
+        answersTableView.estimatedRowHeight = 60
+
+        loadingLabel.textColor = .white
     }
 
     //MARK: добавляем на экран через addsubview, маску авторесайзинга выкл и констрейены
@@ -98,8 +112,10 @@ class GameView: UIView {
         addSubview(questionTextLabel)
         addSubview(answersTableView)
         addSubview(nextButton)
-        
-        
+        addSubview(loadingIndicator)
+        addSubview(loadingLabel)
+
+
         rectangleBankView.translatesAutoresizingMaskIntoConstraints = false
         quitButton.translatesAutoresizingMaskIntoConstraints = false
         moneyPicView.translatesAutoresizingMaskIntoConstraints = false
@@ -115,8 +131,11 @@ class GameView: UIView {
         answersTableView.translatesAutoresizingMaskIntoConstraints = false
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        loadingLabel.translatesAutoresizingMaskIntoConstraints = false
+
+
         NSLayoutConstraint.activate([
             rectangleBankView.topAnchor.constraint(equalTo: topAnchor, constant: 70),
             rectangleBankView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
@@ -161,13 +180,35 @@ class GameView: UIView {
             nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -56),
             nextButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
             nextButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
+
+            loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
+
+            loadingLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadingLabel.topAnchor.constraint(equalTo: loadingIndicator.bottomAnchor, constant: 16),
         ])
-        
+
+    }
+
+    //MARK: показывает спиннер вместо вопроса/ответов, пока идёт первая загрузка
+    func setLoading(_ isLoading: Bool) {
+        loadingIndicator.isHidden = !isLoading
+        loadingLabel.isHidden = !isLoading
+        isLoading ? loadingIndicator.startAnimating() : loadingIndicator.stopAnimating()
+
+        questionNumberLabel.isHidden = isLoading
+        questionTextLabel.isHidden = isLoading
+        answersTableView.isHidden = isLoading
+        nextButton.isHidden = isLoading
     }
     
     func setupActions() {
         nextButton.addAction(UIAction { [weak self] _ in
             self?.onNextTapped?()
+        }, for: .touchUpInside)
+
+        quitButton.addAction(UIAction { [weak self] _ in
+            self?.onQuitTapped?()
         }, for: .touchUpInside)
     }
 

@@ -34,9 +34,11 @@ class QuestionNetworkService: QuestionNetworkServiceType {
     func fetchBatch(difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion] {
         let url = try buildURL( difficulty: difficulty, isMultiple: isMultiple)
         let response: NetworkModel = try await client.request(url: url)
-        
+        try response.validate()
+
         let questionsArray: [MultipleQuestion] = response.responseResult
-        
+        guard !questionsArray.isEmpty else { throw APIError.noResults }
+
         return questionsArray
     }
 }

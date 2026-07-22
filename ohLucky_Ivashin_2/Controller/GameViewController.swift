@@ -20,6 +20,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
         }
     }
     var selectedIndexPath: IndexPath?
+    var isOffline = false
     
     init(networkService: QuestionNetworkServiceType ) {
         self.networkService = networkService
@@ -40,72 +41,115 @@ class GameViewController: UIViewController, UITableViewDelegate {
     }
     
     func updateUI() {
+        gameView.setLoading(false)
         gameView.questionNumberLabel.text = String(game.currentQuestionNumber)
         gameView.questionTextLabel.text = game.currentQuestion.question
         self.answers = game.currentAnswers
     }
     
-    func getQuestions() async throws {
-        let questions = try await networkService.fetchBatch(difficulty: .easy, isMultiple: true)
+    func getQuestions() async {
+        let questions = await fetchQuestionsWithFallback(difficulty: .easy)
+        guard !questions.isEmpty else { return }
         game.gameQuestion = questions
         game.prepareAnswers()
         updateUI()
     }
-    
+
     func loadQuestions() {
         Task {
-            do {
-                try await getQuestions()
-            } catch {
-                print(error.localizedDescription)
-            }
+            await getQuestions()
+        }
+    }
+
+    /// Пытается получить вопросы с сервера; при ошибке спрашивает пользователя про оффлайн-режим
+    func fetchQuestionsWithFallback(difficulty: Difficulty) async -> [MultipleQuestion] {
+        if isOffline {
+            return OfflineQuestionProvider.loadQuestions(difficulty: difficulty)
+        }
+
+        do {
+            return try await networkService.fetchBatch(difficulty: difficulty, isMultiple: true)
+        } catch {
+            return await promptOfflineFallback(difficulty: difficulty)
+        }
+    }
+
+    func promptOfflineFallback(difficulty: Difficulty) async -> [MultipleQuestion] {
+        await withCheckedContinuation { continuation in
+            let alert = UIAlertController(title: nil,
+                                           message: "Нет связи с сервером. Переключиться в оффлайн режим?",
+                                           preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Да", style: .default) { [weak self] _ in
+                self?.isOffline = true
+                continuation.resume(returning: OfflineQuestionProvider.loadQuestions(difficulty: difficulty))
+            })
+            alert.addAction(UIAlertAction(title: "Нет", style: .cancel) { [weak self] _ in
+                self?.presentingViewController?.dismiss(animated: true)
+                continuation.resume(returning: [])
+            })
+            present(alert, animated: true)
         }
     }
     
     func chooseAnswerAndProceed() async {
-        guard selectedIndexPath != nil else { return }
+        guard let selectedIndexPath = selectedIndexPath else { return }
+
+        let chosenAnswer = answers[selectedIndexPath.row]
+        game.registerAnswer(chosenAnswer)
+
         let allCells = gameView.answersTableView.visibleCells.compactMap{ $0 as? AnswerCell}
         for cell in allCells {
             let isCorrect = game.isCorrect(cell.wordLabel.text ?? "")
             cell.updateColorForResult(isCorrect)
         }
-                
+
         try? await Task.sleep(nanoseconds: 1_000_000_000)
-        selectedIndexPath = nil
+        self.selectedIndexPath = nil
         goToNextQuestion()
         gameView.nextButton.isEnabled = false
     }
-    
-    
+
+
     func goToNextQuestion() {
+        if game.isLastQuestion {
+            showResults()
+            return
+        }
+
         game.goToNext()
-        
+
         if game.currentQuestionIndex == 3 {
             Task {
-                do {
-                    let questions = try await networkService.fetchBatch(difficulty: .medium, isMultiple: true)
-                    game.gameQuestion.append(contentsOf: questions)
-                } catch {
-                    print(error.localizedDescription)
-                }
+                let questions = await fetchQuestionsWithFallback(difficulty: .medium)
+                game.gameQuestion.append(contentsOf: questions)
             }
         }
         else if game.currentQuestionIndex == 9 {
             Task {
-                do {
-                    let questions = try await networkService.fetchBatch(difficulty: .hard, isMultiple: true)
-                    game.gameQuestion.append(contentsOf: questions)
-                } catch {
-                    print(error.localizedDescription)
-                }
+                let questions = await fetchQuestionsWithFallback(difficulty: .hard)
+                game.gameQuestion.append(contentsOf: questions)
             }
         }
         updateUI()
+    }
+
+    func showResults() {
+        let resultVC = ResultViewController(correctAnswersCount: game.correctAnswersCount,
+                                             totalQuestionsCount: game.totalQuestionsCount)
+        resultVC.modalPresentationStyle = .fullScreen
+        resultVC.onBackToMenu = { [weak self] in
+            self?.presentingViewController?.dismiss(animated: true)
+        }
+        present(resultVC, animated: true)
     }
     
     func setupAction() {
         gameView.onNextTapped = {[weak self] in
             Task { await self?.chooseAnswerAndProceed() }
+        }
+
+        gameView.onQuitTapped = { [weak self] in
+            self?.presentingViewController?.dismiss(animated: true)
         }
     }
     
@@ -120,7 +164,7 @@ extension GameViewController: UITableViewDataSource {
 
     //MARK: высота ячейки
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        60
+        UITableView.automaticDimension
     }
 
     //MARK: задано количество ячеек

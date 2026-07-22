@@ -45,6 +45,7 @@ class AnswerCell: UITableViewCell {
     func setViews() {
         letterLabel.regularAnswersDecoration()
         wordLabel.regularAnswersDecoration()
+        wordLabel.numberOfLines = 0
     }
 
     func updateColorOfSelectedCell(_ isSelected: Bool) {
@@ -69,9 +70,10 @@ class AnswerCell: UITableViewCell {
         NSLayoutConstraint.activate([
 
             cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
+            cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
             cardView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2),
-            cardView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            cardView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2),
+            cardView.heightAnchor.constraint(greaterThanOrEqualToConstant: 63),
 
 
 
@@ -79,12 +81,14 @@ class AnswerCell: UITableViewCell {
             circleView.centerYAnchor.constraint(equalTo: cardView.centerYAnchor),
             circleView.widthAnchor.constraint(equalToConstant: 32),
             circleView.heightAnchor.constraint(equalToConstant: 32),
-            
+
             letterLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             letterLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
-            
-            wordLabel.centerXAnchor.constraint(equalTo: cardView.centerXAnchor),
-            wordLabel.centerYAnchor.constraint(equalTo: cardView.centerYAnchor)
+
+            wordLabel.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 12),
+            wordLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16),
+            wordLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 12),
+            wordLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -12)
         ])
     }
     
