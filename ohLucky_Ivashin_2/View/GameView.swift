@@ -167,7 +167,7 @@ class GameView: UIView {
         
         
             questionNumberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
-            questionNumberLabel.topAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: 117),
+            questionNumberLabel.topAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: 40),
         
             questionTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
             questionTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10), // прикол да?

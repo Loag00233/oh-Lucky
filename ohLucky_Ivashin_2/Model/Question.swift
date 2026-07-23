@@ -20,9 +20,9 @@ struct MultipleQuestion: Decodable {
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        question = try container.decodeIfPresent(String.self, forKey: .question)?.htmlEntityDecoded()
-        correctAnswer = try container.decodeIfPresent(String.self, forKey: .correctAnswer)?.htmlEntityDecoded()
-        incorrectAnswers = try container.decodeIfPresent([String].self, forKey: .incorrectAnswers)?.map { $0.htmlEntityDecoded() }
+        question = try container.decodeIfPresent(String.self, forKey: .question).map { $0.removingPercentEncoding ?? $0 }
+        correctAnswer = try container.decodeIfPresent(String.self, forKey: .correctAnswer).map { $0.removingPercentEncoding ?? $0 }
+        incorrectAnswers = try container.decodeIfPresent([String].self, forKey: .incorrectAnswers)?.map { $0.removingPercentEncoding ?? $0 }
         difficulty = try container.decodeIfPresent(Difficulty.self, forKey: .difficulty)
     }
 }

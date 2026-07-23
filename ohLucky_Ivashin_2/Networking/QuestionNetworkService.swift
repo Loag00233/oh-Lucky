@@ -24,7 +24,9 @@ class QuestionNetworkService: QuestionNetworkServiceType {
             URLQueryItem(name: "amount", value: amount.description),
             URLQueryItem(name: "category", value: category.description),
             URLQueryItem(name: "difficulty", value: difficulty.rawValue),
-            URLQueryItem(name: "type", value: isMultiple ? "multiple" : "boolean")
+            URLQueryItem(name: "type", value: isMultiple ? "multiple" : "boolean"),
+            URLQueryItem(name: "encode", value: "url3986")
+
         ]
         components?.queryItems = queryItems
         guard let url = components?.url else { throw APIError.invalidURL }
