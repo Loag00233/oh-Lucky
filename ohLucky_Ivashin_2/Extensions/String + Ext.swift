@@ -23,6 +23,13 @@ extension String {
             "&hellip;": "\u{2026}",
             "&ndash;": "\u{2013}",
             "&mdash;": "\u{2014}",
+            "&aacute;": "á",
+            "&eacute;": "é",
+            "&iacute;": "í",
+            "&oacute;": "ó",
+            "&uacute;": "ú",
+            "&ntilde;": "ñ",
+            "&uuml;": "ü",
         ]
 
         var result = self

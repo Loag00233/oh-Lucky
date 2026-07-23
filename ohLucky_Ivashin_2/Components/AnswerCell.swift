@@ -45,6 +45,7 @@ class AnswerCell: UITableViewCell {
     func setViews() {
         letterLabel.regularAnswersDecoration()
         wordLabel.regularAnswersDecoration()
+        wordLabel.textAlignment = .center
         wordLabel.numberOfLines = 0
     }
 
@@ -69,11 +70,10 @@ class AnswerCell: UITableViewCell {
 
         NSLayoutConstraint.activate([
 
-            cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
-            cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
+            cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             cardView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2),
             cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2),
-            cardView.heightAnchor.constraint(greaterThanOrEqualToConstant: 63),
 
 
 
@@ -85,11 +85,16 @@ class AnswerCell: UITableViewCell {
             letterLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
             letterLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
 
-            wordLabel.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 12),
-            wordLabel.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -16),
-            wordLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 12),
-            wordLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -12)
+            wordLabel.leadingAnchor.constraint(greaterThanOrEqualTo: circleView.trailingAnchor, constant: 12),
+            wordLabel.trailingAnchor.constraint(lessThanOrEqualTo: cardView.trailingAnchor, constant: -10),
+            wordLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 18),
+            wordLabel.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -18)
         ])
+
+        // по умолчанию центрируем по всей карточке, но не наезжаем на circleView
+        let centerX = wordLabel.centerXAnchor.constraint(equalTo: cardView.centerXAnchor)
+        centerX.priority = .defaultHigh
+        centerX.isActive = true
     }
     
     required init?(coder: NSCoder) {

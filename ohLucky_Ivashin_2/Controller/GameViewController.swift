@@ -21,7 +21,16 @@ class GameViewController: UIViewController, UITableViewDelegate {
     }
     var selectedIndexPath: IndexPath?
     var isOffline = false
-    
+
+    #if DEBUG
+    private let debugAnswerSets: [[String]] = [
+        ["Yes", "No", "Maybe", "Perhaps"],
+        ["Short", "Sheep's Heart, Kidneys and Lungs", "A", "B"],
+        ["The Assassination of Archduke Franz Ferdinand of Austria", "Short", "Medium length answer here", "X"]
+    ]
+    private var debugAnswerSetIndex = 0
+    #endif
+
     init(networkService: QuestionNetworkServiceType ) {
         self.networkService = networkService
         super.init(nibName: nil, bundle: nil)
@@ -151,6 +160,15 @@ class GameViewController: UIViewController, UITableViewDelegate {
         gameView.onQuitTapped = { [weak self] in
             self?.presentingViewController?.dismiss(animated: true)
         }
+
+        #if DEBUG
+        // долгий тап по quitButton — переключить набор тестовых ответов (по кругу), тап "Далее" — выйти обратно к реальным вопросам
+        gameView.onDebugLongPress = { [weak self] in
+            guard let self else { return }
+            self.answers = self.debugAnswerSets[self.debugAnswerSetIndex]
+            self.debugAnswerSetIndex = (self.debugAnswerSetIndex + 1) % self.debugAnswerSets.count
+        }
+        #endif
     }
     
     func setupTableView() {

@@ -71,6 +71,9 @@ class GameView: UIView {
 
     var onNextTapped: (() -> Void)?
     var onQuitTapped: (() -> Void)?
+    #if DEBUG
+    var onDebugLongPress: (() -> Void)?
+    #endif
     
     init() {
         super.init(frame: .zero)
@@ -210,7 +213,20 @@ class GameView: UIView {
         quitButton.addAction(UIAction { [weak self] _ in
             self?.onQuitTapped?()
         }, for: .touchUpInside)
+
+        #if DEBUG
+        // долгий тап по quitButton — переключить ответы на тестовые строки (проверка вёрстки)
+        let debugLongPress = UILongPressGestureRecognizer(target: self, action: #selector(handleDebugLongPress))
+        quitButton.addGestureRecognizer(debugLongPress)
+        #endif
     }
+
+    #if DEBUG
+    @objc private func handleDebugLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began else { return }
+        onDebugLongPress?()
+    }
+    #endif
 
 
 
