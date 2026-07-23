@@ -61,6 +61,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
     func getQuestions() async {
         let questions = await fetchQuestionsWithFallback(difficulty: .easy)
         guard !questions.isEmpty else { return }
+        StatsStore.recordGameStarted()
         game.gameQuestion = questions
         game.prepareAnswers()
         updateUI()
@@ -106,6 +107,9 @@ class GameViewController: UIViewController, UITableViewDelegate {
         guard let selectedIndexPath = selectedIndexPath else { return }
 
         let chosenAnswer = answers[selectedIndexPath.row]
+        if let difficulty = game.currentQuestion.difficulty {
+            StatsStore.recordAnswer(category: category, difficulty: difficulty, isCorrect: game.isCorrect(chosenAnswer))
+        }
         game.registerAnswer(chosenAnswer)
 
         let allCells = gameView.answersTableView.visibleCells.compactMap{ $0 as? AnswerCell}

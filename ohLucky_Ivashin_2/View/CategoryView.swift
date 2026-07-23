@@ -7,7 +7,7 @@ import UIKit
 
 class CategoryView: UIView {
 
-    lazy var titleLabel = UILabel(text: "Choose a category", isBold: true, isLarge: true)
+    lazy var titleLabel = UILabel(text: "Choose a category", isBold: false, isLarge: true)
     lazy var categoriesTableView = UITableView()
 
     lazy var backButton: UIButton = {

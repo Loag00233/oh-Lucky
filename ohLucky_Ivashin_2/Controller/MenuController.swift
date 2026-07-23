@@ -28,6 +28,15 @@ class MenuController: UIViewController {
         }
         
         mainView.startButton.addAction(startAction, for: .touchUpInside)
+
+        let statisticAction = UIAction {
+            [weak self] _ in
+            let vc = StatisticsViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self?.present(vc, animated: true)
+        }
+
+        mainView.statisticButton.addAction(statisticAction, for: .touchUpInside)
     }
 }
 

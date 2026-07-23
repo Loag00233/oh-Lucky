@@ -10,7 +10,7 @@ class CategoryCell: UITableViewCell {
     static let reusedID = "CategoryCell"
 
     lazy var cardView = UIView()
-    lazy var nameLabel = UILabel(text: "Category", isBold: true, isLarge: true)
+    lazy var nameLabel = UILabel(text: "Category", isBold: false, isLarge: true)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
