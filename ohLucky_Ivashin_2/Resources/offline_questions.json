@@ -5,91 +5,106 @@
       "question": "Какая планета Солнечной системы самая большая?",
       "correct_answer": "Юпитер",
       "incorrect_answers": ["Сатурн", "Нептун", "Уран"],
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "category": 17
     },
     {
       "question": "Сколько дней в невисокосном году?",
       "correct_answer": "365",
       "incorrect_answers": ["364", "366", "360"],
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "category": 9
     },
     {
       "question": "Какой газ растения поглощают в процессе фотосинтеза?",
       "correct_answer": "Углекислый газ",
       "incorrect_answers": ["Кислород", "Азот", "Водород"],
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "category": 17
     },
     {
       "question": "Столицей какой страны является Париж?",
       "correct_answer": "Франция",
       "incorrect_answers": ["Германия", "Италия", "Испания"],
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "category": 22
     },
     {
       "question": "Сколько сторон у треугольника?",
       "correct_answer": "3",
       "incorrect_answers": ["4", "5", "6"],
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "category": 9
     },
     {
       "question": "Кто написал роман «Война и мир»?",
       "correct_answer": "Лев Толстой",
       "incorrect_answers": ["Фёдор Достоевский", "Антон Чехов", "Иван Тургенев"],
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "category": 9
     },
     {
       "question": "Какой химический элемент обозначается символом Fe?",
       "correct_answer": "Железо",
       "incorrect_answers": ["Фтор", "Фосфор", "Франций"],
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "category": 17
     },
     {
       "question": "В каком году произошёл распад СССР?",
       "correct_answer": "1991",
       "incorrect_answers": ["1989", "1993", "1985"],
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "category": 23
     },
     {
       "question": "Как называется самая длинная река в мире?",
       "correct_answer": "Нил",
       "incorrect_answers": ["Амазонка", "Янцзы", "Миссисипи"],
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "category": 22
     },
     {
       "question": "Сколько костей в теле взрослого человека?",
       "correct_answer": "206",
       "incorrect_answers": ["186", "216", "196"],
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "category": 17
     },
     {
       "question": "Кто автор теории относительности?",
       "correct_answer": "Альберт Эйнштейн",
       "incorrect_answers": ["Исаак Ньютон", "Нильс Бор", "Макс Планк"],
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "category": 17
     },
     {
       "question": "Как называется столица Австралии?",
       "correct_answer": "Канберра",
       "incorrect_answers": ["Сидней", "Мельбурн", "Брисбен"],
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "category": 22
     },
     {
       "question": "В каком году была основана Организация Объединённых Наций?",
       "correct_answer": "1945",
       "incorrect_answers": ["1919", "1950", "1939"],
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "category": 23
     },
     {
       "question": "Как называется самая глубокая точка Мирового океана?",
       "correct_answer": "Марианская впадина",
       "incorrect_answers": ["Пуэрто-Риканский жёлоб", "Яванская впадина", "Тонга"],
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "category": 22
     },
     {
       "question": "Кто написал музыку к балету «Лебединое озеро»?",
       "correct_answer": "Пётр Чайковский",
       "incorrect_answers": ["Сергей Рахманинов", "Игорь Стравинский", "Николай Римский-Корсаков"],
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "category": 12
     }
   ]
 }

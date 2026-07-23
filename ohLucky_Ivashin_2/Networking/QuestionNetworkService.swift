@@ -8,21 +8,21 @@
 import Foundation
 
 protocol QuestionNetworkServiceType {
-    func fetchBatch(difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion]
+    func fetchBatch(category: QuizCategory, difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion]
 }
 
 class QuestionNetworkService: QuestionNetworkServiceType {
     private let baseURL = "https://opentdb.com/api.php"
     private let client = APIClient()
-    
+
     private func buildURL(amount: Int = 5,
-                          category: Int = 9,
+                          category: QuizCategory,
                           difficulty: Difficulty,
                           isMultiple: Bool) throws -> URL {
         var components = URLComponents(string: "\(baseURL)")
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "amount", value: amount.description),
-            URLQueryItem(name: "category", value: category.description),
+            URLQueryItem(name: "category", value: category.rawValue.description),
             URLQueryItem(name: "difficulty", value: difficulty.rawValue),
             URLQueryItem(name: "type", value: isMultiple ? "multiple" : "boolean"),
             URLQueryItem(name: "encode", value: "url3986")
@@ -32,9 +32,9 @@ class QuestionNetworkService: QuestionNetworkServiceType {
         guard let url = components?.url else { throw APIError.invalidURL }
         return url
     }
-    
-    func fetchBatch(difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion] {
-        let url = try buildURL( difficulty: difficulty, isMultiple: isMultiple)
+
+    func fetchBatch(category: QuizCategory, difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion] {
+        let url = try buildURL(category: category, difficulty: difficulty, isMultiple: isMultiple)
         let response: NetworkModel = try await client.request(url: url)
         try response.validate()
 

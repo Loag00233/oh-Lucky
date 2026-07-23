@@ -6,7 +6,7 @@
 import Foundation
 
 struct OfflineQuestionProvider {
-    static func loadQuestions(difficulty: Difficulty) -> [MultipleQuestion] {
+    static func loadQuestions(category: QuizCategory, difficulty: Difficulty) -> [MultipleQuestion] {
         guard let url = Bundle.main.url(forResource: "offline_questions", withExtension: "json"),
               let data = try? Data(contentsOf: url) else {
             return []
@@ -19,6 +19,9 @@ struct OfflineQuestionProvider {
             return []
         }
 
-        return networkModel.responseResult.filter { $0.difficulty == difficulty }
+        let byDifficulty = networkModel.responseResult.filter { $0.difficulty == difficulty }
+        let byCategoryToo = byDifficulty.filter { $0.category == category.rawValue }
+        // если для этой категории в офлайн-банке ничего нет — не оставляем игрока без вопросов
+        return byCategoryToo.isEmpty ? byDifficulty : byCategoryToo
     }
 }

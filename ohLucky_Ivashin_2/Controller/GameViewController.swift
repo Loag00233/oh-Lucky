@@ -13,6 +13,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
     let game = QuizGame()
     
     let networkService: QuestionNetworkServiceType
+    let category: QuizCategory
     let gameView = GameView()
     var answers: [String] = [] {
         didSet {
@@ -31,8 +32,9 @@ class GameViewController: UIViewController, UITableViewDelegate {
     private var debugAnswerSetIndex = 0
     #endif
 
-    init(networkService: QuestionNetworkServiceType ) {
+    init(networkService: QuestionNetworkServiceType, category: QuizCategory) {
         self.networkService = networkService
+        self.category = category
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -73,11 +75,11 @@ class GameViewController: UIViewController, UITableViewDelegate {
     /// Пытается получить вопросы с сервера; при ошибке спрашивает пользователя про оффлайн-режим
     func fetchQuestionsWithFallback(difficulty: Difficulty) async -> [MultipleQuestion] {
         if isOffline {
-            return OfflineQuestionProvider.loadQuestions(difficulty: difficulty)
+            return OfflineQuestionProvider.loadQuestions(category: category, difficulty: difficulty)
         }
 
         do {
-            return try await networkService.fetchBatch(difficulty: difficulty, isMultiple: true)
+            return try await networkService.fetchBatch(category: category, difficulty: difficulty, isMultiple: true)
         } catch {
             return await promptOfflineFallback(difficulty: difficulty)
         }
@@ -90,7 +92,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
                                            preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Да", style: .default) { [weak self] _ in
                 self?.isOffline = true
-                continuation.resume(returning: OfflineQuestionProvider.loadQuestions(difficulty: difficulty))
+                continuation.resume(returning: OfflineQuestionProvider.loadQuestions(category: self?.category ?? .generalKnowledge, difficulty: difficulty))
             })
             alert.addAction(UIAlertAction(title: "Нет", style: .cancel) { [weak self] _ in
                 self?.presentingViewController?.dismiss(animated: true)

@@ -22,7 +22,7 @@ class MenuController: UIViewController {
     func addActions() {
         let startAction = UIAction {
             [weak self] _ in
-            let vc = GameViewController(networkService: QuestionNetworkService())
+            let vc = CategoryViewController()
             vc.modalPresentationStyle = .fullScreen
             self?.present(vc, animated: true)
         }

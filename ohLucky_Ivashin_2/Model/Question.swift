@@ -13,9 +13,10 @@ struct MultipleQuestion: Decodable {
     let correctAnswer: String?
     let incorrectAnswers: [String]?
     let difficulty: Difficulty?
+    let category: Int?
 
     enum CodingKeys: String, CodingKey {
-        case question, correctAnswer, incorrectAnswers, difficulty
+        case question, correctAnswer, incorrectAnswers, difficulty, category
     }
 
     init(from decoder: Decoder) throws {
@@ -24,6 +25,9 @@ struct MultipleQuestion: Decodable {
         correctAnswer = try container.decodeIfPresent(String.self, forKey: .correctAnswer).map { $0.removingPercentEncoding ?? $0 }
         incorrectAnswers = try container.decodeIfPresent([String].self, forKey: .incorrectAnswers)?.map { $0.removingPercentEncoding ?? $0 }
         difficulty = try container.decodeIfPresent(Difficulty.self, forKey: .difficulty)
+        // OpenTDB отдаёт category строкой ("General Knowledge") — нам нужен только Int из своего offline JSON,
+        // try? гасит несовпадение типа и не ломает декодинг сетевых вопросов
+        category = try? container.decodeIfPresent(Int.self, forKey: .category)
     }
 }
 
