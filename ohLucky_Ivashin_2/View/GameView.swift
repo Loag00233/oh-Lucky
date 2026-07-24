@@ -24,19 +24,19 @@ class GameView: UIView {
         return money
     }()
     
-    lazy var bankLabel = UILabel(text: "В банке:")
+    lazy var bankLabel = UILabel(text: "In bank:")
     lazy var bankMoneyLabel = UILabel(text: "0")
-    lazy var bankSubLabel = UILabel(text: "Стоимость вопроса:")
+    lazy var bankSubLabel = UILabel(text: "Question cost:")
     lazy var bankQuestionSumSubLabel = UILabel(text: "0")
     
-    lazy var questionNumberLabel = UILabel(text: "Вопрос 0/0:", isBold: true, isLarge: true, alignement: .left)
-    lazy var questionTextLabel = UILabel(text: "Текст вопроса, на который нужно ответить игроку и желательно правильно", isBold: true, isLarge: true, alignement: .left)
+    lazy var questionNumberLabel = UILabel(text: "Question 0/0:", isBold: true, isLarge: true, alignement: .left)
+    lazy var questionTextLabel = UILabel(text: "Text of the question that the player must answer, preferably correctly", isBold: true, isLarge: true, alignement: .left)
     
     lazy var nextButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.isEnabled = false
         btn.setTitleColor(.gray, for: .disabled)
-        btn.setTitle("Далее", for: .normal)
+        btn.setTitle("Next", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         btn.backgroundColor = .menuBtns
@@ -48,7 +48,7 @@ class GameView: UIView {
     
     lazy var quitButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Выйти", for: .normal)
+        btn.setTitle("Quit", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
         btn.backgroundColor = .exitBtnC
@@ -67,7 +67,7 @@ class GameView: UIView {
         return indicator
     }()
 
-    lazy var loadingLabel = UILabel(text: "Загружаются вопросы...", isBold: true, alignement: .center)
+    lazy var loadingLabel = UILabel(text: "Loading questions...", isBold: true, alignement: .center)
 
     var onNextTapped: (() -> Void)?
     var onQuitTapped: (() -> Void)?
@@ -170,7 +170,7 @@ class GameView: UIView {
             questionNumberLabel.topAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: 40),
         
             questionTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
-            questionTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10), // прикол да?
+            questionTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10),
             questionTextLabel.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 5),
         
 
@@ -215,7 +215,7 @@ class GameView: UIView {
         }, for: .touchUpInside)
 
         #if DEBUG
-        // долгий тап по quitButton — переключить ответы на тестовые строки (проверка вёрстки)
+        // longtap quitButton — change answers to test strings (layout check)
         let debugLongPress = UILongPressGestureRecognizer(target: self, action: #selector(handleDebugLongPress))
         quitButton.addGestureRecognizer(debugLongPress)
         #endif
