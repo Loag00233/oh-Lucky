@@ -51,10 +51,25 @@ class AnswerCell: UITableViewCell {
 
     func updateColorOfSelectedCell(_ isSelected: Bool) {
         cardView.backgroundColor = isSelected ? .chosenAns : .white
+        letterLabel.textColor = UIColor(named: "answersColor")
+        wordLabel.textColor = UIColor(named: "answersColor")
     }
-    
+
+    func pulseSelected() {
+        UIView.animate(withDuration: 1, delay: 0.3 , animations: {
+            self.cardView.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        })
+    }
+
+    func stopPulse() {
+        cardView.layer.removeAllAnimations()
+        cardView.transform = .identity
+    }
+
     func updateColorForResult(_ isCorrect: Bool) {
         cardView.backgroundColor = isCorrect ? .correctAns : .wrongAns
+        letterLabel.textColor = .white
+        wordLabel.textColor = .white
     }
 
     func setConstraints() {

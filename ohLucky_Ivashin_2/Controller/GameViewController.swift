@@ -22,6 +22,8 @@ class GameViewController: UIViewController, UITableViewDelegate {
     }
     var selectedIndexPath: IndexPath?
     var isOffline = false
+    private var nextBatchTask: Task<Void, Never>?
+    private var isAnswerLocked = false
 
     #if DEBUG
     private let debugAnswerSets: [[String]] = [
@@ -52,6 +54,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
     }
     
     func updateUI() {
+        isAnswerLocked = false
         gameView.setLoading(false)
         gameView.questionNumberLabel.text = String(game.currentQuestionNumber)
         gameView.questionTextLabel.text = game.currentQuestion.question
@@ -112,20 +115,31 @@ class GameViewController: UIViewController, UITableViewDelegate {
         }
         game.registerAnswer(chosenAnswer)
 
+        let selectedCell = gameView.answersTableView.cellForRow(at: selectedIndexPath) as? AnswerCell
+        selectedCell?.pulseSelected()
+        try? await Task.sleep(nanoseconds: 1_200_000_000)
+        selectedCell?.stopPulse()
+
+        let isChosenCorrect = game.isCorrect(chosenAnswer)
+        UINotificationFeedbackGenerator().notificationOccurred(isChosenCorrect ? .success : .error)
+
         let allCells = gameView.answersTableView.visibleCells.compactMap{ $0 as? AnswerCell}
         for cell in allCells {
+            guard let indexPath = gameView.answersTableView.indexPath(for: cell) else { continue }
             let isCorrect = game.isCorrect(cell.wordLabel.text ?? "")
-            cell.updateColorForResult(isCorrect)
+            if isCorrect || indexPath == selectedIndexPath {
+                cell.updateColorForResult(isCorrect)
+            }
         }
 
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         self.selectedIndexPath = nil
-        goToNextQuestion()
+        await goToNextQuestion()
         gameView.nextButton.isEnabled = false
     }
 
 
-    func goToNextQuestion() {
+    func goToNextQuestion() async {
         if game.isLastQuestion {
             showResults()
             return
@@ -134,17 +148,24 @@ class GameViewController: UIViewController, UITableViewDelegate {
         game.goToNext()
 
         if game.currentQuestionIndex == 3 {
-            Task {
+            nextBatchTask = Task {
                 let questions = await fetchQuestionsWithFallback(difficulty: .medium)
                 game.gameQuestion.append(contentsOf: questions)
             }
         }
         else if game.currentQuestionIndex == 9 {
-            Task {
+            nextBatchTask = Task {
                 let questions = await fetchQuestionsWithFallback(difficulty: .hard)
                 game.gameQuestion.append(contentsOf: questions)
             }
         }
+
+        if game.currentQuestionIndex >= game.gameQuestion.count {
+            gameView.setLoading(true)
+            await nextBatchTask?.value
+            gameView.setLoading(false)
+        }
+
         updateUI()
     }
 
@@ -160,6 +181,8 @@ class GameViewController: UIViewController, UITableViewDelegate {
     
     func setupAction() {
         gameView.onNextTapped = {[weak self] in
+            self?.gameView.nextButton.isEnabled = false
+            self?.isAnswerLocked = true
             Task { await self?.chooseAnswerAndProceed() }
         }
 
@@ -221,6 +244,7 @@ extension GameViewController: UITableViewDataSource {
 
     //MARK: ячейка выбрана
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard !isAnswerLocked else { return }
         selectedIndexPath = indexPath
         gameView.nextButton.isEnabled = true
         tableView.reloadData()
