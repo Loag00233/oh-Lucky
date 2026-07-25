@@ -11,11 +11,13 @@ class ResultViewController: UIViewController {
     let resultView = ResultView()
     let correctAnswersCount: Int
     let totalQuestionsCount: Int
+    let earnedAmountText: String
     var onBackToMenu: (() -> Void)?
 
-    init(correctAnswersCount: Int, totalQuestionsCount: Int) {
+    init(correctAnswersCount: Int, totalQuestionsCount: Int, earnedAmountText: String) {
         self.correctAnswersCount = correctAnswersCount
         self.totalQuestionsCount = totalQuestionsCount
+        self.earnedAmountText = earnedAmountText
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -26,7 +28,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = resultView
-        resultView.scoreLabel.text = "\(correctAnswersCount) из \(totalQuestionsCount) верно"
+        resultView.scoreLabel.text = "\(correctAnswersCount) из \(totalQuestionsCount) верно\nЗаработано: \(earnedAmountText)"
         setupActions()
     }
 

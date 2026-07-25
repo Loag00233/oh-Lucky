@@ -21,6 +21,7 @@ class ResultView: UIView {
         lbl.font = UIFont(name: "Montserrat-Bold", size: 20)
         lbl.textColor = .white
         lbl.textAlignment = .center
+        lbl.numberOfLines = 0
         return lbl
     }()
 

@@ -24,9 +24,9 @@ class GameView: UIView {
         return money
     }()
     
-    lazy var bankLabel = UILabel(text: "In bank:")
+    lazy var bankLabel = UILabel(text: "Bank:")
     lazy var bankMoneyLabel = UILabel(text: "0")
-    lazy var bankSubLabel = UILabel(text: "Question cost:")
+    lazy var bankSubLabel = UILabel(text: "Question for:")
     lazy var bankQuestionSumSubLabel = UILabel(text: "0")
     
     lazy var questionNumberLabel = UILabel(text: "Question 0/0:", isBold: true, isLarge: true, alignement: .left)
@@ -42,10 +42,11 @@ class GameView: UIView {
         btn.backgroundColor = .menuBtns
         btn.heightAnchor.constraint(equalToConstant: 63).isActive = true
         btn.layer.cornerRadius = 23
+        btn.accessibilityIdentifier = "game.nextButton"
 
         return btn
     }()
-    
+
     lazy var quitButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("Quit", for: .normal)
@@ -55,11 +56,16 @@ class GameView: UIView {
         btn.heightAnchor.constraint(equalToConstant: 32).isActive = true
         btn.widthAnchor.constraint(equalToConstant: 100).isActive = true
         btn.layer.cornerRadius = 12
+        btn.accessibilityIdentifier = "game.quitButton"
 
         return btn
     }()
-    
-    lazy var answersTableView = UITableView()
+
+    lazy var answersTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.accessibilityIdentifier = "game.answersTableView"
+        return tableView
+    }()
 
     lazy var loadingIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
@@ -68,6 +74,34 @@ class GameView: UIView {
     }()
 
     lazy var loadingLabel = UILabel(text: "Loading questions...", isBold: true, alignement: .center)
+    
+    lazy var progressBarBorderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .clear
+        view.layer.cornerRadius = 16
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor(named: "bankColor")?.cgColor
+        view.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        return view
+    }()
+    
+    lazy var progressGradientLayer: CAGradientLayer = {
+        let color = UIColor.makeGradientLayer()
+        return color
+    }()
+    
+    lazy var progressBarFillView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 16
+        view.layer.insertSublayer(progressGradientLayer, at: 0)
+        progressFillWidthConstraint = view.widthAnchor.constraint(equalToConstant: 0)
+        progressFillWidthConstraint.isActive = true
+        return view
+    }()
+    
+    var progressFillWidthConstraint: NSLayoutConstraint!
+    
+    private var progressFraction: CGFloat = 0
 
     var onNextTapped: (() -> Void)?
     var onQuitTapped: (() -> Void)?
@@ -82,6 +116,14 @@ class GameView: UIView {
         setConstraints()
         setupActions()
         setLoading(true)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        progressBarBorderView.layer.cornerRadius = progressBarBorderView.bounds.height / 2
+        progressBarFillView.layer.cornerRadius = progressBarFillView.bounds.height / 2
+        progressBarFillView.layer.masksToBounds = true
+        progressGradientLayer.frame = progressBarFillView.bounds
     }
 
     func setViews() {
@@ -111,6 +153,8 @@ class GameView: UIView {
         addSubview(bankMoneyLabel)
         addSubview(bankSubLabel)
         addSubview(bankQuestionSumSubLabel)
+        addSubview(progressBarBorderView)
+        addSubview(progressBarFillView)
         addSubview(questionNumberLabel)
         addSubview(questionTextLabel)
         addSubview(answersTableView)
@@ -127,6 +171,9 @@ class GameView: UIView {
         bankMoneyLabel.translatesAutoresizingMaskIntoConstraints = false
         bankSubLabel.translatesAutoresizingMaskIntoConstraints = false
         bankQuestionSumSubLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        progressBarBorderView.translatesAutoresizingMaskIntoConstraints = false
+        progressBarFillView.translatesAutoresizingMaskIntoConstraints = false
         
         questionNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         questionTextLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -165,18 +212,27 @@ class GameView: UIView {
             bankQuestionSumSubLabel.leadingAnchor.constraint(equalTo: bankSubLabel.trailingAnchor, constant: 4),
             bankQuestionSumSubLabel.bottomAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: -21),
         
-        
+            
+            progressBarBorderView.topAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: 20),
+            progressBarBorderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
+            progressBarBorderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
+            
+            progressBarFillView.topAnchor.constraint(equalTo: progressBarBorderView.topAnchor, constant: 2),
+            progressBarFillView.leadingAnchor.constraint(equalTo: progressBarBorderView.leadingAnchor, constant: 2),
+            progressBarFillView.bottomAnchor.constraint(equalTo:
+              progressBarBorderView.bottomAnchor, constant: -2),
+            
             questionNumberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
-            questionNumberLabel.topAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: 40),
+            questionNumberLabel.topAnchor.constraint(equalTo: progressBarBorderView.bottomAnchor, constant: 20),
         
+            questionTextLabel.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 5),
             questionTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
             questionTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10),
-            questionTextLabel.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 5),
+            
         
-
+            answersTableView.topAnchor.constraint(equalTo: questionTextLabel.bottomAnchor, constant: 20),
             answersTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
             answersTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
-            answersTableView.topAnchor.constraint(equalTo: questionTextLabel.bottomAnchor, constant: 20),
             answersTableView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: 20),
         
         
@@ -186,11 +242,16 @@ class GameView: UIView {
 
             loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
-
-            loadingLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
             loadingLabel.topAnchor.constraint(equalTo: loadingIndicator.bottomAnchor, constant: 16),
+            loadingLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
 
+    }
+    
+    func updateProgress(questionNumber: Int, total: Int) {
+        let segmentWidth = progressBarBorderView.bounds.width / CGFloat(total)
+        progressFillWidthConstraint.constant = segmentWidth * CGFloat(questionNumber)
     }
 
     //MARK: показывает спиннер вместо вопроса/ответов, пока идёт первая загрузка

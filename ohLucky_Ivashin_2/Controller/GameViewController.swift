@@ -25,6 +25,19 @@ class GameViewController: UIViewController, UITableViewDelegate {
     private var nextBatchTask: Task<Void, Never>?
     private var isAnswerLocked = false
 
+    private static let scoreFormatter: NumberFormatter = {
+        let f = NumberFormatter()
+        f.numberStyle = .decimal // группировка разрядов без десятичных знаков
+        f.groupingSeparator = "\u{00A0}" // неразрывный пробел, не зависит от локали устройства
+        f.groupingSize = 3
+        f.maximumFractionDigits = 0
+        return f
+    }()
+
+    private func formattedScore(_ amount: Int) -> String {
+        Self.scoreFormatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
+    }
+
     #if DEBUG
     private let debugAnswerSets: [[String]] = [
         ["Yes", "No", "Maybe", "Perhaps"],
@@ -56,8 +69,11 @@ class GameViewController: UIViewController, UITableViewDelegate {
     func updateUI() {
         isAnswerLocked = false
         gameView.setLoading(false)
+        gameView.updateProgress(questionNumber: game.currentQuestionNumber, total: game.totalQuestionsCount)
         gameView.questionNumberLabel.text = String(game.currentQuestionNumber)
         gameView.questionTextLabel.text = game.currentQuestion.question
+        gameView.bankMoneyLabel.text = formattedScore(game.bankedAmount)
+        gameView.bankQuestionSumSubLabel.text = formattedScore(game.currentQuestionSum)
         self.answers = game.currentAnswers
     }
     
@@ -134,14 +150,19 @@ class GameViewController: UIViewController, UITableViewDelegate {
 
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         self.selectedIndexPath = nil
-        await goToNextQuestion()
-        gameView.nextButton.isEnabled = false
+
+        if isChosenCorrect {
+            await goToNextQuestion()
+            gameView.nextButton.isEnabled = false
+        } else {
+            showResults(earnedAmount: game.safetyNetAmount)
+        }
     }
 
 
     func goToNextQuestion() async {
         if game.isLastQuestion {
-            showResults()
+            showResults(earnedAmount: game.bankedAmount)
             return
         }
 
@@ -169,12 +190,13 @@ class GameViewController: UIViewController, UITableViewDelegate {
         updateUI()
     }
 
-    func showResults() {
+    func showResults(earnedAmount: Int) {
         let resultVC = ResultViewController(correctAnswersCount: game.correctAnswersCount,
-                                             totalQuestionsCount: game.totalQuestionsCount)
+                                             totalQuestionsCount: game.totalQuestionsCount,
+                                             earnedAmountText: formattedScore(earnedAmount))
         resultVC.modalPresentationStyle = .fullScreen
         resultVC.onBackToMenu = { [weak self] in
-            self?.presentingViewController?.dismiss(animated: true)
+            self?.presentingViewController?.presentingViewController?.dismiss(animated: true)
         }
         present(resultVC, animated: true)
     }
@@ -186,8 +208,21 @@ class GameViewController: UIViewController, UITableViewDelegate {
             Task { await self?.chooseAnswerAndProceed() }
         }
 
+        
+        
+        
+        
         gameView.onQuitTapped = { [weak self] in
-            self?.presentingViewController?.dismiss(animated: true)
+            let alert = UIAlertController(title: nil,
+                                          message: "wanna quit?",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
+                self?.presentingViewController?.presentingViewController?.dismiss(animated: true)
+            })
+            alert.addAction(UIAlertAction(title: "No", style: .cancel) { _ in
+            })
+            self?.present(alert, animated: true)
+            
         }
 
         #if DEBUG
@@ -235,6 +270,8 @@ extension GameViewController: UITableViewDataSource {
         case 3: cell.letterLabel.text = "D"
         default: break
         }
+
+        cell.accessibilityIdentifier = "game.answerCell.\(indexPath.row)"
 
         let isSelected = (selectedIndexPath == indexPath)
         cell.updateColorOfSelectedCell(isSelected)

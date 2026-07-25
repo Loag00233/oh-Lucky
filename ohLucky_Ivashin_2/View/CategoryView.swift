@@ -19,6 +19,7 @@ class CategoryView: UIView {
         btn.heightAnchor.constraint(equalToConstant: 32).isActive = true
         btn.widthAnchor.constraint(equalToConstant: 100).isActive = true
         btn.layer.cornerRadius = 12
+        btn.accessibilityIdentifier = "category.backButton"
 
         return btn
     }()
@@ -36,6 +37,7 @@ class CategoryView: UIView {
     func setViews() {
         titleLabel.textColor = .white
 
+        categoriesTableView.accessibilityIdentifier = "category.tableView"
         categoriesTableView.backgroundColor = .clear
         categoriesTableView.register(CategoryCell.self, forCellReuseIdentifier: CategoryCell.reusedID)
         categoriesTableView.rowHeight = UITableView.automaticDimension

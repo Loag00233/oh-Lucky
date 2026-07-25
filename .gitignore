@@ -8,3 +8,4 @@ DerivedData/
 AGENTS.md
 README.md
 *.md
+.xcodebuildmcp/config.yaml

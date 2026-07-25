@@ -46,6 +46,7 @@ class MenuView: UIView {
         gradient.frame = CGRect(x: 0, y: 0, width: 314, height: 63)
         gradient.cornerRadius = 23
         btn.layer.insertSublayer(gradient, at: 0)
+        btn.accessibilityIdentifier = "menu.startButton"
 
         return btn
     }()
@@ -58,6 +59,7 @@ class MenuView: UIView {
         setBtn.backgroundColor = .menuBtns
         setBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
         setBtn.layer.cornerRadius = 23
+        setBtn.accessibilityIdentifier = "menu.settingsButton"
 
         return setBtn
     }()
@@ -70,6 +72,7 @@ class MenuView: UIView {
         topBtn.backgroundColor = .menuBtns
         topBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
         topBtn.layer.cornerRadius = 23
+        topBtn.accessibilityIdentifier = "menu.topPlayersButton"
 
         return topBtn
     }()
@@ -82,6 +85,7 @@ class MenuView: UIView {
         statBtn.backgroundColor = .menuBtns
         statBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
         statBtn.layer.cornerRadius = 23
+        statBtn.accessibilityIdentifier = "menu.statisticButton"
 
         return statBtn
     }()
@@ -94,6 +98,7 @@ class MenuView: UIView {
         exitBtn.backgroundColor = .exitBtnC
         exitBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
         exitBtn.layer.cornerRadius = 23
+        exitBtn.accessibilityIdentifier = "menu.exitButton"
 
         return exitBtn
     }()
