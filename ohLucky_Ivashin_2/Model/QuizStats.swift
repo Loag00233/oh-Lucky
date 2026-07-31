@@ -12,6 +12,8 @@ struct QuizStats: Codable {
     }
     var gamesPlayed = 0
     var records: [String: Record] = [:] // ключ — StatsStore.key(category:difficulty:)
+    var totalEarned = 0
+    var bestWin = 0
 }
 
 extension QuizStats {
@@ -21,6 +23,8 @@ extension QuizStats {
     var overallAccuracyPercent: Int {
         percent(correct: totalCorrect, total: totalAnswered)
     }
+
+    var averageWinPerGame: Int { gamesPlayed > 0 ? totalEarned / gamesPlayed : 0 }
 
     func accuracyPercent(for category: QuizCategory) -> Int {
         let recs = [Difficulty.easy, .medium, .hard]
@@ -58,6 +62,13 @@ enum StatsStore {
     static func recordGameStarted() {
         var stats = load()
         stats.gamesPlayed += 1
+        save(stats)
+    }
+
+    static func recordGameFinished(earnedAmount: Int) {
+        var stats = load()
+        stats.totalEarned += earnedAmount
+        stats.bestWin = max(stats.bestWin, earnedAmount)
         save(stats)
     }
 

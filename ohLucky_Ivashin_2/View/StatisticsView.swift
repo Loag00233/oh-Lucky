@@ -61,7 +61,9 @@ final class StatisticsView: UIView {
         contentStack.setCustomSpacing(20, after: accuracyTile)
 
         contentStack.addArrangedSubview(summaryRow(title: "Total questions", value: "\(stats.totalAnswered)"))
-        contentStack.addArrangedSubview(summaryRow(title: "Total winnings", value: "0"))
+        contentStack.addArrangedSubview(summaryRow(title: "Total winnings", value: stats.totalEarned.formattedScore))
+        contentStack.addArrangedSubview(summaryRow(title: "Best win", value: stats.bestWin.formattedScore))
+        contentStack.addArrangedSubview(summaryRow(title: "Avg. win per game", value: stats.averageWinPerGame.formattedScore))
         let lastSummary = summaryRow(title: "Avg. answer time", value: "—")
         contentStack.addArrangedSubview(lastSummary)
         contentStack.setCustomSpacing(24, after: lastSummary)

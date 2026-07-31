@@ -25,19 +25,6 @@ class GameViewController: UIViewController, UITableViewDelegate {
     private var nextBatchTask: Task<Void, Never>?
     private var isAnswerLocked = false
 
-    private static let scoreFormatter: NumberFormatter = {
-        let f = NumberFormatter()
-        f.numberStyle = .decimal // группировка разрядов без десятичных знаков
-        f.groupingSeparator = "\u{00A0}" // неразрывный пробел, не зависит от локали устройства
-        f.groupingSize = 3
-        f.maximumFractionDigits = 0
-        return f
-    }()
-
-    private func formattedScore(_ amount: Int) -> String {
-        Self.scoreFormatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
-    }
-
     #if DEBUG
     private let debugAnswerSets: [[String]] = [
         ["Yes", "No", "Maybe", "Perhaps"],
@@ -70,10 +57,10 @@ class GameViewController: UIViewController, UITableViewDelegate {
         isAnswerLocked = false
         gameView.setLoading(false)
         gameView.updateProgress(questionNumber: game.currentQuestionNumber, total: game.totalQuestionsCount)
-        gameView.questionNumberLabel.text = String(game.currentQuestionNumber)
+        gameView.questionNumberLabel.text = "Question \(game.currentQuestionNumber)/\(game.totalQuestionsCount):"
         gameView.questionTextLabel.text = game.currentQuestion.question
-        gameView.bankMoneyLabel.text = formattedScore(game.bankedAmount)
-        gameView.bankQuestionSumSubLabel.text = formattedScore(game.currentQuestionSum)
+        gameView.bankMoneyLabel.text = game.bankedAmount.formattedScore
+        gameView.bankQuestionSumSubLabel.text = game.currentQuestionSum.formattedScore
         self.answers = game.currentAnswers
     }
     
@@ -115,7 +102,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
                 continuation.resume(returning: OfflineQuestionProvider.loadQuestions(category: self?.category ?? .generalKnowledge, difficulty: difficulty))
             })
             alert.addAction(UIAlertAction(title: "Нет", style: .cancel) { [weak self] _ in
-                self?.presentingViewController?.dismiss(animated: true)
+                self?.presentingViewController?.presentingViewController?.dismiss(animated: true)
                 continuation.resume(returning: [])
             })
             present(alert, animated: true)
@@ -166,34 +153,45 @@ class GameViewController: UIViewController, UITableViewDelegate {
             return
         }
 
-        game.goToNext()
+        let nextIndex = game.currentQuestionIndex + 1
 
-        if game.currentQuestionIndex == 3 {
+        // партии по 5 вопросов. На 4-м легком вопросе (индекс 3) заранее подгружаем medium
+        if nextIndex == 3 {
             nextBatchTask = Task {
                 let questions = await fetchQuestionsWithFallback(difficulty: .medium)
                 game.gameQuestion.append(contentsOf: questions)
             }
         }
-        else if game.currentQuestionIndex == 9 {
+        // на 10-м вопросе (индекс 9), последнем в medium-партии, заранее подгружаем hard
+        else if nextIndex == 9 {
             nextBatchTask = Task {
                 let questions = await fetchQuestionsWithFallback(difficulty: .hard)
                 game.gameQuestion.append(contentsOf: questions)
             }
         }
 
-        if game.currentQuestionIndex >= game.gameQuestion.count {
+        if nextIndex >= game.gameQuestion.count {
             gameView.setLoading(true)
             await nextBatchTask?.value
             gameView.setLoading(false)
+
+            // догрузка не дала вопросов (например, отказ от оффлайн-режима) — завершаем партию, не падаем по индексу
+            if nextIndex >= game.gameQuestion.count {
+                showResults(earnedAmount: game.bankedAmount)
+                return
+            }
         }
 
+        game.goToNext()
         updateUI()
     }
 
     func showResults(earnedAmount: Int) {
+        StatsStore.recordGameFinished(earnedAmount: earnedAmount)
+
         let resultVC = ResultViewController(correctAnswersCount: game.correctAnswersCount,
                                              totalQuestionsCount: game.totalQuestionsCount,
-                                             earnedAmountText: formattedScore(earnedAmount))
+                                             earnedAmountText: earnedAmount.formattedScore)
         resultVC.modalPresentationStyle = .fullScreen
         resultVC.onBackToMenu = { [weak self] in
             self?.presentingViewController?.presentingViewController?.dismiss(animated: true)
@@ -217,7 +215,10 @@ class GameViewController: UIViewController, UITableViewDelegate {
                                           message: "wanna quit?",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
-                self?.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                guard let self else { return }
+                // при досрочном выходе засчитываем несгораемую сумму (0, если правильных ответов меньше 5)
+                StatsStore.recordGameFinished(earnedAmount: self.game.safetyNetAmount)
+                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
             })
             alert.addAction(UIAlertAction(title: "No", style: .cancel) { _ in
             })
