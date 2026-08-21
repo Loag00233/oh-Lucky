@@ -2,107 +2,107 @@
   "response_code": 0,
   "results": [
     {
-      "question": "Какая планета Солнечной системы самая большая?",
-      "correct_answer": "Юпитер",
-      "incorrect_answers": ["Сатурн", "Нептун", "Уран"],
+      "question": "Which planet in the Solar System is the largest?",
+      "correct_answer": "Jupiter",
+      "incorrect_answers": ["Saturn", "Neptune", "Uranus"],
       "difficulty": "easy",
       "category": 17
     },
     {
-      "question": "Сколько дней в невисокосном году?",
+      "question": "How many days are there in a common year?",
       "correct_answer": "365",
       "incorrect_answers": ["364", "366", "360"],
       "difficulty": "easy",
       "category": 9
     },
     {
-      "question": "Какой газ растения поглощают в процессе фотосинтеза?",
-      "correct_answer": "Углекислый газ",
-      "incorrect_answers": ["Кислород", "Азот", "Водород"],
+      "question": "Which gas do plants absorb during photosynthesis?",
+      "correct_answer": "Carbon dioxide",
+      "incorrect_answers": ["Oxygen", "Nitrogen", "Hydrogen"],
       "difficulty": "easy",
       "category": 17
     },
     {
-      "question": "Столицей какой страны является Париж?",
-      "correct_answer": "Франция",
-      "incorrect_answers": ["Германия", "Италия", "Испания"],
+      "question": "Paris is the capital of which country?",
+      "correct_answer": "France",
+      "incorrect_answers": ["Germany", "Italy", "Spain"],
       "difficulty": "easy",
       "category": 22
     },
     {
-      "question": "Сколько сторон у треугольника?",
+      "question": "How many sides does a triangle have?",
       "correct_answer": "3",
       "incorrect_answers": ["4", "5", "6"],
       "difficulty": "easy",
       "category": 9
     },
     {
-      "question": "Кто написал роман «Война и мир»?",
-      "correct_answer": "Лев Толстой",
-      "incorrect_answers": ["Фёдор Достоевский", "Антон Чехов", "Иван Тургенев"],
+      "question": "Who wrote the novel \"War and Peace\"?",
+      "correct_answer": "Leo Tolstoy",
+      "incorrect_answers": ["Fyodor Dostoevsky", "Anton Chekhov", "Ivan Turgenev"],
       "difficulty": "medium",
       "category": 9
     },
     {
-      "question": "Какой химический элемент обозначается символом Fe?",
-      "correct_answer": "Железо",
-      "incorrect_answers": ["Фтор", "Фосфор", "Франций"],
+      "question": "Which chemical element has the symbol Fe?",
+      "correct_answer": "Iron",
+      "incorrect_answers": ["Fluorine", "Phosphorus", "Francium"],
       "difficulty": "medium",
       "category": 17
     },
     {
-      "question": "В каком году произошёл распад СССР?",
+      "question": "In which year did the Soviet Union dissolve?",
       "correct_answer": "1991",
       "incorrect_answers": ["1989", "1993", "1985"],
       "difficulty": "medium",
       "category": 23
     },
     {
-      "question": "Как называется самая длинная река в мире?",
-      "correct_answer": "Нил",
-      "incorrect_answers": ["Амазонка", "Янцзы", "Миссисипи"],
+      "question": "What is the longest river in the world?",
+      "correct_answer": "The Nile",
+      "incorrect_answers": ["The Amazon", "The Yangtze", "The Mississippi"],
       "difficulty": "medium",
       "category": 22
     },
     {
-      "question": "Сколько костей в теле взрослого человека?",
+      "question": "How many bones are there in an adult human body?",
       "correct_answer": "206",
       "incorrect_answers": ["186", "216", "196"],
       "difficulty": "medium",
       "category": 17
     },
     {
-      "question": "Кто автор теории относительности?",
-      "correct_answer": "Альберт Эйнштейн",
-      "incorrect_answers": ["Исаак Ньютон", "Нильс Бор", "Макс Планк"],
+      "question": "Who developed the theory of relativity?",
+      "correct_answer": "Albert Einstein",
+      "incorrect_answers": ["Isaac Newton", "Niels Bohr", "Max Planck"],
       "difficulty": "hard",
       "category": 17
     },
     {
-      "question": "Как называется столица Австралии?",
-      "correct_answer": "Канберра",
-      "incorrect_answers": ["Сидней", "Мельбурн", "Брисбен"],
+      "question": "What is the capital of Australia?",
+      "correct_answer": "Canberra",
+      "incorrect_answers": ["Sydney", "Melbourne", "Brisbane"],
       "difficulty": "hard",
       "category": 22
     },
     {
-      "question": "В каком году была основана Организация Объединённых Наций?",
+      "question": "In which year was the United Nations founded?",
       "correct_answer": "1945",
       "incorrect_answers": ["1919", "1950", "1939"],
       "difficulty": "hard",
       "category": 23
     },
     {
-      "question": "Как называется самая глубокая точка Мирового океана?",
-      "correct_answer": "Марианская впадина",
-      "incorrect_answers": ["Пуэрто-Риканский жёлоб", "Яванская впадина", "Тонга"],
+      "question": "What is the deepest point in the world's oceans?",
+      "correct_answer": "The Mariana Trench",
+      "incorrect_answers": ["The Puerto Rico Trench", "The Java Trench", "The Tonga Trench"],
       "difficulty": "hard",
       "category": 22
     },
     {
-      "question": "Кто написал музыку к балету «Лебединое озеро»?",
-      "correct_answer": "Пётр Чайковский",
-      "incorrect_answers": ["Сергей Рахманинов", "Игорь Стравинский", "Николай Римский-Корсаков"],
+      "question": "Who composed the music for the ballet \"Swan Lake\"?",
+      "correct_answer": "Pyotr Tchaikovsky",
+      "incorrect_answers": ["Sergei Rachmaninoff", "Igor Stravinsky", "Nikolai Rimsky-Korsakov"],
       "difficulty": "hard",
       "category": 12
     }

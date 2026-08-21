@@ -1,5 +1,5 @@
 //
-//  String + Ext.swift
+//  Int + Ext.swift
 //  ohLucky_Ivashin_2
 //
 

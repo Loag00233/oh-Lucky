@@ -9,7 +9,7 @@ import UIKit
 
 class AnswerCell: UITableViewCell {
     
-    static let reusedID = "WordCell"
+    static let reusedID = "AnswerCell"
 
     lazy var cardView = UIView() // на нее все кладем, чтобы ячейки могли "разлепиться" друг от друга
 
@@ -24,14 +24,13 @@ class AnswerCell: UITableViewCell {
     }()
     
     lazy var letterLabel = UILabel(text: "A")
-    lazy var wordLabel = UILabel(text: "Вариант 1")
+    lazy var wordLabel = UILabel(text: "Answer 1")
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none // из-за этого ячейка и не меняла цвет. Но если изменить, то появится прямоугольная обводка
         backgroundColor = .clear
         cardView.backgroundColor = .white
-        layoutSubviews()
         setViews()
         setConstraints()
     }

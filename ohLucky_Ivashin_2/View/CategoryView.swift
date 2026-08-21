@@ -7,12 +7,12 @@ import UIKit
 
 class CategoryView: UIView {
 
-    lazy var titleLabel = UILabel(text: "Choose a category", isBold: false, isLarge: true)
+    lazy var titleLabel = UILabel(text: String(localized: "Choose a category"), isBold: false, isLarge: true)
     lazy var categoriesTableView = UITableView()
 
     lazy var backButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Back", for: .normal)
+        btn.setTitle(String(localized: "Back"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
         btn.backgroundColor = .exitBtnC
@@ -76,7 +76,7 @@ class CategoryView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("Blah Blah")
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

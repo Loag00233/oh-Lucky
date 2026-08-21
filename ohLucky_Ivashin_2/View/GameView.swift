@@ -26,19 +26,19 @@ class GameView: UIView {
         return money
     }()
 
-    lazy var bankLabel = UILabel(text: "Bank:")
+    lazy var bankLabel = UILabel(text: String(localized: "Bank:"))
     lazy var bankMoneyLabel = UILabel(text: "0")
-    lazy var bankSubLabel = UILabel(text: "Question for:")
+    lazy var bankSubLabel = UILabel(text: String(localized: "Question for:"))
     lazy var bankQuestionSumSubLabel = UILabel(text: "0")
 
-    lazy var questionNumberLabel = UILabel(text: "Question 0/0:", isBold: true, isLarge: true, alignement: .left)
-    lazy var questionTextLabel = UILabel(text: "Text of the question that the player must answer, preferably correctly", isBold: true, isLarge: true, alignement: .left)
+    lazy var questionNumberLabel = UILabel(text: String(localized: "New question"), isBold: true, isLarge: true, alignment: .left)
+    lazy var questionTextLabel = UILabel(text: "Text of the question that the player must answer, preferably correctly", isBold: true, isLarge: true, alignment: .left)
     
     lazy var nextButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.isEnabled = false
         btn.setTitleColor(.gray, for: .disabled)
-        btn.setTitle("Next", for: .normal)
+        btn.setTitle(String(localized: "Next"), for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         btn.backgroundColor = .menuBtns
@@ -50,7 +50,7 @@ class GameView: UIView {
 
     lazy var quitButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Quit", for: .normal)
+        btn.setTitle(String(localized: "Quit"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
         btn.backgroundColor = .exitBtnC
@@ -72,7 +72,7 @@ class GameView: UIView {
         return indicator
     }()
 
-    lazy var loadingLabel = UILabel(text: "Loading questions...", isBold: true, alignement: .center)
+    lazy var loadingLabel = UILabel(text: String(localized: "Loading questions..."), isBold: true, alignment: .center)
 
     lazy var progressBarBorderView: UIView = {
         let view = UIView()
@@ -119,7 +119,7 @@ class GameView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) is not supported")
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Layout

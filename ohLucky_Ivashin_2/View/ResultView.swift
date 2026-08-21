@@ -9,7 +9,7 @@ class ResultView: UIView {
 
     lazy var titleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Игра окончена!"
+        lbl.text = String(localized: "Game over!")
         lbl.font = UIFont(name: "Montserrat-Bold", size: 32)
         lbl.textColor = .white
         lbl.textAlignment = .center
@@ -27,7 +27,7 @@ class ResultView: UIView {
 
     lazy var menuButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("В меню", for: .normal)
+        btn.setTitle(String(localized: "Back to menu"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         btn.backgroundColor = .exitBtnC
@@ -42,12 +42,9 @@ class ResultView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = .bgCol
-        setViews()
         setConstraints()
         setupActions()
     }
-
-    func setViews() { }
 
     func setConstraints() {
         addSubview(titleLabel)
@@ -77,7 +74,7 @@ class ResultView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("Blah Blah")
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

@@ -34,7 +34,7 @@ class MenuView: UIView {
 
     lazy var startButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Начать игру!", for: .normal)
+        btn.setTitle(String(localized: "Start Game!"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         btn.heightAnchor.constraint(equalToConstant: 63).isActive = true
@@ -53,7 +53,7 @@ class MenuView: UIView {
 
     lazy var settingsButton: UIButton = {
         let setBtn = UIButton(type: .system)
-        setBtn.setTitle("Настройки", for: .normal)
+        setBtn.setTitle(String(localized: "Settings"), for: .normal)
         setBtn.setTitleColor(.black, for: .normal)
         setBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         setBtn.backgroundColor = .menuBtns
@@ -64,22 +64,9 @@ class MenuView: UIView {
         return setBtn
     }()
 
-    lazy var topPlayersButton: UIButton = {
-        let topBtn = UIButton(type: .system)
-        topBtn.setTitle("Топ Игроков", for: .normal)
-        topBtn.setTitleColor(.black, for: .normal)
-        topBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
-        topBtn.backgroundColor = .menuBtns
-        topBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        topBtn.layer.cornerRadius = 23
-        topBtn.accessibilityIdentifier = "menu.topPlayersButton"
-
-        return topBtn
-    }()
-
     lazy var statisticButton: UIButton = {
         let statBtn = UIButton(type: .system)
-        statBtn.setTitle("Моя Статистика", for: .normal)
+        statBtn.setTitle(String(localized: "My Statistics"), for: .normal)
         statBtn.setTitleColor(.black, for: .normal)
         statBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         statBtn.backgroundColor = .menuBtns
@@ -90,30 +77,17 @@ class MenuView: UIView {
         return statBtn
     }()
 
-    lazy var exitButton: UIButton = {
-        let exitBtn = UIButton(type: .system)
-        exitBtn.setTitle("Выйти", for: .normal)
-        exitBtn.setTitleColor(.white, for: .normal)
-        exitBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
-        exitBtn.backgroundColor = .exitBtnC
-        exitBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        exitBtn.layer.cornerRadius = 23
-        exitBtn.accessibilityIdentifier = "menu.exitButton"
 
-        return exitBtn
-    }()
-
+    /// Логотип в шапке меню — конечное положение.
+    private var logoTopConstraint: NSLayoutConstraint!
+    /// Логотип по центру экрана — совпадает с launch screen.
+    private var logoCenterYConstraint: NSLayoutConstraint!
 
     init() {
         super.init(frame: .zero)
         backgroundColor = .bgCol
-        setViews()
         setConstraints()
     }
-
-    
-    //MARK: дизайн view
-    func setViews() { }
 
     //MARK: геометрия
     func setConstraints() {
@@ -126,10 +100,7 @@ class MenuView: UIView {
         vStack.translatesAutoresizingMaskIntoConstraints = false
         vStack.addArrangedSubview(startButton)
         vStack.addArrangedSubview(settingsButton)
-        vStack.addArrangedSubview(topPlayersButton)
         vStack.addArrangedSubview(statisticButton)
-        vStack.addArrangedSubview(exitButton)
-        vStack.setCustomSpacing(79, after: statisticButton)
 
 
         NSLayoutConstraint.activate([
@@ -137,9 +108,12 @@ class MenuView: UIView {
             titleLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
         ])
 
+        logoTopConstraint = logoView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 9)
+        logoCenterYConstraint = logoView.centerYAnchor.constraint(equalTo: centerYAnchor)
+
         NSLayoutConstraint.activate([
             logoView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            logoView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 9),
+            logoTopConstraint,
             logoView.widthAnchor.constraint(equalToConstant: 195),
             logoView.heightAnchor.constraint(equalToConstant: 195)
         ])
@@ -150,8 +124,39 @@ class MenuView: UIView {
         ])
     }
 
+    //MARK: заставка
+    /// Стартовая раскладка повторяет launch screen: логотип по центру, меню скрыто.
+    func prepareIntro() {
+        logoTopConstraint.isActive = false
+        logoCenterYConstraint.isActive = true
+        titleLabel.alpha = 0
+        vStack.alpha = 0
+    }
+
+    /// Логотип уезжает в шапку, следом проявляется меню.
+    func playIntro() {
+        logoCenterYConstraint.isActive = false
+        logoTopConstraint.isActive = true
+
+        guard !UIAccessibility.isReduceMotionEnabled else {
+            layoutIfNeeded()
+            titleLabel.alpha = 1
+            vStack.alpha = 1
+            return
+        }
+
+        UIView.animate(withDuration: 0.7, delay: 0.25, usingSpringWithDamping: 0.82, initialSpringVelocity: 0) {
+            self.layoutIfNeeded()
+        }
+
+        UIView.animate(withDuration: 0.4, delay: 0.65) {
+            self.titleLabel.alpha = 1
+            self.vStack.alpha = 1
+        }
+    }
+
     required init?(coder: NSCoder) {
-        fatalError("Blah Blah")
+        fatalError("init(coder:) has not been implemented")
     }
 
 }

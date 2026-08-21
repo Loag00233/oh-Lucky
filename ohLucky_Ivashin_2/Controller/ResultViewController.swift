@@ -22,13 +22,13 @@ class ResultViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("Blah Blah")
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = resultView
-        resultView.scoreLabel.text = "\(correctAnswersCount) из \(totalQuestionsCount) верно\nЗаработано: \(earnedAmountText)"
+        resultView.scoreLabel.text = String(localized: "\(correctAnswersCount) of \(totalQuestionsCount) correct\nEarned: \(earnedAmountText)")
         setupActions()
     }
 

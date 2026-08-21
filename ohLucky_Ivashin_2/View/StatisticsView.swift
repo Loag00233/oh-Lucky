@@ -14,7 +14,7 @@ final class StatisticsView: UIView {
 
     lazy var backButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Back", for: .normal)
+        btn.setTitle(String(localized: "Back"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
         btn.backgroundColor = .exitBtnC
@@ -32,7 +32,7 @@ final class StatisticsView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("Blah Blah")
+        fatalError("init(coder:) has not been implemented")
     }
 
     func render(_ stats: QuizStats) {
@@ -43,32 +43,32 @@ final class StatisticsView: UIView {
         contentStack.addArrangedSubview(backRow)
         contentStack.setCustomSpacing(20, after: backRow)
 
-        let title = sectionTitle("My Statistics", size: 26)
+        let title = sectionTitle(String(localized: "My Statistics"), size: 26)
         contentStack.addArrangedSubview(title)
         contentStack.setCustomSpacing(20, after: title)
 
         let tilesRow = UIStackView(arrangedSubviews: [
-            tile(number: "\(stats.gamesPlayed)", caption: "games played", style: .yellow),
-            tile(number: "\(stats.totalCorrect)", caption: "correct answers", style: .yellow)
+            tile(number: "\(stats.gamesPlayed)", caption: String(localized: "games played"), style: .yellow),
+            tile(number: "\(stats.totalCorrect)", caption: String(localized: "correct answers"), style: .yellow)
         ])
         tilesRow.axis = .horizontal
         tilesRow.spacing = 14
         tilesRow.distribution = .fillEqually
         contentStack.addArrangedSubview(tilesRow)
 
-        let accuracyTile = tile(number: "\(stats.overallAccuracyPercent)%", caption: "accuracy", style: .purple)
+        let accuracyTile = tile(number: "\(stats.overallAccuracyPercent)%", caption: String(localized: "accuracy"), style: .purple)
         contentStack.addArrangedSubview(accuracyTile)
         contentStack.setCustomSpacing(20, after: accuracyTile)
 
-        contentStack.addArrangedSubview(summaryRow(title: "Total questions", value: "\(stats.totalAnswered)"))
-        contentStack.addArrangedSubview(summaryRow(title: "Total winnings", value: stats.totalEarned.formattedScore))
-        contentStack.addArrangedSubview(summaryRow(title: "Best win", value: stats.bestWin.formattedScore))
-        contentStack.addArrangedSubview(summaryRow(title: "Avg. win per game", value: stats.averageWinPerGame.formattedScore))
-        let lastSummary = summaryRow(title: "Avg. answer time", value: "—")
+        contentStack.addArrangedSubview(summaryRow(title: String(localized: "Total questions"), value: "\(stats.totalAnswered)"))
+        contentStack.addArrangedSubview(summaryRow(title: String(localized: "Total winnings"), value: stats.totalEarned.formattedScore))
+        contentStack.addArrangedSubview(summaryRow(title: String(localized: "Best win"), value: stats.bestWin.formattedScore))
+        contentStack.addArrangedSubview(summaryRow(title: String(localized: "Avg. win per game"), value: stats.averageWinPerGame.formattedScore))
+        let lastSummary = summaryRow(title: String(localized: "Avg. answer time"), value: "—")
         contentStack.addArrangedSubview(lastSummary)
         contentStack.setCustomSpacing(24, after: lastSummary)
 
-        let categoriesHeader = sectionTitle("By category", size: 17)
+        let categoriesHeader = sectionTitle(String(localized: "By category"), size: 17)
         contentStack.addArrangedSubview(categoriesHeader)
         contentStack.setCustomSpacing(12, after: categoriesHeader)
 
@@ -231,7 +231,7 @@ private final class GradientView: UIView {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("Blah Blah")
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func layoutSubviews() {

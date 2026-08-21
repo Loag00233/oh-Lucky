@@ -41,7 +41,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("Blah Blah")
+        fatalError("init(coder:) has not been implemented")
     }
     
     
@@ -57,7 +57,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
         isAnswerLocked = false
         gameView.setLoading(false)
         gameView.updateProgress(questionNumber: game.currentQuestionNumber, total: game.totalQuestionsCount)
-        gameView.questionNumberLabel.text = "Question \(game.currentQuestionNumber)/\(game.totalQuestionsCount):"
+        gameView.questionNumberLabel.text = String(localized: "Question \(game.currentQuestionNumber)/\(game.totalQuestionsCount):")
         gameView.questionTextLabel.text = game.currentQuestion.question
         gameView.bankMoneyLabel.text = game.bankedAmount.formattedScore
         gameView.bankQuestionSumSubLabel.text = game.currentQuestionSum.formattedScore
@@ -95,13 +95,13 @@ class GameViewController: UIViewController, UITableViewDelegate {
     func promptOfflineFallback(difficulty: Difficulty) async -> [MultipleQuestion] {
         await withCheckedContinuation { continuation in
             let alert = UIAlertController(title: nil,
-                                           message: "Нет связи с сервером. Переключиться в оффлайн режим?",
+                                           message: String(localized: "No connection to the server. Switch to offline mode?"),
                                            preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Да", style: .default) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: String(localized: "Yes"), style: .default) { [weak self] _ in
                 self?.isOffline = true
                 continuation.resume(returning: OfflineQuestionProvider.loadQuestions(category: self?.category ?? .generalKnowledge, difficulty: difficulty))
             })
-            alert.addAction(UIAlertAction(title: "Нет", style: .cancel) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: String(localized: "No"), style: .cancel) { [weak self] _ in
                 self?.presentingViewController?.presentingViewController?.dismiss(animated: true)
                 continuation.resume(returning: [])
             })
@@ -212,15 +212,15 @@ class GameViewController: UIViewController, UITableViewDelegate {
         
         gameView.onQuitTapped = { [weak self] in
             let alert = UIAlertController(title: nil,
-                                          message: "wanna quit?",
+                                          message: String(localized: "Do you really want to quit?"),
                                           preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: String(localized: "Yes"), style: .default) { [weak self] _ in
                 guard let self else { return }
                 // при досрочном выходе засчитываем несгораемую сумму (0, если правильных ответов меньше 5)
                 StatsStore.recordGameFinished(earnedAmount: self.game.safetyNetAmount)
                 self.presentingViewController?.presentingViewController?.dismiss(animated: true)
             })
-            alert.addAction(UIAlertAction(title: "No", style: .cancel) { _ in
+            alert.addAction(UIAlertAction(title: String(localized: "No"), style: .cancel) { _ in
             })
             self?.present(alert, animated: true)
             

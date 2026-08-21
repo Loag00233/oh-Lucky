@@ -11,11 +11,11 @@ extension UILabel {
     convenience init(text: String,
                      isBold: Bool = false,
                      isLarge: Bool = false,
-                     alignement: NSTextAlignment = .center
+                     alignment: NSTextAlignment = .center
                      ) {
         self.init()
         self.text = text
-        self.textAlignment = alignement
+        self.textAlignment = alignment
         
         let fontSize: CGFloat = isLarge ? 20 : 16
         let fontBold = isBold ? "Montserrat-Bold" : "Montserrat-Regular"
@@ -25,12 +25,6 @@ extension UILabel {
     func boldBankCardDecoration() {
         self.textAlignment = .center
         self.textColor = UIColor(named: "bankColor")
-        self.font = UIFont(name: "Montserrat-Bold", size: 16)
-    }
-    
-    func boldAnswersDecoration() {
-        self.textAlignment = .center
-        self.textColor = UIColor(named: "answersColor")
         self.font = UIFont(name: "Montserrat-Bold", size: 16)
     }
     

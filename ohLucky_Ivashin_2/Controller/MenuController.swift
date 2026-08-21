@@ -10,13 +10,25 @@ import UIKit
 class MenuController: UIViewController {
     let mainView = MenuView()
 
+    /// Заставка играет один раз за запуск, а не при каждом возврате из модалки.
+    private var isIntroPlayed = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = self.mainView
         self.view.backgroundColor = .bgCol
         self.mainView.frame = view.bounds
         self.mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.mainView.prepareIntro()
         addActions()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard !isIntroPlayed else { return }
+        isIntroPlayed = true
+        mainView.playIntro()
     }
     
     func addActions() {
