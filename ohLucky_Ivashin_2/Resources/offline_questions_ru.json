@@ -1,0 +1,3965 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "id": "gen-easy-01",
+      "question": "Сколько дней в невисокосном году?",
+      "correct_answer": "365",
+      "incorrect_answers": [
+        "364",
+        "366",
+        "360"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-02",
+      "question": "Какой цвет получится, если смешать синий и жёлтый?",
+      "correct_answer": "Зелёный",
+      "incorrect_answers": [
+        "Оранжевый",
+        "Фиолетовый",
+        "Коричневый"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-03",
+      "question": "Сколько сторон у шестиугольника?",
+      "correct_answer": "Шесть",
+      "incorrect_answers": [
+        "Пять",
+        "Семь",
+        "Восемь"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-04",
+      "question": "Сколько минут в часе?",
+      "correct_answer": "60",
+      "incorrect_answers": [
+        "30",
+        "90",
+        "100"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-05",
+      "question": "При какой температуре по Цельсию замерзает вода?",
+      "correct_answer": "0 градусов",
+      "incorrect_answers": [
+        "Минус 10 градусов",
+        "10 градусов",
+        "32 градуса"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-06",
+      "question": "Сколько букв в английском алфавите?",
+      "correct_answer": "26",
+      "incorrect_answers": [
+        "24",
+        "25",
+        "28"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-07",
+      "question": "Какая химическая формула у воды?",
+      "correct_answer": "H2O",
+      "incorrect_answers": [
+        "CO2",
+        "O2",
+        "NaCl"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-08",
+      "question": "Сколько на Земле континентов?",
+      "correct_answer": "Семь",
+      "incorrect_answers": [
+        "Пять",
+        "Шесть",
+        "Восемь"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-09",
+      "question": "У какой фигуры ровно три стороны?",
+      "correct_answer": "Треугольник",
+      "incorrect_answers": [
+        "Квадрат",
+        "Круг",
+        "Пятиугольник"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-easy-10",
+      "question": "Сколько часов в сутках?",
+      "correct_answer": "24",
+      "incorrect_answers": [
+        "12",
+        "36",
+        "48"
+      ],
+      "difficulty": "easy",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-01",
+      "question": "Сколько клеток на стандартной шахматной доске?",
+      "correct_answer": "64",
+      "incorrect_answers": [
+        "32",
+        "81",
+        "100"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-02",
+      "question": "Сколько клавиш у стандартного фортепиано?",
+      "correct_answer": "88",
+      "incorrect_answers": [
+        "72",
+        "96",
+        "104"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-03",
+      "question": "Сколько цветов традиционно насчитывают в радуге?",
+      "correct_answer": "Семь",
+      "incorrect_answers": [
+        "Пять",
+        "Шесть",
+        "Девять"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-04",
+      "question": "Какая валюта в Японии?",
+      "correct_answer": "Иена",
+      "incorrect_answers": [
+        "Вона",
+        "Юань",
+        "Ринггит"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-05",
+      "question": "Какое число обозначает римская цифра L?",
+      "correct_answer": "50",
+      "incorrect_answers": [
+        "5",
+        "100",
+        "500"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-06",
+      "question": "Сколько струн у обычной скрипки?",
+      "correct_answer": "Четыре",
+      "incorrect_answers": [
+        "Три",
+        "Пять",
+        "Шесть"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-07",
+      "question": "Сколько карт в колоде без джокеров?",
+      "correct_answer": "52",
+      "incorrect_answers": [
+        "48",
+        "54",
+        "60"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-08",
+      "question": "У какого языка больше всего носителей в мире?",
+      "correct_answer": "Китайский",
+      "incorrect_answers": [
+        "Английский",
+        "Испанский",
+        "Хинди"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-09",
+      "question": "Сколько часов в неделе?",
+      "correct_answer": "168",
+      "incorrect_answers": [
+        "144",
+        "172",
+        "180"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-medium-10",
+      "question": "Какой цвет находится сверху радуги?",
+      "correct_answer": "Красный",
+      "incorrect_answers": [
+        "Фиолетовый",
+        "Зелёный",
+        "Синий"
+      ],
+      "difficulty": "medium",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-01",
+      "question": "Какой греческой буквой обозначают золотое сечение?",
+      "correct_answer": "Фи",
+      "incorrect_answers": [
+        "Пи",
+        "Пси",
+        "Хи"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-02",
+      "question": "Сколько костей в теле взрослого человека?",
+      "correct_answer": "206",
+      "incorrect_answers": [
+        "186",
+        "226",
+        "246"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-03",
+      "question": "Какая единица СИ измеряет силу света?",
+      "correct_answer": "Кандела",
+      "incorrect_answers": [
+        "Люмен",
+        "Люкс",
+        "Ватт"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-04",
+      "question": "Какой цвет в геральдике называется червлень?",
+      "correct_answer": "Красный",
+      "incorrect_answers": [
+        "Синий",
+        "Зелёный",
+        "Чёрный"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-05",
+      "question": "Как называется наука о флагах?",
+      "correct_answer": "Вексиллология",
+      "incorrect_answers": [
+        "Филателия",
+        "Нумизматика",
+        "Картография"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-06",
+      "question": "Что означает латинское сокращение e.g.?",
+      "correct_answer": "Exempli gratia",
+      "incorrect_answers": [
+        "Id est",
+        "Et cetera",
+        "Et alia"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-07",
+      "question": "Сколько фарлонгов в одной миле?",
+      "correct_answer": "Восемь",
+      "incorrect_answers": [
+        "Четыре",
+        "Десять",
+        "Двенадцать"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-08",
+      "question": "Как называется слово, которое читается одинаково в обе стороны?",
+      "correct_answer": "Палиндром",
+      "incorrect_answers": [
+        "Анаграмма",
+        "Акроним",
+        "Омоним"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-09",
+      "question": "Какая буква не встречается ни в одном названии штата США?",
+      "correct_answer": "Q",
+      "incorrect_answers": [
+        "X",
+        "Z",
+        "J"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "gen-hard-10",
+      "question": "Как называется точка над буквой i?",
+      "correct_answer": "Титтл",
+      "incorrect_answers": [
+        "Засечка",
+        "Умлаут",
+        "Седиль"
+      ],
+      "difficulty": "hard",
+      "category": 9
+    },
+    {
+      "id": "film-easy-01",
+      "question": "В каком мультфильме есть снеговик по имени Олаф?",
+      "correct_answer": "Холодное сердце",
+      "incorrect_answers": [
+        "Моана",
+        "Рапунцель",
+        "Храбрая сердцем"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-02",
+      "question": "Кто снял «Парк юрского периода»?",
+      "correct_answer": "Стивен Спилберг",
+      "incorrect_answers": [
+        "Джеймс Кэмерон",
+        "Ридли Скотт",
+        "Джордж Лукас"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-03",
+      "question": "Из какого фильма фраза «Да пребудет с тобой Сила»?",
+      "correct_answer": "Звёздные войны",
+      "incorrect_answers": [
+        "Звёздный путь",
+        "Дюна",
+        "Чужой"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-04",
+      "question": "Как зовут львёнка-принца в «Короле Льве»?",
+      "correct_answer": "Симба",
+      "incorrect_answers": [
+        "Тимон",
+        "Пумба",
+        "Рафики"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-05",
+      "question": "Какая студия сделала «Историю игрушек»?",
+      "correct_answer": "Pixar",
+      "incorrect_answers": [
+        "Illumination",
+        "Aardman",
+        "Blue Sky"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-06",
+      "question": "В каком фильме акула держит в страхе курортный городок?",
+      "correct_answer": "Челюсти",
+      "incorrect_answers": [
+        "Мег",
+        "Глубокое синее море",
+        "Пираньи"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-07",
+      "question": "Каким животным является Дамбо?",
+      "correct_answer": "Слонёнком",
+      "incorrect_answers": [
+        "Мышонком",
+        "Медвежонком",
+        "Жеребёнком"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-08",
+      "question": "Какая рыба Немо в мультфильме «В поисках Немо»?",
+      "correct_answer": "Рыба-клоун",
+      "incorrect_answers": [
+        "Золотая рыбка",
+        "Рыба-ангел",
+        "Рыба-меч"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-09",
+      "question": "Кто сыграл капитана Джека Воробья в «Пиратах Карибского моря»?",
+      "correct_answer": "Джонни Депп",
+      "incorrect_answers": [
+        "Орландо Блум",
+        "Брэд Питт",
+        "Николас Кейдж"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-easy-10",
+      "question": "В каком фильме мальчик дружит с инопланетянином, мечтающим позвонить домой?",
+      "correct_answer": "Инопланетянин",
+      "incorrect_answers": [
+        "Близкие контакты третьей степени",
+        "Полёт навигатора",
+        "Исследователи"
+      ],
+      "difficulty": "easy",
+      "category": 11
+    },
+    {
+      "id": "film-medium-01",
+      "question": "Какой фильм получил самый первый «Оскар» за лучшую картину?",
+      "correct_answer": "Крылья",
+      "incorrect_answers": [
+        "Восход солнца",
+        "Певец джаза",
+        "Метрополис"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-02",
+      "question": "Кто снял «Криминальное чтиво»?",
+      "correct_answer": "Квентин Тарантино",
+      "incorrect_answers": [
+        "Мартин Скорсезе",
+        "Дэвид Финчер",
+        "Пол Томас Андерсон"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-03",
+      "question": "Какую таблетку выбирает Нео в «Матрице»?",
+      "correct_answer": "Красную",
+      "incorrect_answers": [
+        "Синюю",
+        "Зелёную",
+        "Белую"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-04",
+      "question": "Кто сыграл Вито Корлеоне в «Крёстном отце» 1972 года?",
+      "correct_answer": "Марлон Брандо",
+      "incorrect_answers": [
+        "Аль Пачино",
+        "Роберт Де Ниро",
+        "Джеймс Каан"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-05",
+      "question": "На борту какого корабля происходит действие фильма «Чужой»?",
+      "correct_answer": "«Ностромо»",
+      "incorrect_answers": [
+        "«Ивент Хорайзон»",
+        "«Икар»",
+        "«Прометей»"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-06",
+      "question": "Кто написал музыку к «Звёздным войнам»?",
+      "correct_answer": "Джон Уильямс",
+      "incorrect_answers": [
+        "Ханс Циммер",
+        "Эннио Морриконе",
+        "Дэнни Эльфман"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-07",
+      "question": "Какая машина стала машиной времени в фильме «Назад в будущее»?",
+      "correct_answer": "DeLorean DMC-12",
+      "incorrect_answers": [
+        "Ford Mustang",
+        "Chevrolet Impala",
+        "Porsche 911"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-08",
+      "question": "Какого режиссёра прозвали «мастером саспенса»?",
+      "correct_answer": "Альфреда Хичкока",
+      "incorrect_answers": [
+        "Орсона Уэллса",
+        "Стэнли Кубрика",
+        "Билли Уайлдера"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-09",
+      "question": "В каком фильме встречаются Ганнибал Лектер и Кларисса Старлинг?",
+      "correct_answer": "Молчание ягнят",
+      "incorrect_answers": [
+        "Семь",
+        "Зодиак",
+        "Психо"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-medium-10",
+      "question": "В каком фильме кольцо нужно уничтожить в жерле вулкана?",
+      "correct_answer": "Властелин колец",
+      "incorrect_answers": [
+        "Хроники Нарнии",
+        "Уиллоу",
+        "Эрагон"
+      ],
+      "difficulty": "medium",
+      "category": 11
+    },
+    {
+      "id": "film-hard-01",
+      "question": "Кто снял «Солярис» 1972 года?",
+      "correct_answer": "Андрей Тарковский",
+      "incorrect_answers": [
+        "Сергей Эйзенштейн",
+        "Михаил Калатозов",
+        "Никита Михалков"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-02",
+      "question": "Какой фильм получил «Золотую пальмовую ветвь» в 2019 году?",
+      "correct_answer": "Паразиты",
+      "incorrect_answers": [
+        "Рома",
+        "Квадрат",
+        "Магазинные воришки"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-03",
+      "question": "Какой полнометражный мультфильм Disney был первым?",
+      "correct_answer": "Белоснежка и семь гномов",
+      "incorrect_answers": [
+        "Пиноккио",
+        "Фантазия",
+        "Бэмби"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-04",
+      "question": "Что такое «Розовый бутон» в «Гражданине Кейне»?",
+      "correct_answer": "Санки",
+      "incorrect_answers": [
+        "Скаковая лошадь",
+        "Газета",
+        "Яхта"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-05",
+      "question": "В какой стране снят «Броненосец «Потёмкин»?",
+      "correct_answer": "В Советском Союзе",
+      "incorrect_answers": [
+        "В Германии",
+        "Во Франции",
+        "В Италии"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-06",
+      "question": "Кто снял фильм «Восемь с половиной»?",
+      "correct_answer": "Федерико Феллини",
+      "incorrect_answers": [
+        "Микеланджело Антониони",
+        "Витторио Де Сика",
+        "Лукино Висконти"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-07",
+      "question": "Какое соотношение сторон называют «академическим»?",
+      "correct_answer": "1,37 к 1",
+      "incorrect_answers": [
+        "1,85 к 1",
+        "2,39 к 1",
+        "1,66 к 1"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-08",
+      "question": "У кого больше всего актёрских «Оскаров»?",
+      "correct_answer": "У Кэтрин Хепбёрн",
+      "incorrect_answers": [
+        "У Мэрил Стрип",
+        "У Джека Николсона",
+        "У Дэниела Дэй-Льюиса"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-09",
+      "question": "Кто снял «Метрополис» 1927 года?",
+      "correct_answer": "Фриц Ланг",
+      "incorrect_answers": [
+        "Фридрих Мурнау",
+        "Георг Пабст",
+        "Роберт Вине"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "film-hard-10",
+      "question": "Что в кино называют макгаффином?",
+      "correct_answer": "Предмет, который движет сюжет",
+      "incorrect_answers": [
+        "Движение камеры",
+        "Схему освещения",
+        "Монтажный переход"
+      ],
+      "difficulty": "hard",
+      "category": 11
+    },
+    {
+      "id": "music-easy-01",
+      "question": "Сколько струн у обычной гитары?",
+      "correct_answer": "Шесть",
+      "incorrect_answers": [
+        "Четыре",
+        "Пять",
+        "Семь"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-02",
+      "question": "У какого инструмента чёрные и белые клавиши?",
+      "correct_answer": "У фортепиано",
+      "incorrect_answers": [
+        "У скрипки",
+        "У флейты",
+        "У барабана"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-03",
+      "question": "Какая группа записала Let It Be?",
+      "correct_answer": "The Beatles",
+      "incorrect_answers": [
+        "The Rolling Stones",
+        "Queen",
+        "Pink Floyd"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-04",
+      "question": "В какой инструмент дуют, нажимая при этом на вентили?",
+      "correct_answer": "В трубу",
+      "incorrect_answers": [
+        "В скрипку",
+        "В фортепиано",
+        "В арфу"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-05",
+      "question": "Сколько линеек у нотного стана?",
+      "correct_answer": "Пять",
+      "incorrect_answers": [
+        "Четыре",
+        "Шесть",
+        "Семь"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-06",
+      "question": "Родина фламенко — какая страна?",
+      "correct_answer": "Испания",
+      "incorrect_answers": [
+        "Италия",
+        "Греция",
+        "Португалия"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-07",
+      "question": "Кого называли королём поп-музыки?",
+      "correct_answer": "Майкла Джексона",
+      "incorrect_answers": [
+        "Элвиса Пресли",
+        "Принса",
+        "Дэвида Боуи"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-08",
+      "question": "Какой струнный инструмент в оркестре самый большой?",
+      "correct_answer": "Контрабас",
+      "incorrect_answers": [
+        "Виолончель",
+        "Альт",
+        "Скрипка"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-09",
+      "question": "Как называют человека, который сочиняет музыку?",
+      "correct_answer": "Композитор",
+      "incorrect_answers": [
+        "Дирижёр",
+        "Солист",
+        "Настройщик"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-easy-10",
+      "question": "Сколько исполнителей участвуют в дуэте?",
+      "correct_answer": "Двое",
+      "incorrect_answers": [
+        "Трое",
+        "Четверо",
+        "Пятеро"
+      ],
+      "difficulty": "easy",
+      "category": 12
+    },
+    {
+      "id": "music-medium-01",
+      "question": "Кто написал «Времена года»?",
+      "correct_answer": "Антонио Вивальди",
+      "incorrect_answers": [
+        "Иоганн Себастьян Бах",
+        "Вольфганг Амадей Моцарт",
+        "Георг Фридрих Гендель"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-02",
+      "question": "Какой великий композитор оглох в зрелые годы?",
+      "correct_answer": "Людвиг ван Бетховен",
+      "incorrect_answers": [
+        "Фредерик Шопен",
+        "Ференц Лист",
+        "Франц Шуберт"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-03",
+      "question": "Что означает обозначение forte?",
+      "correct_answer": "Громко",
+      "incorrect_answers": [
+        "Тихо",
+        "Быстро",
+        "Медленно"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-04",
+      "question": "Сколько разных нот в хроматической октаве?",
+      "correct_answer": "Двенадцать",
+      "incorrect_answers": [
+        "Семь",
+        "Восемь",
+        "Десять"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-05",
+      "question": "На каком инструменте играет Йо-Йо Ма?",
+      "correct_answer": "На виолончели",
+      "incorrect_answers": [
+        "На скрипке",
+        "На фортепиано",
+        "На флейте"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-06",
+      "question": "Кто написал балет «Щелкунчик»?",
+      "correct_answer": "Пётр Чайковский",
+      "incorrect_answers": [
+        "Николай Римский-Корсаков",
+        "Модест Мусоргский",
+        "Александр Бородин"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-07",
+      "question": "По какой ноте настраивается оркестр?",
+      "correct_answer": "По ля",
+      "incorrect_answers": [
+        "По до",
+        "По соль",
+        "По ре"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-08",
+      "question": "Какая группа выпустила The Dark Side of the Moon?",
+      "correct_answer": "Pink Floyd",
+      "incorrect_answers": [
+        "Led Zeppelin",
+        "The Who",
+        "Deep Purple"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-09",
+      "question": "Что означает «а капелла»?",
+      "correct_answer": "Пение без инструментов",
+      "incorrect_answers": [
+        "Пение очень громко",
+        "Пение каноном",
+        "Пение в унисон"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-medium-10",
+      "question": "К какому семейству инструментов относится саксофон?",
+      "correct_answer": "К деревянным духовым",
+      "incorrect_answers": [
+        "К медным духовым",
+        "К ударным",
+        "К струнным"
+      ],
+      "difficulty": "medium",
+      "category": 12
+    },
+    {
+      "id": "music-hard-01",
+      "question": "Кто написал оперный цикл «Кольцо нибелунга»?",
+      "correct_answer": "Рихард Вагнер",
+      "incorrect_answers": [
+        "Джузеппе Верди",
+        "Джакомо Пуччини",
+        "Рихард Штраус"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-02",
+      "question": "Какой термин означает постепенное усиление звука?",
+      "correct_answer": "Крещендо",
+      "incorrect_answers": [
+        "Диминуэндо",
+        "Стаккато",
+        "Легато"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-03",
+      "question": "Сколько симфоний завершил Бетховен?",
+      "correct_answer": "Девять",
+      "incorrect_answers": [
+        "Семь",
+        "Десять",
+        "Двенадцать"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-04",
+      "question": "В какой мажорной гамме нет ни диезов, ни бемолей?",
+      "correct_answer": "До мажор",
+      "incorrect_answers": [
+        "Соль мажор",
+        "Фа мажор",
+        "Ре мажор"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-05",
+      "question": "Чьи произведения каталогизированы номерами BWV?",
+      "correct_answer": "Иоганна Себастьяна Баха",
+      "incorrect_answers": [
+        "Вольфганга Амадея Моцарта",
+        "Йозефа Гайдна",
+        "Георга Фридриха Генделя"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-06",
+      "question": "На каком инструменте играл Джанго Рейнхардт?",
+      "correct_answer": "На гитаре",
+      "incorrect_answers": [
+        "На фортепиано",
+        "На кларнете",
+        "На скрипке"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-07",
+      "question": "Какой интервал исторически прозвали «дьяволом в музыке»?",
+      "correct_answer": "Тритон",
+      "incorrect_answers": [
+        "Чистую квинту",
+        "Большую терцию",
+        "Октаву"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-08",
+      "question": "В каком размере пишется вальс?",
+      "correct_answer": "Три четверти",
+      "incorrect_answers": [
+        "Четыре четверти",
+        "Шесть восьмых",
+        "Две вторые"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-09",
+      "question": "Кто написал «Болеро»?",
+      "correct_answer": "Морис Равель",
+      "incorrect_answers": [
+        "Клод Дебюсси",
+        "Эрик Сати",
+        "Габриэль Форе"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "music-hard-10",
+      "question": "Какой женский певческий голос самый низкий?",
+      "correct_answer": "Контральто",
+      "incorrect_answers": [
+        "Сопрано",
+        "Меццо-сопрано",
+        "Колоратурное сопрано"
+      ],
+      "difficulty": "hard",
+      "category": 12
+    },
+    {
+      "id": "tv-easy-01",
+      "question": "Какая жёлтая мультсемья живёт в Спрингфилде?",
+      "correct_answer": "Симпсоны",
+      "incorrect_answers": [
+        "Гриффины",
+        "Белчеры",
+        "Флинтстоуны"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-02",
+      "question": "В каком сериале Дейенерис повелевает драконами?",
+      "correct_answer": "Игра престолов",
+      "incorrect_answers": [
+        "Ведьмак",
+        "Викинги",
+        "Рим"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-03",
+      "question": "В каком ситкоме дружат Росс, Рэйчел и Чендлер?",
+      "correct_answer": "Друзья",
+      "incorrect_answers": [
+        "Как я встретил вашу маму",
+        "Сайнфелд",
+        "Весёлая компания"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-04",
+      "question": "Какое животное Скуби-Ду?",
+      "correct_answer": "Собака",
+      "incorrect_answers": [
+        "Кот",
+        "Конь",
+        "Медведь"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-05",
+      "question": "В каком сериале летает звездолёт «Энтерпрайз»?",
+      "correct_answer": "Звёздный путь",
+      "incorrect_answers": [
+        "Звёздный крейсер «Галактика»",
+        "Вавилон-5",
+        "Светлячок"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-06",
+      "question": "Какого цвета Губка Боб?",
+      "correct_answer": "Жёлтого",
+      "incorrect_answers": [
+        "Синего",
+        "Зелёного",
+        "Оранжевого"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-07",
+      "question": "В каком сериале учитель химии начинает варить наркотики?",
+      "correct_answer": "Во все тяжкие",
+      "incorrect_answers": [
+        "Прослушка",
+        "Декстер",
+        "Озарк"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-08",
+      "question": "Какой сериал разворачивается в вымышленном городке Хокинс?",
+      "correct_answer": "Очень странные дела",
+      "incorrect_answers": [
+        "Ривердейл",
+        "Твин Пикс",
+        "Тьма"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-09",
+      "question": "Какой сериал рассказывает об аристократах в английском поместье?",
+      "correct_answer": "Аббатство Даунтон",
+      "incorrect_answers": [
+        "Бриджертоны",
+        "Полдарк",
+        "Виктория"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-easy-10",
+      "question": "В каком мультсериале кролик спрашивает: «В чём дело, док?»",
+      "correct_answer": "Луни Тюнз",
+      "incorrect_answers": [
+        "Том и Джерри",
+        "Дятел Вуди",
+        "Розовая пантера"
+      ],
+      "difficulty": "easy",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-01",
+      "question": "Какой сериал происходит в бумажной компании Dunder Mifflin?",
+      "correct_answer": "Офис",
+      "incorrect_answers": [
+        "Парки и зоны отдыха",
+        "Супермаркет",
+        "Студия 30"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-02",
+      "question": "Как называется кофейня в «Друзьях»?",
+      "correct_answer": "Central Perk",
+      "incorrect_answers": [
+        "Central Park",
+        "The Grind",
+        "Java Joe's"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-03",
+      "question": "Какой сериал HBO рассказывает о мафиози Тони?",
+      "correct_answer": "Клан Сопрано",
+      "incorrect_answers": [
+        "Подпольная империя",
+        "Прослушка",
+        "Дедвуд"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-04",
+      "question": "Как называется машина времени в «Докторе Кто»?",
+      "correct_answer": "ТАРДИС",
+      "incorrect_answers": [
+        "Вихрь",
+        "Далек",
+        "Хамелеон"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-05",
+      "question": "В каком мультсериале путешествуют учёный и его внук Морти?",
+      "correct_answer": "Рик и Морти",
+      "incorrect_answers": [
+        "Футурама",
+        "Инопланетная суперсемейка",
+        "Арчер"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-06",
+      "question": "В какой тюрьме происходит действие «Оранжевый — хит сезона»?",
+      "correct_answer": "Личфилд",
+      "incorrect_answers": [
+        "Фокс-Ривер",
+        "Шоушенк",
+        "Освальд"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-07",
+      "question": "Кто сыграл Шерлока Холмса в сериале BBC «Шерлок»?",
+      "correct_answer": "Бенедикт Камбербэтч",
+      "incorrect_answers": [
+        "Мартин Фриман",
+        "Том Хиддлстон",
+        "Руперт Грейвз"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-08",
+      "question": "В каком скандинавском политическом сериале главная героиня Биргитте Нюборг?",
+      "correct_answer": "Правительство",
+      "incorrect_answers": [
+        "Убийство",
+        "Оккупированные",
+        "Мост"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-09",
+      "question": "На каком канале впервые вышли «Сумеречная зона»?",
+      "correct_answer": "CBS",
+      "incorrect_answers": [
+        "NBC",
+        "ABC",
+        "Fox"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-medium-10",
+      "question": "В каком сериале борются за Железный трон Вестероса?",
+      "correct_answer": "Игра престолов",
+      "incorrect_answers": [
+        "Последнее королевство",
+        "Мерлин",
+        "Камелот"
+      ],
+      "difficulty": "medium",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-01",
+      "question": "Кто придумал «Сумеречную зону»?",
+      "correct_answer": "Род Серлинг",
+      "incorrect_answers": [
+        "Альфред Хичкок",
+        "Рэй Брэдбери",
+        "Джин Родденберри"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-02",
+      "question": "Кто создал «Звёздный путь»?",
+      "correct_answer": "Джин Родденберри",
+      "incorrect_answers": [
+        "Джордж Лукас",
+        "Род Серлинг",
+        "Ирвин Аллен"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-03",
+      "question": "Чья смерть открывает сериал «Твин Пикс»?",
+      "correct_answer": "Лоры Палмер",
+      "incorrect_answers": [
+        "Одри Хорн",
+        "Донны Хэйворд",
+        "Джози Пэккард"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-04",
+      "question": "Под каким номером известен герой сериала «Заключённый»?",
+      "correct_answer": "Номер шесть",
+      "incorrect_answers": [
+        "Номер один",
+        "Номер два",
+        "Номер семь"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-05",
+      "question": "Какой сериал BBC о путешественнике во времени начался в 1963 году?",
+      "correct_answer": "Доктор Кто",
+      "incorrect_answers": [
+        "Семёрка Блейка",
+        "Красный карлик",
+        "Сапфир и Сталь"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-06",
+      "question": "В каком аниме охотник за головами — Спайк Шпигель?",
+      "correct_answer": "Ковбой Бибоп",
+      "incorrect_answers": [
+        "Триган",
+        "Самурай Чамплу",
+        "Звезда вне закона"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-07",
+      "question": "В каком городе происходит действие «Прослушки»?",
+      "correct_answer": "В Балтиморе",
+      "incorrect_answers": [
+        "В Филадельфии",
+        "В Детройте",
+        "В Чикаго"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-08",
+      "question": "Какой ситком закончился серией под названием «Последняя»?",
+      "correct_answer": "Друзья",
+      "incorrect_answers": [
+        "Сайнфелд",
+        "Весёлая компания",
+        "Фрейзер"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-09",
+      "question": "Кто сыграл помятого детектива Коломбо?",
+      "correct_answer": "Питер Фальк",
+      "incorrect_answers": [
+        "Телли Савалас",
+        "Деннис Уивер",
+        "Рэймонд Барр"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "tv-hard-10",
+      "question": "В каком кукольном сериале действовали экипажи «Тандербёрд» с первого по пятый?",
+      "correct_answer": "Предвестники бури",
+      "incorrect_answers": [
+        "Стингрей",
+        "Капитан Скарлет",
+        "Джо 90"
+      ],
+      "difficulty": "hard",
+      "category": 14
+    },
+    {
+      "id": "games-easy-01",
+      "question": "Какой водопроводчик спасает принцессу Персик?",
+      "correct_answer": "Марио",
+      "incorrect_answers": [
+        "Луиджи",
+        "Линк",
+        "Соник"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-02",
+      "question": "Какой синий ёж знаменит своей скоростью?",
+      "correct_answer": "Соник",
+      "incorrect_answers": [
+        "Наклз",
+        "Тейлз",
+        "Шэдоу"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-03",
+      "question": "Какая игра построена на падающих фигурах, из которых собирают ряды?",
+      "correct_answer": "Тетрис",
+      "incorrect_answers": [
+        "Пакман",
+        "Змейка",
+        "Понг"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-04",
+      "question": "Какая компания выпускает PlayStation?",
+      "correct_answer": "Sony",
+      "incorrect_answers": [
+        "Microsoft",
+        "Nintendo",
+        "Sega"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-05",
+      "question": "Какое существо стало символом «Покемонов»?",
+      "correct_answer": "Пикачу",
+      "incorrect_answers": [
+        "Чаризард",
+        "Бульбазавр",
+        "Мяут"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-06",
+      "question": "В какой игре добывают ресурсы и строят из кубических блоков?",
+      "correct_answer": "Minecraft",
+      "incorrect_answers": [
+        "Roblox",
+        "Terraria",
+        "Fortnite"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-07",
+      "question": "Как зовут героя The Legend of Zelda?",
+      "correct_answer": "Линк",
+      "incorrect_answers": [
+        "Зельда",
+        "Ганон",
+        "Нави"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-08",
+      "question": "Какую консоль выпускает Nintendo?",
+      "correct_answer": "Switch",
+      "incorrect_answers": [
+        "Xbox",
+        "PlayStation",
+        "Steam Deck"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-09",
+      "question": "За кем гоняется Пакман по лабиринту, съев большую точку?",
+      "correct_answer": "За привидениями",
+      "incorrect_answers": [
+        "За вишнями",
+        "За ключами",
+        "За колокольчиками"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-easy-10",
+      "question": "Какому виду спорта посвящена игра FIFA?",
+      "correct_answer": "Футболу",
+      "incorrect_answers": [
+        "Баскетболу",
+        "Теннису",
+        "Хоккею"
+      ],
+      "difficulty": "easy",
+      "category": 15
+    },
+    {
+      "id": "games-medium-01",
+      "question": "В каком году появился «Тетрис»?",
+      "correct_answer": "В 1984",
+      "incorrect_answers": [
+        "В 1978",
+        "В 1989",
+        "В 1991"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-02",
+      "question": "Кто придумал «Тетрис»?",
+      "correct_answer": "Алексей Пажитнов",
+      "incorrect_answers": [
+        "Сигэру Миямото",
+        "Хидэо Кодзима",
+        "Гейб Ньюэлл"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-03",
+      "question": "Какая студия разработала Half-Life?",
+      "correct_answer": "Valve",
+      "incorrect_answers": [
+        "id Software",
+        "Blizzard",
+        "Bethesda"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-04",
+      "question": "В какой провинции происходит действие The Elder Scrolls V?",
+      "correct_answer": "В Скайриме",
+      "incorrect_answers": [
+        "В Сиродиле",
+        "В Морровинде",
+        "В Хай Роке"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-05",
+      "question": "В какой серии игр действует солдат по прозвищу Мастер Чиф?",
+      "correct_answer": "Halo",
+      "incorrect_answers": [
+        "Gears of War",
+        "Doom",
+        "Destiny"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-06",
+      "question": "Какая студия сделала «Ведьмак 3»?",
+      "correct_answer": "CD Projekt Red",
+      "incorrect_answers": [
+        "Bethesda",
+        "BioWare",
+        "Ubisoft"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-07",
+      "question": "Что означает сокращение RPG в играх?",
+      "correct_answer": "Ролевая игра",
+      "incorrect_answers": [
+        "Быстрый генератор картинки",
+        "Случайная игровая сетка",
+        "Группа рейтинговых игроков"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-08",
+      "question": "Какой шутер id Software 1993 года задал жанр от первого лица?",
+      "correct_answer": "Doom",
+      "incorrect_answers": [
+        "Quake",
+        "Duke Nukem 3D",
+        "Unreal"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-09",
+      "question": "Действие какой игры происходит в подводном городе Восторг?",
+      "correct_answer": "BioShock",
+      "incorrect_answers": [
+        "Fallout",
+        "Dishonored",
+        "Prey"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-medium-10",
+      "question": "Действие какой серии игр происходит в Грибном королевстве?",
+      "correct_answer": "Super Mario",
+      "incorrect_answers": [
+        "Donkey Kong",
+        "Kirby",
+        "Metroid"
+      ],
+      "difficulty": "medium",
+      "category": 15
+    },
+    {
+      "id": "games-hard-01",
+      "question": "Какая компания выпустила консоль Dreamcast?",
+      "correct_answer": "Sega",
+      "incorrect_answers": [
+        "Sony",
+        "Nintendo",
+        "Atari"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-02",
+      "question": "Какая аркадная игра стала первым большим коммерческим успехом?",
+      "correct_answer": "Pong",
+      "incorrect_answers": [
+        "Space Invaders",
+        "Asteroids",
+        "Computer Space"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-03",
+      "question": "Кто придумал The Legend of Zelda?",
+      "correct_answer": "Сигэру Миямото",
+      "incorrect_answers": [
+        "Сатоси Тадзири",
+        "Хидэо Кодзима",
+        "Масахиро Сакураи"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-04",
+      "question": "Как зовут искусственный интеллект в игре Portal?",
+      "correct_answer": "ГЛаДОС",
+      "incorrect_answers": [
+        "ШОДАН",
+        "Кортана",
+        "АМ"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-05",
+      "question": "Кто главный герой Half-Life?",
+      "correct_answer": "Гордон Фримен",
+      "incorrect_answers": [
+        "Джей Си Дентон",
+        "Адам Дженсен",
+        "Аликс Вэнс"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-06",
+      "question": "В какой стране разработали Angry Birds?",
+      "correct_answer": "В Финляндии",
+      "incorrect_answers": [
+        "В Швеции",
+        "В Дании",
+        "В Норвегии"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-07",
+      "question": "Что означает аббревиатура NPC?",
+      "correct_answer": "Неигровой персонаж",
+      "incorrect_answers": [
+        "Новый класс игрока",
+        "Сетевая игровая консоль",
+        "Системное ядро процесса"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-08",
+      "question": "Что служит валютой в Dark Souls?",
+      "correct_answer": "Души",
+      "incorrect_answers": [
+        "Руны",
+        "Отголоски крови",
+        "Золотые монеты"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-09",
+      "question": "В какой серии файтингов Рю применяет «хадукен»?",
+      "correct_answer": "Street Fighter",
+      "incorrect_answers": [
+        "Tekken",
+        "Mortal Kombat",
+        "Virtua Fighter"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "games-hard-10",
+      "question": "Какой движок создавался для Unreal Tournament?",
+      "correct_answer": "Unreal Engine",
+      "incorrect_answers": [
+        "Source",
+        "id Tech",
+        "CryEngine"
+      ],
+      "difficulty": "hard",
+      "category": 15
+    },
+    {
+      "id": "sci-easy-01",
+      "question": "Какая планета ближе всех к Солнцу?",
+      "correct_answer": "Меркурий",
+      "incorrect_answers": [
+        "Венера",
+        "Земля",
+        "Марс"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-02",
+      "question": "Какой газ нужен человеку для дыхания?",
+      "correct_answer": "Кислород",
+      "incorrect_answers": [
+        "Азот",
+        "Углекислый газ",
+        "Гелий"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-03",
+      "question": "Какая планета Солнечной системы самая большая?",
+      "correct_answer": "Юпитер",
+      "incorrect_answers": [
+        "Сатурн",
+        "Нептун",
+        "Уран"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-04",
+      "question": "Какая сила притягивает предметы к Земле?",
+      "correct_answer": "Гравитация",
+      "incorrect_answers": [
+        "Магнетизм",
+        "Трение",
+        "Инерция"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-05",
+      "question": "Какой орган перекачивает кровь по телу?",
+      "correct_answer": "Сердце",
+      "incorrect_answers": [
+        "Печень",
+        "Лёгкие",
+        "Почка"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-06",
+      "question": "Как называется центр атома?",
+      "correct_answer": "Ядро",
+      "incorrect_answers": [
+        "Электрон",
+        "Орбита",
+        "Оболочка"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-07",
+      "question": "Какая звезда ближе всех к Земле?",
+      "correct_answer": "Солнце",
+      "incorrect_answers": [
+        "Проксима Центавра",
+        "Сириус",
+        "Вега"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-08",
+      "question": "Какой газ растения берут из воздуха, чтобы производить пищу?",
+      "correct_answer": "Углекислый газ",
+      "incorrect_answers": [
+        "Кислород",
+        "Азот",
+        "Водород"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-09",
+      "question": "Какое состояние вещества сохраняет и форму, и объём?",
+      "correct_answer": "Твёрдое",
+      "incorrect_answers": [
+        "Жидкое",
+        "Газообразное",
+        "Плазма"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-easy-10",
+      "question": "При какой температуре по Цельсию вода кипит на уровне моря?",
+      "correct_answer": "100 градусов",
+      "incorrect_answers": [
+        "90 градусов",
+        "120 градусов",
+        "80 градусов"
+      ],
+      "difficulty": "easy",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-01",
+      "question": "Какой элемент обозначается символом Fe?",
+      "correct_answer": "Железо",
+      "incorrect_answers": [
+        "Фтор",
+        "Франций",
+        "Свинец"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-02",
+      "question": "Какого газа больше всего в атмосфере Земли?",
+      "correct_answer": "Азота",
+      "incorrect_answers": [
+        "Кислорода",
+        "Аргона",
+        "Углекислого газа"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-03",
+      "question": "Сколько хромосом в обычной клетке человека?",
+      "correct_answer": "46",
+      "incorrect_answers": [
+        "23",
+        "44",
+        "48"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-04",
+      "question": "Какова примерно скорость света в вакууме?",
+      "correct_answer": "300 тысяч километров в секунду",
+      "incorrect_answers": [
+        "30 тысяч километров в секунду",
+        "3 миллиона километров в секунду",
+        "150 тысяч километров в секунду"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-05",
+      "question": "У какой планеты самая заметная система колец?",
+      "correct_answer": "У Сатурна",
+      "incorrect_answers": [
+        "У Юпитера",
+        "У Урана",
+        "У Нептуна"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-06",
+      "question": "Каким видом энергии обладает движущееся тело?",
+      "correct_answer": "Кинетической",
+      "incorrect_answers": [
+        "Потенциальной",
+        "Тепловой",
+        "Химической"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-07",
+      "question": "Кто предложил общую теорию относительности?",
+      "correct_answer": "Альберт Эйнштейн",
+      "incorrect_answers": [
+        "Исаак Ньютон",
+        "Нильс Бор",
+        "Макс Планк"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-08",
+      "question": "Какой природный минерал самый твёрдый?",
+      "correct_answer": "Алмаз",
+      "incorrect_answers": [
+        "Кварц",
+        "Корунд",
+        "Топаз"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-09",
+      "question": "Какие клетки крови переносят кислород?",
+      "correct_answer": "Эритроциты",
+      "incorrect_answers": [
+        "Лейкоциты",
+        "Тромбоциты",
+        "Плазматические клетки"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-medium-10",
+      "question": "С помощью какого процесса растения превращают свет в энергию?",
+      "correct_answer": "Фотосинтеза",
+      "incorrect_answers": [
+        "Дыхания",
+        "Транспирации",
+        "Брожения"
+      ],
+      "difficulty": "medium",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-01",
+      "question": "Какая единица СИ измеряет электрическое сопротивление?",
+      "correct_answer": "Ом",
+      "incorrect_answers": [
+        "Вольт",
+        "Ампер",
+        "Фарад"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-02",
+      "question": "Какая частица несёт отрицательный электрический заряд?",
+      "correct_answer": "Электрон",
+      "incorrect_answers": [
+        "Протон",
+        "Нейтрон",
+        "Фотон"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-03",
+      "question": "Какой элемент самый лёгкий?",
+      "correct_answer": "Водород",
+      "incorrect_answers": [
+        "Гелий",
+        "Литий",
+        "Углерод"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-04",
+      "question": "Как называют животных, поддерживающих постоянную температуру тела?",
+      "correct_answer": "Теплокровными",
+      "incorrect_answers": [
+        "Холоднокровными",
+        "Автотрофами",
+        "Детритофагами"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-05",
+      "question": "Какой закон связывает обратной зависимостью давление и объём при постоянной температуре?",
+      "correct_answer": "Закон Бойля",
+      "incorrect_answers": [
+        "Закон Шарля",
+        "Закон Авогадро",
+        "Закон Дальтона"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-06",
+      "question": "Что измеряет период полураспада?",
+      "correct_answer": "Скорость радиоактивного распада",
+      "incorrect_answers": [
+        "Прочность химической связи",
+        "Скорость теплопроводности",
+        "Угол дифракции света"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-07",
+      "question": "Какую органеллу называют энергетической станцией клетки?",
+      "correct_answer": "Митохондрию",
+      "incorrect_answers": [
+        "Рибосому",
+        "Ядро",
+        "Аппарат Гольджи"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-08",
+      "question": "Кто сформулировал периодический закон химических элементов?",
+      "correct_answer": "Дмитрий Менделеев",
+      "incorrect_answers": [
+        "Антуан Лавуазье",
+        "Джон Дальтон",
+        "Нильс Бор"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-09",
+      "question": "Как называется переход твёрдого вещества сразу в газ?",
+      "correct_answer": "Возгонка",
+      "incorrect_answers": [
+        "Конденсация",
+        "Испарение",
+        "Десублимация"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "sci-hard-10",
+      "question": "Чему примерно равно число Авогадро?",
+      "correct_answer": "Шесть на десять в двадцать третьей",
+      "incorrect_answers": [
+        "Шесть на десять в двенадцатой",
+        "Три на десять в восьмой",
+        "Девять на десять в шестнадцатой"
+      ],
+      "difficulty": "hard",
+      "category": 17
+    },
+    {
+      "id": "comp-easy-01",
+      "question": "Что означает сокращение CPU?",
+      "correct_answer": "Центральный процессор",
+      "incorrect_answers": [
+        "Блок питания компьютера",
+        "Центральная программная утилита",
+        "Ядро протокольного узла"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-02",
+      "question": "Какая компания создала Windows?",
+      "correct_answer": "Microsoft",
+      "incorrect_answers": [
+        "Apple",
+        "Google",
+        "IBM"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-03",
+      "question": "С помощью какого устройства набирают текст?",
+      "correct_answer": "Клавиатуры",
+      "incorrect_answers": [
+        "Мыши",
+        "Монитора",
+        "Принтера"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-04",
+      "question": "Что означает www?",
+      "correct_answer": "Всемирная паутина",
+      "incorrect_answers": [
+        "Широкий мировой канал",
+        "Рабочая веб-сеть",
+        "Мировой веб-провод"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-05",
+      "question": "Какая компания выпускает iPhone?",
+      "correct_answer": "Apple",
+      "incorrect_answers": [
+        "Samsung",
+        "Nokia",
+        "Sony"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-06",
+      "question": "Какой компонент хранит данные даже при выключенном компьютере?",
+      "correct_answer": "Жёсткий диск",
+      "incorrect_answers": [
+        "Оперативная память",
+        "Процессор",
+        "Видеокарта"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-07",
+      "question": "Какой символ обязательно есть в адресе электронной почты?",
+      "correct_answer": "Собака",
+      "incorrect_answers": [
+        "Решётка",
+        "Доллар",
+        "Амперсанд"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-08",
+      "question": "Какая операционная система чаще всего стоит на смартфонах?",
+      "correct_answer": "Android",
+      "incorrect_answers": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-09",
+      "question": "Что означает USB?",
+      "correct_answer": "Универсальная последовательная шина",
+      "incorrect_answers": [
+        "Единая система резервных копий",
+        "Универсальный накопитель",
+        "Пользовательский сервисный мост"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-easy-10",
+      "question": "Как называется программа, защищающая компьютер от вредоносных программ?",
+      "correct_answer": "Антивирус",
+      "incorrect_answers": [
+        "Браузер",
+        "Компилятор",
+        "Драйвер"
+      ],
+      "difficulty": "easy",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-01",
+      "question": "Что означает HTML?",
+      "correct_answer": "Язык гипертекстовой разметки",
+      "incorrect_answers": [
+        "Язык быстрой передачи данных",
+        "Язык домашней разметки",
+        "Язык гиперссылок"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-02",
+      "question": "Кто создал ядро Linux?",
+      "correct_answer": "Линус Торвальдс",
+      "incorrect_answers": [
+        "Ричард Столлман",
+        "Кен Томпсон",
+        "Деннис Ритчи"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-03",
+      "question": "Сколько бит в одном байте?",
+      "correct_answer": "Восемь",
+      "incorrect_answers": [
+        "Четыре",
+        "Шестнадцать",
+        "Десять"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-04",
+      "question": "Что означает RAM?",
+      "correct_answer": "Память с произвольным доступом",
+      "incorrect_answers": [
+        "Быстрый архивный модуль",
+        "Память для чтения",
+        "Машина удалённого доступа"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-05",
+      "question": "Какой протокол защищает трафик между браузером и сайтом?",
+      "correct_answer": "HTTPS",
+      "incorrect_answers": [
+        "FTP",
+        "SMTP",
+        "Telnet"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-06",
+      "question": "На каком языке сегодня пишут приложения для iOS?",
+      "correct_answer": "На Swift",
+      "incorrect_answers": [
+        "На Java",
+        "На Kotlin",
+        "На Ruby"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-07",
+      "question": "Какому десятичному числу равно двоичное 1010?",
+      "correct_answer": "Десяти",
+      "incorrect_answers": [
+        "Восьми",
+        "Двенадцати",
+        "Шести"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-08",
+      "question": "Какой компании принадлежит Android?",
+      "correct_answer": "Google",
+      "incorrect_answers": [
+        "Apple",
+        "Samsung",
+        "Microsoft"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-09",
+      "question": "Что означает IP в термине «IP-адрес»?",
+      "correct_answer": "Интернет-протокол",
+      "incorrect_answers": [
+        "Внутренний порт",
+        "Индексированный путь",
+        "Точка интерфейса"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-medium-10",
+      "question": "Какая единица объёма данных самая большая?",
+      "correct_answer": "Терабайт",
+      "incorrect_answers": [
+        "Гигабайт",
+        "Мегабайт",
+        "Килобайт"
+      ],
+      "difficulty": "medium",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-01",
+      "question": "Кого считают первым программистом?",
+      "correct_answer": "Аду Лавлейс",
+      "incorrect_answers": [
+        "Грейс Хоппер",
+        "Алана Тьюринга",
+        "Чарльза Бэббиджа"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-02",
+      "question": "Что означает SQL?",
+      "correct_answer": "Язык структурированных запросов",
+      "incorrect_answers": [
+        "Логика простой очереди",
+        "Слой контроля качества",
+        "Язык системных квот"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-03",
+      "question": "Какая структура данных работает по принципу «последним пришёл — первым ушёл»?",
+      "correct_answer": "Стек",
+      "incorrect_answers": [
+        "Очередь",
+        "Дерево",
+        "Граф"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-04",
+      "question": "В каком году отправили первое электронное письмо?",
+      "correct_answer": "В 1971",
+      "incorrect_answers": [
+        "В 1965",
+        "В 1978",
+        "В 1983"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-05",
+      "question": "Какая компания выпустила первый коммерческий микропроцессор?",
+      "correct_answer": "Intel",
+      "incorrect_answers": [
+        "AMD",
+        "Motorola",
+        "Zilog"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-06",
+      "question": "Что переводит служба DNS?",
+      "correct_answer": "Доменные имена в IP-адреса",
+      "incorrect_answers": [
+        "IP-адреса в MAC-адреса",
+        "Текст в машинный код",
+        "Файлы в сетевые пакеты"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-07",
+      "question": "Какой язык программирования создал Деннис Ритчи?",
+      "correct_answer": "C",
+      "incorrect_answers": [
+        "Pascal",
+        "Fortran",
+        "Lisp"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-08",
+      "question": "Сколько байт в одном кибибайте?",
+      "correct_answer": "1024",
+      "incorrect_answers": [
+        "1000",
+        "512",
+        "2048"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-09",
+      "question": "Какой подход к шифрованию использует открытый и закрытый ключи?",
+      "correct_answer": "Асимметричное шифрование",
+      "incorrect_answers": [
+        "Симметричное шифрование",
+        "Хеширование",
+        "Кодирование"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "comp-hard-10",
+      "question": "Что означает GPU?",
+      "correct_answer": "Графический процессор",
+      "incorrect_answers": [
+        "Универсальный вычислитель",
+        "Блок питания сети",
+        "Модуль глобального протокола"
+      ],
+      "difficulty": "hard",
+      "category": 18
+    },
+    {
+      "id": "sport-easy-01",
+      "question": "Сколько игроков одной команды находится на поле в футболе?",
+      "correct_answer": "Одиннадцать",
+      "incorrect_answers": [
+        "Девять",
+        "Десять",
+        "Двенадцать"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-02",
+      "question": "В каком виде спорта зарабатывают тачдаун?",
+      "correct_answer": "В американском футболе",
+      "incorrect_answers": [
+        "В регби",
+        "В бейсболе",
+        "В хоккее"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-03",
+      "question": "Сколько колец на олимпийском флаге?",
+      "correct_answer": "Пять",
+      "incorrect_answers": [
+        "Четыре",
+        "Шесть",
+        "Семь"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-04",
+      "question": "В каком виде спорта играют ракеткой и воланом?",
+      "correct_answer": "В бадминтоне",
+      "incorrect_answers": [
+        "В теннисе",
+        "В сквоше",
+        "В настольном теннисе"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-05",
+      "question": "Как часто проводятся летние Олимпийские игры?",
+      "correct_answer": "Раз в четыре года",
+      "incorrect_answers": [
+        "Раз в два года",
+        "Раз в три года",
+        "Раз в пять лет"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-06",
+      "question": "Сколько очков даёт штрафной бросок в баскетболе?",
+      "correct_answer": "Одно",
+      "incorrect_answers": [
+        "Два",
+        "Три",
+        "Четыре"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-07",
+      "question": "Какой вид спорта представлен на Уимблдоне?",
+      "correct_answer": "Теннис",
+      "incorrect_answers": [
+        "Гольф",
+        "Крикет",
+        "Поло"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-08",
+      "question": "Сколько игроков одной команды на площадке в волейболе?",
+      "correct_answer": "Шесть",
+      "incorrect_answers": [
+        "Пять",
+        "Семь",
+        "Восемь"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-09",
+      "question": "В каком спорте есть термины «страйк» и «спэр»?",
+      "correct_answer": "В боулинге",
+      "incorrect_answers": [
+        "В бейсболе",
+        "В кёрлинге",
+        "В дартсе"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-easy-10",
+      "question": "К какому виду спорта относится «Тур де Франс»?",
+      "correct_answer": "К велоспорту",
+      "incorrect_answers": [
+        "К бегу",
+        "К гребле",
+        "К автогонкам"
+      ],
+      "difficulty": "easy",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-01",
+      "question": "Сколько игроков одной команды на льду в хоккее, считая вратаря?",
+      "correct_answer": "Шесть",
+      "incorrect_answers": [
+        "Пять",
+        "Семь",
+        "Четыре"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-02",
+      "question": "Какой максимальный брейк в снукере?",
+      "correct_answer": "147",
+      "incorrect_answers": [
+        "140",
+        "155",
+        "180"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-03",
+      "question": "Какова длина марафонской дистанции?",
+      "correct_answer": "42 километра 195 метров",
+      "incorrect_answers": [
+        "40 километров",
+        "45 километров",
+        "50 километров"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-04",
+      "question": "В какой стране зародилось дзюдо?",
+      "correct_answer": "В Японии",
+      "incorrect_answers": [
+        "В Китае",
+        "В Корее",
+        "В Таиланде"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-05",
+      "question": "Сколько лунок проходят в полном раунде гольфа?",
+      "correct_answer": "Восемнадцать",
+      "incorrect_answers": [
+        "Девять",
+        "Двенадцать",
+        "Двадцать одну"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-06",
+      "question": "В каком виде спорта выступают на коне с ручками?",
+      "correct_answer": "В гимнастике",
+      "incorrect_answers": [
+        "В прыжках в воду",
+        "В фехтовании",
+        "В борьбе"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-07",
+      "question": "Какая сборная выиграла больше всего чемпионатов мира по футболу?",
+      "correct_answer": "Бразилия",
+      "incorrect_answers": [
+        "Германия",
+        "Италия",
+        "Аргентина"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-08",
+      "question": "Какая карточка удаляет футболиста с поля?",
+      "correct_answer": "Красная",
+      "incorrect_answers": [
+        "Жёлтая",
+        "Синяя",
+        "Чёрная"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-09",
+      "question": "Как в теннисе называют счёт «ноль»?",
+      "correct_answer": "Лав",
+      "incorrect_answers": [
+        "Нил",
+        "Бланк",
+        "Дак"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-medium-10",
+      "question": "Сколько раундов длится профессиональный бой за титул чемпиона мира по боксу?",
+      "correct_answer": "Двенадцать",
+      "incorrect_answers": [
+        "Десять",
+        "Пятнадцать",
+        "Восемь"
+      ],
+      "difficulty": "medium",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-01",
+      "question": "В каком году прошли первые современные Олимпийские игры?",
+      "correct_answer": "В 1896",
+      "incorrect_answers": [
+        "В 1900",
+        "В 1888",
+        "В 1904"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-02",
+      "question": "Сколько игроков в команде по крикету?",
+      "correct_answer": "Одиннадцать",
+      "incorrect_answers": [
+        "Девять",
+        "Десять",
+        "Двенадцать"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-03",
+      "question": "Как называют три страйка подряд в боулинге?",
+      "correct_answer": "Турция",
+      "incorrect_answers": [
+        "Хет-трик",
+        "Трипл",
+        "Рэк"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-04",
+      "question": "Название какого боевого искусства означает «путь пустой руки»?",
+      "correct_answer": "Каратэ",
+      "incorrect_answers": [
+        "Дзюдо",
+        "Айкидо",
+        "Тхэквондо"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-05",
+      "question": "Каким оружием фехтуют на Олимпийских играх?",
+      "correct_answer": "Рапирой, шпагой и саблей",
+      "incorrect_answers": [
+        "Саблей, рапирой и кинжалом",
+        "Рапирой, мечом и шпагой",
+        "Шпагой, катаной и саблей"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-06",
+      "question": "В каком виде спорта разыгрывают Кубок Райдера?",
+      "correct_answer": "В гольфе",
+      "incorrect_answers": [
+        "В теннисе",
+        "В парусном спорте",
+        "В регби"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-07",
+      "question": "На какой высоте находится баскетбольное кольцо по правилам?",
+      "correct_answer": "3 метра 5 сантиметров",
+      "incorrect_answers": [
+        "2 метра 60 сантиметров",
+        "3 метра 50 сантиметров",
+        "4 метра"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-08",
+      "question": "Какая страна принимала первый чемпионат мира по футболу?",
+      "correct_answer": "Уругвай",
+      "incorrect_answers": [
+        "Бразилия",
+        "Италия",
+        "Франция"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-09",
+      "question": "Каков примерно диаметр баскетбольного кольца?",
+      "correct_answer": "45 сантиметров",
+      "incorrect_answers": [
+        "30 сантиметров",
+        "60 сантиметров",
+        "75 сантиметров"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "sport-hard-10",
+      "question": "Каким стилем начинается комбинированная эстафета в плавании?",
+      "correct_answer": "На спине",
+      "incorrect_answers": [
+        "Вольным стилем",
+        "Баттерфляем",
+        "Брассом"
+      ],
+      "difficulty": "hard",
+      "category": 21
+    },
+    {
+      "id": "geo-easy-01",
+      "question": "Какая столица у Франции?",
+      "correct_answer": "Париж",
+      "incorrect_answers": [
+        "Лион",
+        "Марсель",
+        "Ницца"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-02",
+      "question": "На каком континенте находится пустыня Сахара?",
+      "correct_answer": "В Африке",
+      "incorrect_answers": [
+        "В Азии",
+        "В Австралии",
+        "В Южной Америке"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-03",
+      "question": "Какой океан лежит между Европой и Америкой?",
+      "correct_answer": "Атлантический",
+      "incorrect_answers": [
+        "Тихий",
+        "Индийский",
+        "Северный Ледовитый"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-04",
+      "question": "Какая столица у Японии?",
+      "correct_answer": "Токио",
+      "incorrect_answers": [
+        "Киото",
+        "Осака",
+        "Нагоя"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-05",
+      "question": "Какая страна по форме напоминает сапог?",
+      "correct_answer": "Италия",
+      "incorrect_answers": [
+        "Испания",
+        "Греция",
+        "Португалия"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-06",
+      "question": "У какой страны самая большая площадь?",
+      "correct_answer": "У России",
+      "incorrect_answers": [
+        "У Канады",
+        "У Китая",
+        "У США"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-07",
+      "question": "Какая столица у Великобритании?",
+      "correct_answer": "Лондон",
+      "incorrect_answers": [
+        "Манчестер",
+        "Эдинбург",
+        "Ливерпуль"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-08",
+      "question": "На каком континенте находится Бразилия?",
+      "correct_answer": "В Южной Америке",
+      "incorrect_answers": [
+        "В Северной Америке",
+        "В Африке",
+        "В Австралии"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-09",
+      "question": "Какая гора выше всех над уровнем моря?",
+      "correct_answer": "Эверест",
+      "incorrect_answers": [
+        "К2",
+        "Канченджанга",
+        "Лхоцзе"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-easy-10",
+      "question": "Какая столица у Италии?",
+      "correct_answer": "Рим",
+      "incorrect_answers": [
+        "Милан",
+        "Неаполь",
+        "Турин"
+      ],
+      "difficulty": "easy",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-01",
+      "question": "Какой океан на Земле самый большой?",
+      "correct_answer": "Тихий",
+      "incorrect_answers": [
+        "Атлантический",
+        "Индийский",
+        "Южный"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-02",
+      "question": "Какой крупный водоём знаменит своей солёностью?",
+      "correct_answer": "Мёртвое море",
+      "incorrect_answers": [
+        "Красное море",
+        "Чёрное море",
+        "Каспийское море"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-03",
+      "question": "Какая столица у Австралии?",
+      "correct_answer": "Канберра",
+      "incorrect_answers": [
+        "Сидней",
+        "Мельбурн",
+        "Перт"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-04",
+      "question": "Какая жаркая пустыня в мире самая большая?",
+      "correct_answer": "Сахара",
+      "incorrect_answers": [
+        "Гоби",
+        "Калахари",
+        "Аравийская пустыня"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-05",
+      "question": "По территории какой страны течёт большая часть Амазонки?",
+      "correct_answer": "Бразилии",
+      "incorrect_answers": [
+        "Перу",
+        "Колумбии",
+        "Венесуэлы"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-06",
+      "question": "Какие горы традиционно считают границей Европы и Азии?",
+      "correct_answer": "Урал",
+      "incorrect_answers": [
+        "Альпы",
+        "Кавказ",
+        "Карпаты"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-07",
+      "question": "Какая столица у Канады?",
+      "correct_answer": "Оттава",
+      "incorrect_answers": [
+        "Торонто",
+        "Ванкувер",
+        "Монреаль"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-08",
+      "question": "Какое озеро самое глубокое в мире?",
+      "correct_answer": "Байкал",
+      "incorrect_answers": [
+        "Танганьика",
+        "Верхнее",
+        "Ладожское"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-09",
+      "question": "Какой пролив разделяет Европу и Африку в самом узком месте?",
+      "correct_answer": "Гибралтарский",
+      "incorrect_answers": [
+        "Босфор",
+        "Дарданеллы",
+        "Керченский"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-medium-10",
+      "question": "Сколько часовых поясов охватывает Россия?",
+      "correct_answer": "Одиннадцать",
+      "incorrect_answers": [
+        "Девять",
+        "Двенадцать",
+        "Пятнадцать"
+      ],
+      "difficulty": "medium",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-01",
+      "question": "Какая столица у Монголии?",
+      "correct_answer": "Улан-Батор",
+      "incorrect_answers": [
+        "Астана",
+        "Бишкек",
+        "Ташкент"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-02",
+      "question": "Какое государство самое маленькое по площади?",
+      "correct_answer": "Ватикан",
+      "incorrect_answers": [
+        "Монако",
+        "Науру",
+        "Сан-Марино"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-03",
+      "question": "Какая река протекает через Багдад?",
+      "correct_answer": "Тигр",
+      "incorrect_answers": [
+        "Евфрат",
+        "Иордан",
+        "Оронт"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-04",
+      "question": "Какую африканскую страну обычно называют никогда не бывшей колонией?",
+      "correct_answer": "Эфиопию",
+      "incorrect_answers": [
+        "Кению",
+        "Гану",
+        "Сенегал"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-05",
+      "question": "Какая столица у Бутана?",
+      "correct_answer": "Тхимпху",
+      "incorrect_answers": [
+        "Катманду",
+        "Дакка",
+        "Коломбо"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-06",
+      "question": "Какая параллель проходит на 23 с половиной градусах северной широты?",
+      "correct_answer": "Северный тропик",
+      "incorrect_answers": [
+        "Южный тропик",
+        "Экватор",
+        "Северный полярный круг"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-07",
+      "question": "У каких двух стран самая длинная сухопутная граница?",
+      "correct_answer": "У Канады и США",
+      "incorrect_answers": [
+        "У России и Китая",
+        "У Аргентины и Чили",
+        "У Индии и Китая"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-08",
+      "question": "Озеро Титикака лежит между Перу и какой ещё страной?",
+      "correct_answer": "Боливией",
+      "incorrect_answers": [
+        "Чили",
+        "Эквадором",
+        "Бразилией"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-09",
+      "question": "Какая океанская впадина самая глубокая?",
+      "correct_answer": "Марианская",
+      "incorrect_answers": [
+        "Тонга",
+        "Зондская",
+        "Пуэрто-Рико"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "geo-hard-10",
+      "question": "У какого моря нет берегов, а границами служат океанские течения?",
+      "correct_answer": "У Саргассова",
+      "incorrect_answers": [
+        "У Кораллового",
+        "У Балтийского",
+        "У Берингова"
+      ],
+      "difficulty": "hard",
+      "category": 22
+    },
+    {
+      "id": "hist-easy-01",
+      "question": "В каком году закончилась Вторая мировая война?",
+      "correct_answer": "В 1945",
+      "incorrect_answers": [
+        "В 1939",
+        "В 1918",
+        "В 1950"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-02",
+      "question": "Кто первым ступил на Луну?",
+      "correct_answer": "Нил Армстронг",
+      "incorrect_answers": [
+        "Базз Олдрин",
+        "Майкл Коллинз",
+        "Алан Шепард"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-03",
+      "question": "Какая древняя цивилизация построила пирамиды в Гизе?",
+      "correct_answer": "Египтяне",
+      "incorrect_answers": [
+        "Римляне",
+        "Греки",
+        "Ацтеки"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-04",
+      "question": "Кто первым полетел в космос?",
+      "correct_answer": "Юрий Гагарин",
+      "incorrect_answers": [
+        "Алан Шепард",
+        "Нил Армстронг",
+        "Герман Титов"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-05",
+      "question": "В каком году затонул «Титаник»?",
+      "correct_answer": "В 1912",
+      "incorrect_answers": [
+        "В 1905",
+        "В 1918",
+        "В 1923"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-06",
+      "question": "У какой империи столицей был Рим?",
+      "correct_answer": "У Римской",
+      "incorrect_answers": [
+        "У Персидской",
+        "У Османской",
+        "У Византийской"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-07",
+      "question": "Кто был главным автором Декларации независимости США?",
+      "correct_answer": "Томас Джефферсон",
+      "incorrect_answers": [
+        "Джордж Вашингтон",
+        "Бенджамин Франклин",
+        "Джон Адамс"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-08",
+      "question": "Какая страна подарила США статую Свободы?",
+      "correct_answer": "Франция",
+      "incorrect_answers": [
+        "Великобритания",
+        "Испания",
+        "Италия"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-09",
+      "question": "В каком году началась Первая мировая война?",
+      "correct_answer": "В 1914",
+      "incorrect_answers": [
+        "В 1912",
+        "В 1918",
+        "В 1920"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-easy-10",
+      "question": "Кто возглавил первую экспедицию, обошедшую вокруг света?",
+      "correct_answer": "Фернан Магеллан",
+      "incorrect_answers": [
+        "Васко да Гама",
+        "Христофор Колумб",
+        "Фрэнсис Дрейк"
+      ],
+      "difficulty": "easy",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-01",
+      "question": "Какая битва 1066 года изменила ход английской истории?",
+      "correct_answer": "При Гастингсе",
+      "incorrect_answers": [
+        "При Азенкуре",
+        "При Босворте",
+        "При Ватерлоо"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-02",
+      "question": "Кто был первым римским императором?",
+      "correct_answer": "Август",
+      "incorrect_answers": [
+        "Юлий Цезарь",
+        "Нерон",
+        "Тиберий"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-03",
+      "question": "В каком году пала Берлинская стена?",
+      "correct_answer": "В 1989",
+      "incorrect_answers": [
+        "В 1985",
+        "В 1991",
+        "В 1993"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-04",
+      "question": "Какой договор завершил Первую мировую войну с Германией?",
+      "correct_answer": "Версальский",
+      "incorrect_answers": [
+        "Трианонский",
+        "Утрехтский",
+        "Вестфальский"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-05",
+      "question": "Кто был последним русским царём?",
+      "correct_answer": "Николай II",
+      "incorrect_answers": [
+        "Александр III",
+        "Пётр Первый",
+        "Павел Первый"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-06",
+      "question": "Какая цивилизация построила Мачу-Пикчу?",
+      "correct_answer": "Инки",
+      "incorrect_answers": [
+        "Майя",
+        "Ацтеки",
+        "Ольмеки"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-07",
+      "question": "Какая королева правила Англией во время разгрома Непобедимой армады?",
+      "correct_answer": "Елизавета Первая",
+      "incorrect_answers": [
+        "Виктория",
+        "Мария Первая",
+        "Анна"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-08",
+      "question": "В каком году началась Французская революция?",
+      "correct_answer": "В 1789",
+      "incorrect_answers": [
+        "В 1776",
+        "В 1799",
+        "В 1804"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-09",
+      "question": "Какой страной правил сёгунат Токугава?",
+      "correct_answer": "Японией",
+      "incorrect_answers": [
+        "Китаем",
+        "Кореей",
+        "Вьетнамом"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-medium-10",
+      "question": "Кто руководил Советским Союзом во время Второй мировой войны?",
+      "correct_answer": "Иосиф Сталин",
+      "incorrect_answers": [
+        "Владимир Ленин",
+        "Никита Хрущёв",
+        "Леонид Брежнев"
+      ],
+      "difficulty": "medium",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-01",
+      "question": "Какой год традиционно считают падением Западной Римской империи?",
+      "correct_answer": "476",
+      "incorrect_answers": [
+        "410",
+        "395",
+        "527"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-02",
+      "question": "Какой мир 1648 года завершил Тридцатилетнюю войну?",
+      "correct_answer": "Вестфальский",
+      "incorrect_answers": [
+        "Утрехтский",
+        "Венский конгресс",
+        "Аугсбургский"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-03",
+      "question": "Кто стал первым императором объединённого Китая?",
+      "correct_answer": "Цинь Шихуанди",
+      "incorrect_answers": [
+        "Хубилай",
+        "У-ди",
+        "Сунь Ятсен"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-04",
+      "question": "Какой документ скрепил печатью король Иоанн в 1215 году?",
+      "correct_answer": "Великую хартию вольностей",
+      "incorrect_answers": [
+        "Билль о правах",
+        "Петицию о праве",
+        "Акт об унии"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-05",
+      "question": "Какая битва 1815 года положила конец правлению Наполеона?",
+      "correct_answer": "При Ватерлоо",
+      "incorrect_answers": [
+        "При Аустерлице",
+        "При Бородине",
+        "При Лейпциге"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-06",
+      "question": "Какой империей правил Сулейман Великолепный?",
+      "correct_answer": "Османской",
+      "incorrect_answers": [
+        "Персидской",
+        "Империей Великих Моголов",
+        "Византийской"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-07",
+      "question": "В каком году произошла Октябрьская революция?",
+      "correct_answer": "В 1917",
+      "incorrect_answers": [
+        "В 1905",
+        "В 1918",
+        "В 1921"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-08",
+      "question": "Какой карфагенский полководец перешёл Альпы со слонами?",
+      "correct_answer": "Ганнибал",
+      "incorrect_answers": [
+        "Гасдрубал",
+        "Сципион",
+        "Пирр"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-09",
+      "question": "Какой город вместе с Геркуланумом засыпало извержение Везувия в 79 году?",
+      "correct_answer": "Помпеи",
+      "incorrect_answers": [
+        "Остия",
+        "Капуя",
+        "Неаполис"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "hist-hard-10",
+      "question": "Какая династия построила Запретный город в Пекине?",
+      "correct_answer": "Мин",
+      "incorrect_answers": [
+        "Цин",
+        "Тан",
+        "Сун"
+      ],
+      "difficulty": "hard",
+      "category": 23
+    },
+    {
+      "id": "animal-easy-01",
+      "question": "Сколько ног у паука?",
+      "correct_answer": "Восемь",
+      "incorrect_answers": [
+        "Шесть",
+        "Десять",
+        "Двенадцать"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-02",
+      "question": "Какое сухопутное животное самое большое?",
+      "correct_answer": "Африканский слон",
+      "incorrect_answers": [
+        "Носорог",
+        "Бегемот",
+        "Жираф"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-03",
+      "question": "Какая нелетающая птица живёт в Антарктиде?",
+      "correct_answer": "Пингвин",
+      "incorrect_answers": [
+        "Орёл",
+        "Лебедь",
+        "Аист"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-04",
+      "question": "Что производят пчёлы?",
+      "correct_answer": "Мёд",
+      "incorrect_answers": [
+        "Молоко",
+        "Шёлк",
+        "Сыр"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-05",
+      "question": "Какого зверя называют царём зверей?",
+      "correct_answer": "Льва",
+      "incorrect_answers": [
+        "Тигра",
+        "Медведя",
+        "Волка"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-06",
+      "question": "Сколько горбов у одногорбого верблюда?",
+      "correct_answer": "Один",
+      "incorrect_answers": [
+        "Два",
+        "Три",
+        "Ни одного"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-07",
+      "question": "Как называют детёныша кошки?",
+      "correct_answer": "Котёнок",
+      "incorrect_answers": [
+        "Щенок",
+        "Телёнок",
+        "Медвежонок"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-08",
+      "question": "У какого морского обитателя восемь щупалец?",
+      "correct_answer": "У осьминога",
+      "incorrect_answers": [
+        "У кальмара",
+        "У медузы",
+        "У морской звезды"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-09",
+      "question": "Какое животное бегает быстрее всех по суше?",
+      "correct_answer": "Гепард",
+      "incorrect_answers": [
+        "Лев",
+        "Лошадь",
+        "Грейхаунд"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-easy-10",
+      "question": "Какое животное знаменито тем, что меняет цвет кожи?",
+      "correct_answer": "Хамелеон",
+      "incorrect_answers": [
+        "Игуана",
+        "Геккон",
+        "Черепаха"
+      ],
+      "difficulty": "easy",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-01",
+      "question": "Какое животное на Земле самое большое?",
+      "correct_answer": "Синий кит",
+      "incorrect_answers": [
+        "Африканский слон",
+        "Китовая акула",
+        "Жираф"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-02",
+      "question": "Сколько сердец у осьминога?",
+      "correct_answer": "Три",
+      "incorrect_answers": [
+        "Одно",
+        "Два",
+        "Четыре"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-03",
+      "question": "Какое млекопитающее по-настоящему летает?",
+      "correct_answer": "Летучая мышь",
+      "incorrect_answers": [
+        "Белка-летяга",
+        "Шерстокрыл",
+        "Сахарный поссум"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-04",
+      "question": "Как называется группа львов?",
+      "correct_answer": "Прайд",
+      "incorrect_answers": [
+        "Стая",
+        "Стадо",
+        "Косяк"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-05",
+      "question": "Какая птица в мире самая крупная?",
+      "correct_answer": "Страус",
+      "incorrect_answers": [
+        "Эму",
+        "Кондор",
+        "Альбатрос"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-06",
+      "question": "Сколько примерно длится беременность слонихи?",
+      "correct_answer": "Около 22 месяцев",
+      "incorrect_answers": [
+        "Около 9 месяцев",
+        "Около 12 месяцев",
+        "Около 18 месяцев"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-07",
+      "question": "Какое сухопутное животное обычно называют самым долгоживущим?",
+      "correct_answer": "Гигантскую черепаху",
+      "incorrect_answers": [
+        "Слона",
+        "Крокодила",
+        "Попугая"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-08",
+      "question": "Какое млекопитающее, кроме ехидны, откладывает яйца?",
+      "correct_answer": "Утконос",
+      "incorrect_answers": [
+        "Ленивец",
+        "Броненосец",
+        "Панголин"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-09",
+      "question": "Сколько отделов у желудка коровы?",
+      "correct_answer": "Четыре",
+      "incorrect_answers": [
+        "Один",
+        "Два",
+        "Три"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-medium-10",
+      "question": "Какое насекомое строит гнездо из шестиугольных ячеек?",
+      "correct_answer": "Медоносная пчела",
+      "incorrect_answers": [
+        "Оса",
+        "Муравей",
+        "Термит"
+      ],
+      "difficulty": "medium",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-01",
+      "question": "Как по-английски называют стаю ворон?",
+      "correct_answer": "Murder",
+      "incorrect_answers": [
+        "Flock",
+        "Pack",
+        "Swarm"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-02",
+      "question": "У какого животного отпечатки пальцев почти как у человека?",
+      "correct_answer": "У коалы",
+      "incorrect_answers": [
+        "У шимпанзе",
+        "У гориллы",
+        "У орангутана"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-03",
+      "question": "Какая птица развивает наибольшую скорость в пикировании?",
+      "correct_answer": "Сапсан",
+      "incorrect_answers": [
+        "Беркут",
+        "Стриж",
+        "Фрегат"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-04",
+      "question": "У какого животного самый большой мозг?",
+      "correct_answer": "У кашалота",
+      "incorrect_answers": [
+        "У слона",
+        "У синего кита",
+        "У человека"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-05",
+      "question": "Как называют животных, активных на рассвете и в сумерках?",
+      "correct_answer": "Сумеречными",
+      "incorrect_answers": [
+        "Ночными",
+        "Дневными",
+        "Перелётными"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-06",
+      "question": "Какой вид акул самый крупный?",
+      "correct_answer": "Китовая акула",
+      "incorrect_answers": [
+        "Белая акула",
+        "Гигантская акула",
+        "Тигровая акула"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-07",
+      "question": "Какая птица умеет летать задом наперёд?",
+      "correct_answer": "Колибри",
+      "incorrect_answers": [
+        "Зимородок",
+        "Стриж",
+        "Крапивник"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-08",
+      "question": "Как называют детёныша лебедя?",
+      "correct_answer": "Лебедёнок",
+      "incorrect_answers": [
+        "Гусёнок",
+        "Утёнок",
+        "Индюшонок"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-09",
+      "question": "Какая ядовитая змея в мире самая длинная?",
+      "correct_answer": "Королевская кобра",
+      "incorrect_answers": [
+        "Чёрная мамба",
+        "Тайпан",
+        "Бушмейстер"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    },
+    {
+      "id": "animal-hard-10",
+      "question": "Как называется наука о птицах?",
+      "correct_answer": "Орнитология",
+      "incorrect_answers": [
+        "Энтомология",
+        "Ихтиология",
+        "Герпетология"
+      ],
+      "difficulty": "hard",
+      "category": 27
+    }
+  ]
+}

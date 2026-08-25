@@ -33,19 +33,12 @@ class MenuView: UIView {
     }()
 
     lazy var startButton: UIButton = {
-        let btn = UIButton(type: .system)
-        btn.setTitle(String(localized: "Start Game!"), for: .normal)
+        let btn = GradientButton(type: .system)
+        btn.setTitle(localized("Start Game!"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         btn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        btn.widthAnchor.constraint(equalToConstant: 314).isActive = true
         btn.layer.cornerRadius = 23
-
-        // Добавляем градиент
-        let gradient = UIColor.makeGradientLayer()
-        gradient.frame = CGRect(x: 0, y: 0, width: 314, height: 63)
-        gradient.cornerRadius = 23
-        btn.layer.insertSublayer(gradient, at: 0)
         btn.accessibilityIdentifier = "menu.startButton"
 
         return btn
@@ -53,7 +46,7 @@ class MenuView: UIView {
 
     lazy var settingsButton: UIButton = {
         let setBtn = UIButton(type: .system)
-        setBtn.setTitle(String(localized: "Settings"), for: .normal)
+        setBtn.setTitle(localized("Settings"), for: .normal)
         setBtn.setTitleColor(.black, for: .normal)
         setBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         setBtn.backgroundColor = .menuBtns
@@ -66,7 +59,7 @@ class MenuView: UIView {
 
     lazy var statisticButton: UIButton = {
         let statBtn = UIButton(type: .system)
-        statBtn.setTitle(String(localized: "My Statistics"), for: .normal)
+        statBtn.setTitle(localized("My Statistics"), for: .normal)
         statBtn.setTitleColor(.black, for: .normal)
         statBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
         statBtn.backgroundColor = .menuBtns
@@ -103,6 +96,8 @@ class MenuView: UIView {
         vStack.addArrangedSubview(statisticButton)
 
 
+        let content = makeContentGuide()
+
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: logoView.bottomAnchor, constant: 24),
             titleLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
@@ -120,8 +115,16 @@ class MenuView: UIView {
 
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 56),
-            vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 44),
+            vStack.leadingAnchor.constraint(equalTo: content.leadingAnchor),
+            vStack.trailingAnchor.constraint(equalTo: content.trailingAnchor),
         ])
+    }
+
+    /// Подписи обновляются после смены языка — меню живёт под настройками и не пересоздаётся
+    func applyLocalization() {
+        startButton.setTitle(localized("Start Game!"), for: .normal)
+        settingsButton.setTitle(localized("Settings"), for: .normal)
+        statisticButton.setTitle(localized("My Statistics"), for: .normal)
     }
 
     //MARK: заставка
@@ -163,4 +166,27 @@ class MenuView: UIView {
 
 #Preview {
     MenuView()
+}
+
+/// Кнопка с градиентной заливкой. Слой подгоняется в её собственном layoutSubviews:
+/// снаружи, из layoutSubviews родителя, размеры кнопки ещё не пересчитаны — при повороте
+/// градиент остался бы от прошлой ориентации. Тот же приём, что у GradientView в статистике.
+private final class GradientButton: UIButton {
+
+    private let gradient = UIColor.makeGradientLayer()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.insertSublayer(gradient, at: 0)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradient.frame = bounds
+        gradient.cornerRadius = layer.cornerRadius
+    }
 }

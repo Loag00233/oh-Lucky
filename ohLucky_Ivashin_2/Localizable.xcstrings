@@ -1,432 +1,683 @@
 {
-  "sourceLanguage" : "en",
-  "version" : "1.0",
-  "strings" : {
-    "%lld of %lld correct\nEarned: %@" : {
-      "comment" : "Result screen score summary",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld из %2$lld верно\nЗаработано: %3$@"
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "%lld of %lld correct\nEarned: %@": {
+      "comment": "Result screen score summary",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld of %lld correct\nEarned: %@"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld из %2$lld верно\nЗаработано: %3$@"
           }
         }
       }
     },
-    "accuracy" : {
-      "comment" : "Statistics tile caption",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "точность"
+    "Animals": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Animals"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Животные"
           }
         }
       }
     },
-    "Animals" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Животные"
+    "Avg. answer time": {
+      "comment": "Statistics summary row",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avg. answer time"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Среднее время ответа"
           }
         }
       }
     },
-    "Avg. answer time" : {
-      "comment" : "Statistics summary row",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Среднее время ответа"
+    "Avg. win per game": {
+      "comment": "Statistics summary row",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avg. win per game"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Средний выигрыш за игру"
           }
         }
       }
     },
-    "Avg. win per game" : {
-      "comment" : "Statistics summary row",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Средний выигрыш за игру"
+    "Back": {
+      "comment": "Back button",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Назад"
           }
         }
       }
     },
-    "Back" : {
-      "comment" : "Back button",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Назад"
+    "Back to menu": {
+      "comment": "Result screen button",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back to menu"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "В меню"
           }
         }
       }
     },
-    "Back to menu" : {
-      "comment" : "Result screen button",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "В меню"
+    "Bank:": {
+      "comment": "Game screen bank card label",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bank:"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Банк:"
           }
         }
       }
     },
-    "Bank:" : {
-      "comment" : "Game screen bank card label",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Банк:"
+    "Best win": {
+      "comment": "Statistics summary row",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Best win"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Лучший выигрыш"
           }
         }
       }
     },
-    "Best win" : {
-      "comment" : "Statistics summary row",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Лучший выигрыш"
+    "By category": {
+      "comment": "Statistics section header",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "By category"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "По категориям"
           }
         }
       }
     },
-    "By category" : {
-      "comment" : "Statistics section header",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "По категориям"
+    "Choose a category": {
+      "comment": "Category screen title",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a category"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выберите категорию"
           }
         }
       }
     },
-    "Choose a category" : {
-      "comment" : "Category screen title",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите категорию"
+    "Computers": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Computers"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Компьютеры"
           }
         }
       }
     },
-    "Computers" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Компьютеры"
+    "Do you really want to quit?": {
+      "comment": "Quit confirmation alert",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do you really want to quit?"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Точно хотите выйти?"
           }
         }
       }
     },
-    "correct answers" : {
-      "comment" : "Statistics tile caption",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "верных ответов"
+    "Film": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Film"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кино"
           }
         }
       }
     },
-    "Do you really want to quit?" : {
-      "comment" : "Quit confirmation alert",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Точно хотите выйти?"
+    "Game over!": {
+      "comment": "Result screen title",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Game over!"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Игра окончена!"
           }
         }
       }
     },
-    "Film" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Кино"
+    "General Knowledge": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General Knowledge"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Общие знания"
           }
         }
       }
     },
-    "Game over!" : {
-      "comment" : "Result screen title",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Игра окончена!"
+    "Geography": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geography"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "География"
           }
         }
       }
     },
-    "games played" : {
-      "comment" : "Statistics tile caption",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "сыграно игр"
+    "History": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "History"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "История"
           }
         }
       }
     },
-    "General Knowledge" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Общие знания"
+    "Language": {
+      "comment": "Settings section header",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Язык"
           }
         }
       }
     },
-    "Geography" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "География"
+    "Loading questions...": {
+      "comment": "Game screen loading state",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading questions..."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Загружаем вопросы..."
           }
         }
       }
     },
-    "History" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "История"
+    "Music": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Music"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Музыка"
           }
         }
       }
     },
-    "Loading questions..." : {
-      "comment" : "Game screen loading state",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Загружаем вопросы..."
+    "My Statistics": {
+      "comment": "Menu button and statistics screen title",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My Statistics"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Моя статистика"
           }
         }
       }
     },
-    "Music" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Музыка"
+    "New question": {
+      "comment": "Game screen question number placeholder",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New question"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Новый вопрос"
           }
         }
       }
     },
-    "My Statistics" : {
-      "comment" : "Menu button and statistics screen title",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Моя статистика"
+    "Next": {
+      "comment": "Game screen next question button",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Далее"
           }
         }
       }
     },
-    "New question" : {
-      "comment" : "Game screen question number placeholder",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Новый вопрос"
+    "No": {
+      "comment": "Alert cancel action",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нет"
           }
         }
       }
     },
-    "Next" : {
-      "comment" : "Game screen next question button",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Далее"
+    "No connection to the server. Switch to offline mode?": {
+      "comment": "Offline fallback alert",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No connection to the server. Switch to offline mode?"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нет связи с сервером. Переключиться в оффлайн-режим?"
           }
         }
       }
     },
-    "No" : {
-      "comment" : "Alert cancel action",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нет"
+    "Question %lld/%lld:": {
+      "comment": "Game screen question counter",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Question %lld/%lld:"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вопрос %1$lld/%2$lld:"
           }
         }
       }
     },
-    "No connection to the server. Switch to offline mode?" : {
-      "comment" : "Offline fallback alert",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нет связи с сервером. Переключиться в оффлайн-режим?"
+    "Question for:": {
+      "comment": "Game screen bank card label",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Question for:"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вопрос на:"
           }
         }
       }
     },
-    "Question %lld/%lld:" : {
-      "comment" : "Game screen question counter",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вопрос %1$lld/%2$lld:"
+    "Quit": {
+      "comment": "Game screen quit button",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quit"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выйти"
           }
         }
       }
     },
-    "Question for:" : {
-      "comment" : "Game screen bank card label",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вопрос на:"
+    "Science & Nature": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Science & Nature"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Наука и природа"
           }
         }
       }
     },
-    "Quit" : {
-      "comment" : "Game screen quit button",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выйти"
+    "Settings": {
+      "comment": "Menu button",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройки"
           }
         }
       }
     },
-    "Science & Nature" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Наука и природа"
+    "Sports": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sports"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Спорт"
           }
         }
       }
     },
-    "Settings" : {
-      "comment" : "Menu button",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройки"
+    "Start Game!": {
+      "comment": "Menu button",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Game!"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Начать игру!"
           }
         }
       }
     },
-    "Sports" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Спорт"
+    "Television": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Television"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Телевидение"
           }
         }
       }
     },
-    "Start Game!" : {
-      "comment" : "Menu button",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начать игру!"
+    "Total questions": {
+      "comment": "Statistics summary row",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total questions"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Всего вопросов"
           }
         }
       }
     },
-    "Television" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Телевидение"
+    "Total winnings": {
+      "comment": "Statistics summary row",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total winnings"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Всего выиграно"
           }
         }
       }
     },
-    "Total questions" : {
-      "comment" : "Statistics summary row",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Всего вопросов"
+    "Video Games": {
+      "comment": "Quiz category",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video Games"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Видеоигры"
           }
         }
       }
     },
-    "Total winnings" : {
-      "comment" : "Statistics summary row",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Всего выиграно"
+    "Yes": {
+      "comment": "Alert confirm action",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yes"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Да"
           }
         }
       }
     },
-    "Video Games" : {
-      "comment" : "Quiz category",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Видеоигры"
+    "accuracy": {
+      "comment": "Statistics tile caption",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "accuracy"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "точность"
           }
         }
       }
     },
-    "Yes" : {
-      "comment" : "Alert confirm action",
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Да"
+    "correct answers": {
+      "comment": "Statistics tile caption",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "correct answers"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "верных ответов"
+          }
+        }
+      }
+    },
+    "games played": {
+      "comment": "Statistics tile caption",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "games played"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "сыграно игр"
           }
         }
       }

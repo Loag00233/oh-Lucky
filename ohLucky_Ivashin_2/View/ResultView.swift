@@ -9,7 +9,7 @@ class ResultView: UIView {
 
     lazy var titleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = String(localized: "Game over!")
+        lbl.text = localized("Game over!")
         lbl.font = UIFont(name: "Montserrat-Bold", size: 32)
         lbl.textColor = .white
         lbl.textAlignment = .center
@@ -27,7 +27,7 @@ class ResultView: UIView {
 
     lazy var menuButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(String(localized: "Back to menu"), for: .normal)
+        btn.setTitle(localized("Back to menu"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         btn.backgroundColor = .exitBtnC

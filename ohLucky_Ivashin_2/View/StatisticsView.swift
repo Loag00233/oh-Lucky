@@ -14,7 +14,7 @@ final class StatisticsView: UIView {
 
     lazy var backButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(String(localized: "Back"), for: .normal)
+        btn.setTitle(localized("Back"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
         btn.backgroundColor = .exitBtnC
@@ -43,32 +43,32 @@ final class StatisticsView: UIView {
         contentStack.addArrangedSubview(backRow)
         contentStack.setCustomSpacing(20, after: backRow)
 
-        let title = sectionTitle(String(localized: "My Statistics"), size: 26)
+        let title = sectionTitle(localized("My Statistics"), size: 26)
         contentStack.addArrangedSubview(title)
         contentStack.setCustomSpacing(20, after: title)
 
         let tilesRow = UIStackView(arrangedSubviews: [
-            tile(number: "\(stats.gamesPlayed)", caption: String(localized: "games played"), style: .yellow),
-            tile(number: "\(stats.totalCorrect)", caption: String(localized: "correct answers"), style: .yellow)
+            tile(number: "\(stats.gamesPlayed)", caption: localized("games played"), style: .yellow),
+            tile(number: "\(stats.totalCorrect)", caption: localized("correct answers"), style: .yellow)
         ])
         tilesRow.axis = .horizontal
         tilesRow.spacing = 14
         tilesRow.distribution = .fillEqually
         contentStack.addArrangedSubview(tilesRow)
 
-        let accuracyTile = tile(number: "\(stats.overallAccuracyPercent)%", caption: String(localized: "accuracy"), style: .purple)
+        let accuracyTile = tile(number: "\(stats.overallAccuracyPercent)%", caption: localized("accuracy"), style: .purple)
         contentStack.addArrangedSubview(accuracyTile)
         contentStack.setCustomSpacing(20, after: accuracyTile)
 
-        contentStack.addArrangedSubview(summaryRow(title: String(localized: "Total questions"), value: "\(stats.totalAnswered)"))
-        contentStack.addArrangedSubview(summaryRow(title: String(localized: "Total winnings"), value: stats.totalEarned.formattedScore))
-        contentStack.addArrangedSubview(summaryRow(title: String(localized: "Best win"), value: stats.bestWin.formattedScore))
-        contentStack.addArrangedSubview(summaryRow(title: String(localized: "Avg. win per game"), value: stats.averageWinPerGame.formattedScore))
-        let lastSummary = summaryRow(title: String(localized: "Avg. answer time"), value: "—")
+        contentStack.addArrangedSubview(summaryRow(title: localized("Total questions"), value: "\(stats.totalAnswered)"))
+        contentStack.addArrangedSubview(summaryRow(title: localized("Total winnings"), value: stats.totalEarned.formattedScore))
+        contentStack.addArrangedSubview(summaryRow(title: localized("Best win"), value: stats.bestWin.formattedScore))
+        contentStack.addArrangedSubview(summaryRow(title: localized("Avg. win per game"), value: stats.averageWinPerGame.formattedScore))
+        let lastSummary = summaryRow(title: localized("Avg. answer time"), value: "—")
         contentStack.addArrangedSubview(lastSummary)
         contentStack.setCustomSpacing(24, after: lastSummary)
 
-        let categoriesHeader = sectionTitle(String(localized: "By category"), size: 17)
+        let categoriesHeader = sectionTitle(localized("By category"), size: 17)
         contentStack.addArrangedSubview(categoriesHeader)
         contentStack.setCustomSpacing(12, after: categoriesHeader)
 
@@ -196,6 +196,7 @@ final class StatisticsView: UIView {
         scrollView.showsVerticalScrollIndicator = false
         contentStack.axis = .vertical
         contentStack.spacing = 12
+        contentStack.isLayoutMarginsRelativeArrangement = true // отступы задают ширину колонки
 
         addSubview(scrollView)
         scrollView.addSubview(contentStack)
@@ -210,9 +211,17 @@ final class StatisticsView: UIView {
 
             contentStack.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 16),
             contentStack.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -28),
-            contentStack.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor, constant: 24),
-            contentStack.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor, constant: -24)
+            contentStack.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
+            contentStack.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor)
         ])
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        // На широком экране контент собирается в колонку не шире 700pt, на iPhone упирается в 24pt.
+        let side = max(24, (bounds.width - 700) / 2)
+        contentStack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: side, bottom: 0, trailing: side)
     }
 
     private func setupActions() {

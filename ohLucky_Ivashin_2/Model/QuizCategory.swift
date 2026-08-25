@@ -20,17 +20,17 @@ enum QuizCategory: Int, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .generalKnowledge: return String(localized: "General Knowledge")
-        case .film: return String(localized: "Film")
-        case .music: return String(localized: "Music")
-        case .television: return String(localized: "Television")
-        case .videoGames: return String(localized: "Video Games")
-        case .scienceNature: return String(localized: "Science & Nature")
-        case .computers: return String(localized: "Computers")
-        case .sports: return String(localized: "Sports")
-        case .geography: return String(localized: "Geography")
-        case .history: return String(localized: "History")
-        case .animals: return String(localized: "Animals")
+        case .generalKnowledge: return localized("General Knowledge")
+        case .film: return localized("Film")
+        case .music: return localized("Music")
+        case .television: return localized("Television")
+        case .videoGames: return localized("Video Games")
+        case .scienceNature: return localized("Science & Nature")
+        case .computers: return localized("Computers")
+        case .sports: return localized("Sports")
+        case .geography: return localized("Geography")
+        case .history: return localized("History")
+        case .animals: return localized("Animals")
         }
     }
 }

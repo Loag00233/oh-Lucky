@@ -11,7 +11,11 @@
 		EFF1481D9E204A54897920A8 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB3A36CBF14457B97A04DD1 /* ResultViewController.swift */; };
 		FA0DD0013011041500A6298C /* Int + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD0003011041500A6298C /* Int + Ext.swift */; };
 		FA0DD00730110F5500A6298C /* OfflineQuestionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD00630110F5500A6298C /* OfflineQuestionProvider.swift */; };
-		FA0DD00A301111FF00A6298C /* offline_questions.json in Resources */ = {isa = PBXBuildFile; fileRef = FA0DD008301111FF00A6298C /* offline_questions.json */; };
+		FA0DD1263021200000A6298C /* offline_questions_en.json in Resources */ = {isa = PBXBuildFile; fileRef = FA0DD1273021200000A6298C /* offline_questions_en.json */; };
+		FA0DD1283021200000A6298C /* offline_questions_ru.json in Resources */ = {isa = PBXBuildFile; fileRef = FA0DD1293021200000A6298C /* offline_questions_ru.json */; };
+		FA0DD1203021200000A6298C /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD1213021200000A6298C /* AppLanguage.swift */; };
+		FA0DD1223021200000A6298C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD1233021200000A6298C /* SettingsView.swift */; };
+		FA0DD1243021200000A6298C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD1253021200000A6298C /* SettingsViewController.swift */; };
 		FA0DD00C3012948300A6298C /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD00B3012948300A6298C /* QuizCategory.swift */; };
 		FA0DD00E3012949D00A6298C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD00D3012949D00A6298C /* CategoryCell.swift */; };
 		FA0DD010301294AC00A6298C /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD00F301294AC00A6298C /* CategoryViewController.swift */; };
@@ -19,6 +23,7 @@
 		FA0DD04D3012A7B100A6298C /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD04C3012A7B100A6298C /* StatisticsViewController.swift */; };
 		FA0DD04F3012A7C400A6298C /* QuizStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD04E3012A7C400A6298C /* QuizStats.swift */; };
 		FA0DD0513012A7CC00A6298C /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD0503012A7CC00A6298C /* StatisticsView.swift */; };
+		FA0DD1113021100000A6298C /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0DD1103021100000A6298C /* UIView + Ext.swift */; };
 		FA0DD1013020000000A6298C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = FA0DD1003020000000A6298C /* Localizable.xcstrings */; };
 		FA0DD1033020100000A6298C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = FA0DD1023020100000A6298C /* PrivacyInfo.xcprivacy */; };
 		FA87D67B2FEE55C600E6E8A4 /* QuizGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA87D67A2FEE55C600E6E8A4 /* QuizGame.swift */; };
@@ -46,7 +51,11 @@
 		E951B62E2EA502B300526083 /* ohLucky_Ivashin_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ohLucky_Ivashin_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0DD0003011041500A6298C /* Int + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Ext.swift"; sourceTree = "<group>"; };
 		FA0DD00630110F5500A6298C /* OfflineQuestionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineQuestionProvider.swift; sourceTree = "<group>"; };
-		FA0DD008301111FF00A6298C /* offline_questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = offline_questions.json; sourceTree = "<group>"; };
+		FA0DD1273021200000A6298C /* offline_questions_en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = offline_questions_en.json; sourceTree = "<group>"; };
+		FA0DD1293021200000A6298C /* offline_questions_ru.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = offline_questions_ru.json; sourceTree = "<group>"; };
+		FA0DD1213021200000A6298C /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		FA0DD1233021200000A6298C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FA0DD1253021200000A6298C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA0DD00B3012948300A6298C /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
 		FA0DD00D3012949D00A6298C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		FA0DD00F301294AC00A6298C /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +63,7 @@
 		FA0DD04C3012A7B100A6298C /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		FA0DD04E3012A7C400A6298C /* QuizStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStats.swift; sourceTree = "<group>"; };
 		FA0DD0503012A7CC00A6298C /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		FA0DD1103021100000A6298C /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 		FA0DD1003020000000A6298C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		FA0DD1023020100000A6298C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		FA87D67A2FEE55C600E6E8A4 /* QuizGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGame.swift; sourceTree = "<group>"; };
@@ -106,7 +116,8 @@
 		FA0DD009301111FF00A6298C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FA0DD008301111FF00A6298C /* offline_questions.json */,
+				FA0DD1273021200000A6298C /* offline_questions_en.json */,
+				FA0DD1293021200000A6298C /* offline_questions_ru.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -127,6 +138,7 @@
 				FA0DD00F301294AC00A6298C /* CategoryViewController.swift */,
 				FAE0AED92F88D66800235B83 /* GameViewController.swift */,
 				FAE0AEDA2F88D66800235B83 /* MenuController.swift */,
+				FA0DD1253021200000A6298C /* SettingsViewController.swift */,
 				1BB3A36CBF14457B97A04DD1 /* ResultViewController.swift */,
 			);
 			path = Controller;
@@ -137,6 +149,7 @@
 			children = (
 				FA0DD0003011041500A6298C /* Int + Ext.swift */,
 				FAE0AEDC2F88D66800235B83 /* Label + Ext.swift */,
+				FA0DD1103021100000A6298C /* UIView + Ext.swift */,
 				FAE0AEDD2F88D66800235B83 /* UiColor.swift */,
 			);
 			path = Extensions;
@@ -147,6 +160,7 @@
 			children = (
 				FA0DD04E3012A7C400A6298C /* QuizStats.swift */,
 				FA0DD00B3012948300A6298C /* QuizCategory.swift */,
+				FA0DD1213021200000A6298C /* AppLanguage.swift */,
 				FAE0AEDF2F88D66800235B83 /* Question.swift */,
 				FAE0AEFE2F88D94E00235B83 /* NetworkModel.swift */,
 				FA87D67A2FEE55C600E6E8A4 /* QuizGame.swift */,
@@ -172,6 +186,7 @@
 				FA0DD011301294BE00A6298C /* CategoryView.swift */,
 				FAE0AEE52F88D66800235B83 /* GameView.swift */,
 				FAE0AEE62F88D66800235B83 /* MenuView.swift */,
+				FA0DD1233021200000A6298C /* SettingsView.swift */,
 				8AFDC80460A8462296956B6B /* ResultView.swift */,
 			);
 			path = View;
@@ -260,7 +275,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA0DD00A301111FF00A6298C /* offline_questions.json in Resources */,
+				FA0DD1263021200000A6298C /* offline_questions_en.json in Resources */,
+				FA0DD1283021200000A6298C /* offline_questions_ru.json in Resources */,
 				FAE0AEFB2F88D66800235B83 /* Assets.xcassets in Resources */,
 				FA0DD1013020000000A6298C /* Localizable.xcstrings in Resources */,
 				FA0DD1033020100000A6298C /* PrivacyInfo.xcprivacy in Resources */,
@@ -277,6 +293,10 @@
 			files = (
 				FA0DD00C3012948300A6298C /* QuizCategory.swift in Sources */,
 				FA0DD0013011041500A6298C /* Int + Ext.swift in Sources */,
+				FA0DD1113021100000A6298C /* UIView + Ext.swift in Sources */,
+				FA0DD1203021200000A6298C /* AppLanguage.swift in Sources */,
+				FA0DD1223021200000A6298C /* SettingsView.swift in Sources */,
+				FA0DD1243021200000A6298C /* SettingsViewController.swift in Sources */,
 				FAE0AEEE2F88D66800235B83 /* AnswerCell.swift in Sources */,
 				FA0DD04D3012A7B100A6298C /* StatisticsViewController.swift in Sources */,
 				FAE0AEEF2F88D66800235B83 /* GameViewController.swift in Sources */,
@@ -316,11 +336,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3JLVZQ95T8;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Oh, Lucky";
+				INFOPLIST_KEY_CFBundleName = "Oh, Lucky";
 				INFOPLIST_FILE = ohLucky_Ivashin_2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -349,11 +370,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3JLVZQ95T8;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Oh, Lucky";
+				INFOPLIST_KEY_CFBundleName = "Oh, Lucky";
 				INFOPLIST_FILE = ohLucky_Ivashin_2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (

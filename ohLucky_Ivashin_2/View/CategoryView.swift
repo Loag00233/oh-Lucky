@@ -7,12 +7,12 @@ import UIKit
 
 class CategoryView: UIView {
 
-    lazy var titleLabel = UILabel(text: String(localized: "Choose a category"), isBold: false, isLarge: true)
+    lazy var titleLabel = UILabel(text: localized("Choose a category"), isBold: false, isLarge: true)
     lazy var categoriesTableView = UITableView()
 
     lazy var backButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(String(localized: "Back"), for: .normal)
+        btn.setTitle(localized("Back"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
         btn.backgroundColor = .exitBtnC
@@ -55,16 +55,18 @@ class CategoryView: UIView {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         categoriesTableView.translatesAutoresizingMaskIntoConstraints = false
 
+        let content = makeContentGuide()
+
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
+            backButton.leadingAnchor.constraint(equalTo: content.leadingAnchor),
 
             titleLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 24),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             categoriesTableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
-            categoriesTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
-            categoriesTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
+            categoriesTableView.leadingAnchor.constraint(equalTo: content.leadingAnchor),
+            categoriesTableView.trailingAnchor.constraint(equalTo: content.trailingAnchor),
             categoriesTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }

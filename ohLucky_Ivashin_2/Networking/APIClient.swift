@@ -19,7 +19,9 @@ final class APIClient {
     
     func request<T:Decodable>(url: URL) async throws -> T {
         let (data, _) = try await session.data(from: url)
-        print(String(data: data, encoding: .utf8)) // debug 
+        #if DEBUG
+        print(String(data: data, encoding: .utf8) ?? "<не UTF-8>")
+        #endif
 
         return try decoder.decode(T.self, from: data)
     }

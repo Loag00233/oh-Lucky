@@ -21,6 +21,15 @@ class MenuController: UIViewController {
         self.mainView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.mainView.prepareIntro()
         addActions()
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(languageDidChange),
+                                               name: .appLanguageDidChange,
+                                               object: nil)
+    }
+
+    @objc private func languageDidChange() {
+        mainView.applyLocalization()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +58,15 @@ class MenuController: UIViewController {
         }
 
         mainView.statisticButton.addAction(statisticAction, for: .touchUpInside)
+
+        let settingsAction = UIAction {
+            [weak self] _ in
+            let vc = SettingsViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self?.present(vc, animated: true)
+        }
+
+        mainView.settingsButton.addAction(settingsAction, for: .touchUpInside)
     }
 }
 

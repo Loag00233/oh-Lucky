@@ -26,19 +26,19 @@ class GameView: UIView {
         return money
     }()
 
-    lazy var bankLabel = UILabel(text: String(localized: "Bank:"))
+    lazy var bankLabel = UILabel(text: localized("Bank:"))
     lazy var bankMoneyLabel = UILabel(text: "0")
-    lazy var bankSubLabel = UILabel(text: String(localized: "Question for:"))
+    lazy var bankSubLabel = UILabel(text: localized("Question for:"))
     lazy var bankQuestionSumSubLabel = UILabel(text: "0")
 
-    lazy var questionNumberLabel = UILabel(text: String(localized: "New question"), isBold: true, isLarge: true, alignment: .left)
+    lazy var questionNumberLabel = UILabel(text: localized("New question"), isBold: true, isLarge: true, alignment: .left)
     lazy var questionTextLabel = UILabel(text: "Text of the question that the player must answer, preferably correctly", isBold: true, isLarge: true, alignment: .left)
     
     lazy var nextButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.isEnabled = false
         btn.setTitleColor(.gray, for: .disabled)
-        btn.setTitle(String(localized: "Next"), for: .normal)
+        btn.setTitle(localized("Next"), for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
         btn.backgroundColor = .menuBtns
@@ -50,7 +50,7 @@ class GameView: UIView {
 
     lazy var quitButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle(String(localized: "Quit"), for: .normal)
+        btn.setTitle(localized("Quit"), for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
         btn.backgroundColor = .exitBtnC
@@ -72,7 +72,7 @@ class GameView: UIView {
         return indicator
     }()
 
-    lazy var loadingLabel = UILabel(text: String(localized: "Loading questions..."), isBold: true, alignment: .center)
+    lazy var loadingLabel = UILabel(text: localized("Loading questions..."), isBold: true, alignment: .center)
 
     lazy var progressBarBorderView: UIView = {
         let view = UIView()
@@ -168,6 +168,8 @@ class GameView: UIView {
 
         progressFillWidthConstraint = progressBarFillView.widthAnchor.constraint(equalToConstant: 0)
 
+        let content = makeContentGuide()
+
         NSLayoutConstraint.activate([
             nextButton.heightAnchor.constraint(equalToConstant: 63),
             quitButton.heightAnchor.constraint(equalToConstant: 32),
@@ -176,8 +178,8 @@ class GameView: UIView {
             progressFillWidthConstraint,
 
             rectangleBankView.topAnchor.constraint(equalTo: topAnchor, constant: 70),
-            rectangleBankView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
-            rectangleBankView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
+            rectangleBankView.leadingAnchor.constraint(equalTo: content.leadingAnchor),
+            rectangleBankView.trailingAnchor.constraint(equalTo: content.trailingAnchor),
             rectangleBankView.heightAnchor.constraint(equalToConstant: 125),
         
             moneyPicView.trailingAnchor.constraint(equalTo: rectangleBankView.trailingAnchor, constant:  -10),
@@ -202,31 +204,31 @@ class GameView: UIView {
         
             
             progressBarBorderView.topAnchor.constraint(equalTo: rectangleBankView.bottomAnchor, constant: 20),
-            progressBarBorderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
-            progressBarBorderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
+            progressBarBorderView.leadingAnchor.constraint(equalTo: content.leadingAnchor),
+            progressBarBorderView.trailingAnchor.constraint(equalTo: content.trailingAnchor),
             
             progressBarFillView.topAnchor.constraint(equalTo: progressBarBorderView.topAnchor, constant: 2),
             progressBarFillView.leadingAnchor.constraint(equalTo: progressBarBorderView.leadingAnchor, constant: 2),
             progressBarFillView.bottomAnchor.constraint(equalTo:
               progressBarBorderView.bottomAnchor, constant: -2),
             
-            questionNumberLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
+            questionNumberLabel.leadingAnchor.constraint(equalTo: content.leadingAnchor),
             questionNumberLabel.topAnchor.constraint(equalTo: progressBarBorderView.bottomAnchor, constant: 20),
         
             questionTextLabel.topAnchor.constraint(equalTo: questionNumberLabel.bottomAnchor, constant: 5),
-            questionTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 33),
-            questionTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -10),
+            questionTextLabel.leadingAnchor.constraint(equalTo: content.leadingAnchor),
+            questionTextLabel.trailingAnchor.constraint(lessThanOrEqualTo: content.trailingAnchor),
             
         
             answersTableView.topAnchor.constraint(equalTo: questionTextLabel.bottomAnchor, constant: 20),
-            answersTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
-            answersTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
+            answersTableView.leadingAnchor.constraint(equalTo: content.leadingAnchor),
+            answersTableView.trailingAnchor.constraint(equalTo: content.trailingAnchor),
             answersTableView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
         
         
             nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -56),
-            nextButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34),
-            nextButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34),
+            nextButton.leadingAnchor.constraint(equalTo: content.leadingAnchor),
+            nextButton.trailingAnchor.constraint(equalTo: content.trailingAnchor),
 
             loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),

@@ -28,7 +28,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = resultView
-        resultView.scoreLabel.text = String(localized: "\(correctAnswersCount) of \(totalQuestionsCount) correct\nEarned: \(earnedAmountText)")
+        resultView.scoreLabel.text = localized("\(correctAnswersCount) of \(totalQuestionsCount) correct\nEarned: \(earnedAmountText)")
         setupActions()
     }
 

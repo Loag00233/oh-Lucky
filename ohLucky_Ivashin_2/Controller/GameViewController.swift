@@ -47,7 +47,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         loadQuestions()
         setupTableView()
         setupAction()
@@ -57,7 +57,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
         isAnswerLocked = false
         gameView.setLoading(false)
         gameView.updateProgress(questionNumber: game.currentQuestionNumber, total: game.totalQuestionsCount)
-        gameView.questionNumberLabel.text = String(localized: "Question \(game.currentQuestionNumber)/\(game.totalQuestionsCount):")
+        gameView.questionNumberLabel.text = localized("Question \(game.currentQuestionNumber)/\(game.totalQuestionsCount):")
         gameView.questionTextLabel.text = game.currentQuestion.question
         gameView.bankMoneyLabel.text = game.bankedAmount.formattedScore
         gameView.bankQuestionSumSubLabel.text = game.currentQuestionSum.formattedScore
@@ -79,9 +79,10 @@ class GameViewController: UIViewController, UITableViewDelegate {
         }
     }
 
-    /// Пытается получить вопросы с сервера; при ошибке спрашивает пользователя про оффлайн-режим
+    /// Пытается получить вопросы с сервера; при ошибке спрашивает пользователя про оффлайн-режим.
+    /// Русский язык обслуживается только локальным банком — русских вопросов OpenTDB не отдаёт.
     func fetchQuestionsWithFallback(difficulty: Difficulty) async -> [MultipleQuestion] {
-        if isOffline {
+        if isOffline || AppLanguage.current == .ru {
             return OfflineQuestionProvider.loadQuestions(category: category, difficulty: difficulty)
         }
 
@@ -95,13 +96,13 @@ class GameViewController: UIViewController, UITableViewDelegate {
     func promptOfflineFallback(difficulty: Difficulty) async -> [MultipleQuestion] {
         await withCheckedContinuation { continuation in
             let alert = UIAlertController(title: nil,
-                                           message: String(localized: "No connection to the server. Switch to offline mode?"),
+                                           message: localized("No connection to the server. Switch to offline mode?"),
                                            preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: String(localized: "Yes"), style: .default) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: localized("Yes"), style: .default) { [weak self] _ in
                 self?.isOffline = true
                 continuation.resume(returning: OfflineQuestionProvider.loadQuestions(category: self?.category ?? .generalKnowledge, difficulty: difficulty))
             })
-            alert.addAction(UIAlertAction(title: String(localized: "No"), style: .cancel) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: localized("No"), style: .cancel) { [weak self] _ in
                 self?.presentingViewController?.presentingViewController?.dismiss(animated: true)
                 continuation.resume(returning: [])
             })
@@ -212,15 +213,15 @@ class GameViewController: UIViewController, UITableViewDelegate {
         
         gameView.onQuitTapped = { [weak self] in
             let alert = UIAlertController(title: nil,
-                                          message: String(localized: "Do you really want to quit?"),
+                                          message: localized("Do you really want to quit?"),
                                           preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: String(localized: "Yes"), style: .default) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: localized("Yes"), style: .default) { [weak self] _ in
                 guard let self else { return }
                 // при досрочном выходе засчитываем несгораемую сумму (0, если правильных ответов меньше 5)
                 StatsStore.recordGameFinished(earnedAmount: self.game.safetyNetAmount)
                 self.presentingViewController?.presentingViewController?.dismiss(animated: true)
             })
-            alert.addAction(UIAlertAction(title: String(localized: "No"), style: .cancel) { _ in
+            alert.addAction(UIAlertAction(title: localized("No"), style: .cancel) { _ in
             })
             self?.present(alert, animated: true)
             
