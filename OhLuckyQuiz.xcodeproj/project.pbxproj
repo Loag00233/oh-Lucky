@@ -533,8 +533,8 @@
 				DEVELOPMENT_TEAM = 3JLVZQ95T8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OhLuckyQuiz/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Oh, Lucky";
-				INFOPLIST_KEY_CFBundleName = "Oh, Lucky";
+				INFOPLIST_KEY_CFBundleDisplayName = "Oh Lucky";
+				INFOPLIST_KEY_CFBundleName = "Oh Lucky";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -567,8 +567,8 @@
 				DEVELOPMENT_TEAM = 3JLVZQ95T8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OhLuckyQuiz/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Oh, Lucky";
-				INFOPLIST_KEY_CFBundleName = "Oh, Lucky";
+				INFOPLIST_KEY_CFBundleDisplayName = "Oh Lucky";
+				INFOPLIST_KEY_CFBundleName = "Oh Lucky";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;

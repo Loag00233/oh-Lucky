@@ -18,7 +18,7 @@ class MenuView: UIView {
 
     lazy var titleLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Oh, Lucky"
+        lbl.text = "Oh Lucky"
         lbl.font = .montserrat(32, bold: true)
         lbl.textColor = .white
         return lbl
