@@ -27,7 +27,7 @@ class QuizGame {
 
     var currentQuestionSum: Int { Self.prizeLadder[currentQuestionIndex] }
 
-    /// Несгораемая сумма: сохраняется при проигрыше, даже если банк был больше.
+    /// Несгораемая сумма: сохраняется при проигрыше, даже если банк был больше
     var safetyNetAmount: Int {
         if correctAnswersCount >= 10 { return Self.prizeLadder[9] }
         if correctAnswersCount >= 5 { return Self.prizeLadder[4] }
@@ -45,8 +45,50 @@ class QuizGame {
     func registerAnswer(_ answer: String) {
         if isCorrect(answer) {
             correctAnswersCount += 1
-            bankedAmount += Self.prizeLadder[currentQuestionIndex]
+            bankedAmount = Self.prizeLadder[currentQuestionIndex]
         }
+    }
+
+    // MARK: - Подсказка
+
+    private(set) var isHintAvailable = true
+
+    func useHint() -> Set<String> {
+        guard isHintAvailable else { return [] }
+        isHintAvailable = false
+
+        let wrong = currentAnswers.filter { !isCorrect($0) }
+        return Set(wrong.shuffled().prefix(2))
+    }
+
+    // MARK: - Таймер
+
+    static let questionDuration: TimeInterval = 20
+    private(set) var questionDeadline: Date?
+
+    func startTimer(now: Date = Date()) {
+        questionDeadline = now.addingTimeInterval(Self.questionDuration)
+    }
+
+    func stopTimer() {
+        questionDeadline = nil
+    }
+
+    /// Округление вверх: пока идёт последняя секунда, на экране 1, а не 0.
+    func remainingSeconds(now: Date = Date()) -> Int {
+        guard let questionDeadline else { return 0 }
+        let left = questionDeadline.timeIntervalSince(now).rounded(.up)
+        return min(Int(Self.questionDuration), max(0, Int(left)))
+    }
+
+    func elapsedSeconds(now: Date = Date()) -> Int {
+        guard questionDeadline != nil else { return 0 }
+        return Int(Self.questionDuration) - remainingSeconds(now: now)
+    }
+
+    func isTimeUp(now: Date = Date()) -> Bool {
+        guard let questionDeadline else { return false }
+        return now >= questionDeadline
     }
 
     func prepareAnswers() {

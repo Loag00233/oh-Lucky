@@ -17,9 +17,9 @@ class AnswerCell: UITableViewCell {
         let circle = UIImageView()
         circle.image = UIImage(named: "EllipseAnswer")
         circle.contentMode = .scaleAspectFit
-        circle.layer.cornerRadius = 16
+        circle.layer.cornerRadius = Radius.pill(32)
         circle.layer.borderWidth = 2
-        circle.layer.borderColor = UIColor(named: "bankColor")?.cgColor
+        circle.layer.borderColor = UIColor.bank.cgColor
         return circle
     }()
     
@@ -37,21 +37,38 @@ class AnswerCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        cardView.layer.cornerRadius = 20
+        cardView.layer.cornerRadius = Radius.card
         cardView.layer.masksToBounds = true
     }
     
     func setViews() {
-        letterLabel.regularAnswersDecoration()
-        wordLabel.regularAnswersDecoration()
-        wordLabel.textAlignment = .center
+        letterLabel.decorate(color: .answers)
+        wordLabel.decorate(color: .answers)
         wordLabel.numberOfLines = 0
     }
 
-    func updateColorOfSelectedCell(_ isSelected: Bool) {
-        cardView.backgroundColor = isSelected ? .chosenAns : .white
-        letterLabel.textColor = UIColor(named: "answersColor")
-        wordLabel.textColor = UIColor(named: "answersColor")
+    /// Все состояния ячейки в одном месте: раньше три метода красили одни и те же свойства
+    /// и затирали друг друга, из-за чего порядок вызова был важен.
+    enum State { case normal, selected, eliminated, correct, wrong }
+
+    func apply(_ state: State) {
+        switch state {
+        case .normal, .eliminated: cardView.backgroundColor = .white
+        case .selected:            cardView.backgroundColor = .chosenAns
+        case .correct:             cardView.backgroundColor = .correctAns
+        case .wrong:               cardView.backgroundColor = .wrongAns
+        }
+
+        let isResult = state == .correct || state == .wrong
+        let textColor: UIColor = isResult ? .white : .answers
+        letterLabel.textColor = textColor
+        wordLabel.textColor = textColor
+
+        // Букву оставляем на месте: ряды не переставляем, иначе A/B/C/D поедут и игрок потеряет ориентир.
+        // Текст прячем прозрачностью, а не стираем: пустая метка схлопывает высоту строки и ряды прыгают под пальцем.
+        wordLabel.alpha = state == .eliminated ? 0 : 1
+        cardView.alpha = state == .eliminated ? 0.35 : 1
+        isUserInteractionEnabled = state != .eliminated
     }
 
     func pulseSelected() {
@@ -63,12 +80,6 @@ class AnswerCell: UITableViewCell {
     func stopPulse() {
         cardView.layer.removeAllAnimations()
         cardView.transform = .identity
-    }
-
-    func updateColorForResult(_ isCorrect: Bool) {
-        cardView.backgroundColor = isCorrect ? .correctAns : .wrongAns
-        letterLabel.textColor = .white
-        wordLabel.textColor = .white
     }
 
     func setConstraints() {

@@ -23,7 +23,12 @@ class GameViewController: UIViewController, UITableViewDelegate {
     var selectedIndexPath: IndexPath?
     var isOffline = false
     private var nextBatchTask: Task<Void, Never>?
-    private var isAnswerLocked = false
+    /// Свой диалог выхода: закрывать по таймауту можно только его, а не всё, что оказалось на экране.
+    private weak var quitAlert: UIAlertController?
+    private var tickTimer: Timer?
+    /// Варианты, убранные подсказкой на текущем вопросе.
+    private var hiddenAnswers: Set<String> = []
+    private var lastTickedSecond: Int?
 
     #if DEBUG
     private let debugAnswerSets: [[String]] = [
@@ -48,13 +53,26 @@ class GameViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadQuestions()
+        Task { await getQuestions() }
         setupTableView()
         setupAction()
+        Haptics.prepare()
+
+        // из фона возвращаемся с уже истёкшим сроком — пересчитываем сразу, не дожидаясь тика
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(appDidBecomeActive),
+                                               name: UIApplication.didBecomeActiveNotification,
+                                               object: nil)
     }
-    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTicking()
+    }
+
     func updateUI() {
-        isAnswerLocked = false
+        gameView.isUserInteractionEnabled = true
+        hiddenAnswers = []
         gameView.setLoading(false)
         gameView.updateProgress(questionNumber: game.currentQuestionNumber, total: game.totalQuestionsCount)
         gameView.questionNumberLabel.text = localized("Question \(game.currentQuestionNumber)/\(game.totalQuestionsCount):")
@@ -62,8 +80,53 @@ class GameViewController: UIViewController, UITableViewDelegate {
         gameView.bankMoneyLabel.text = game.bankedAmount.formattedScore
         gameView.bankQuestionSumSubLabel.text = game.currentQuestionSum.formattedScore
         self.answers = game.currentAnswers
+
+        game.startTimer()
+        startTicking()
     }
-    
+
+    // MARK: - Таймер
+
+    private func startTicking() {
+        tickTimer?.invalidate()
+        lastTickedSecond = nil
+        refreshTimer()
+
+        // 0.2 с, а не 1: секунда на экране должна меняться сразу после дедлайна, без запаздывания
+        tickTimer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { [weak self] _ in
+            MainActor.assumeIsolated { self?.refreshTimer() }
+        }
+    }
+
+    private func stopTicking() {
+        tickTimer?.invalidate()
+        tickTimer = nil
+        game.stopTimer()
+    }
+
+    private func refreshTimer() {
+        guard game.questionDeadline != nil else { return }
+
+        let remaining = game.remainingSeconds()
+        gameView.setTimer(seconds: remaining, isUrgent: remaining <= 5)
+
+        // тиканье превращает цифру в напряжение, поэтому только на последних пяти секундах
+        if remaining <= 5, remaining > 0, lastTickedSecond != remaining {
+            lastTickedSecond = remaining
+            SoundPlayer.play(.tick)
+        }
+
+        // таймер глушим здесь же: guard выше не пустит второй таймаут, пока задача ещё не стартовала
+        if game.isTimeUp() {
+            stopTicking()
+            Task { await finishQuestion(chosen: nil) }
+        }
+    }
+
+    @objc private func appDidBecomeActive() {
+        refreshTimer()
+    }
+
     func getQuestions() async {
         let questions = await fetchQuestionsWithFallback(difficulty: .easy)
         guard !questions.isEmpty else { return }
@@ -73,21 +136,15 @@ class GameViewController: UIViewController, UITableViewDelegate {
         updateUI()
     }
 
-    func loadQuestions() {
-        Task {
-            await getQuestions()
-        }
-    }
-
     /// Пытается получить вопросы с сервера; при ошибке спрашивает пользователя про оффлайн-режим.
     /// Русский язык обслуживается только локальным банком — русских вопросов OpenTDB не отдаёт.
     func fetchQuestionsWithFallback(difficulty: Difficulty) async -> [MultipleQuestion] {
-        if isOffline || AppLanguage.current == .ru {
+        if isOffline || QuestionSource.current == .offline {
             return OfflineQuestionProvider.loadQuestions(category: category, difficulty: difficulty)
         }
 
         do {
-            return try await networkService.fetchBatch(category: category, difficulty: difficulty, isMultiple: true)
+            return try await networkService.fetchBatch(category: category, difficulty: difficulty)
         } catch {
             return await promptOfflineFallback(difficulty: difficulty)
         }
@@ -110,47 +167,64 @@ class GameViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    func chooseAnswerAndProceed() async {
-        guard let selectedIndexPath = selectedIndexPath else { return }
+    /// Одна ветка на ответ и на таймаут: не успел = ответил неверно.
+    private func finishQuestion(chosen: String?) async {
+        let spentSeconds = game.elapsedSeconds() // до stopTicking: он обнуляет дедлайн
+        stopTicking() // до анимации показа ответа: иначе таймер добежит до нуля прямо во время неё
 
-        let chosenAnswer = answers[selectedIndexPath.row]
+
+        gameView.isUserInteractionEnabled = false
+        gameView.nextButton.isEnabled = false
+        quitAlert?.dismiss(animated: false)
+
+        if chosen == nil { selectedIndexPath = nil }
+
+        let isCorrect = chosen.map(game.isCorrect) ?? false
         if let difficulty = game.currentQuestion.difficulty {
-            StatsStore.recordAnswer(category: category, difficulty: difficulty, isCorrect: game.isCorrect(chosenAnswer))
+            StatsStore.recordAnswer(category: category,
+                                    difficulty: difficulty,
+                                    isCorrect: isCorrect,
+                                    seconds: spentSeconds)
         }
-        game.registerAnswer(chosenAnswer)
+        if let chosen { game.registerAnswer(chosen) }
 
-        let selectedCell = gameView.answersTableView.cellForRow(at: selectedIndexPath) as? AnswerCell
-        selectedCell?.pulseSelected()
-        try? await Task.sleep(nanoseconds: 1_200_000_000)
-        selectedCell?.stopPulse()
-
-        let isChosenCorrect = game.isCorrect(chosenAnswer)
-        UINotificationFeedbackGenerator().notificationOccurred(isChosenCorrect ? .success : .error)
-
-        let allCells = gameView.answersTableView.visibleCells.compactMap{ $0 as? AnswerCell}
-        for cell in allCells {
-            guard let indexPath = gameView.answersTableView.indexPath(for: cell) else { continue }
-            let isCorrect = game.isCorrect(cell.wordLabel.text ?? "")
-            if isCorrect || indexPath == selectedIndexPath {
-                cell.updateColorForResult(isCorrect)
-            }
+        if let selectedIndexPath {
+            let selectedCell = gameView.answersTableView.cellForRow(at: selectedIndexPath) as? AnswerCell
+            selectedCell?.pulseSelected()
+            try? await Task.sleep(nanoseconds: 1_200_000_000)
+            selectedCell?.stopPulse()
         }
+
+        Haptics.answer(isCorrect: isCorrect)
+        SoundPlayer.play(isCorrect ? .correct : .wrong)
+        revealAnswers()
 
         try? await Task.sleep(nanoseconds: 1_000_000_000)
-        self.selectedIndexPath = nil
+        selectedIndexPath = nil
 
-        if isChosenCorrect {
+        if isCorrect {
             await goToNextQuestion()
-            gameView.nextButton.isEnabled = false
         } else {
-            showResults(earnedAmount: game.safetyNetAmount)
+            showResults(earnedAmount: game.safetyNetAmount, outcome: chosen == nil ? .timedOut : .lost)
+        }
+    }
+
+    /// Подсветка итога: правильный вариант зелёным, выбранный неверный — красным.
+    private func revealAnswers() {
+        for cell in gameView.answersTableView.visibleCells.compactMap({ $0 as? AnswerCell }) {
+            guard let indexPath = gameView.answersTableView.indexPath(for: cell) else { continue }
+            if game.isCorrect(answers[indexPath.row]) {
+                cell.apply(.correct)
+            } else if indexPath == selectedIndexPath {
+                cell.apply(.wrong)
+            }
         }
     }
 
 
     func goToNextQuestion() async {
         if game.isLastQuestion {
-            showResults(earnedAmount: game.bankedAmount)
+            showResults(earnedAmount: game.bankedAmount, outcome: .won)
             return
         }
 
@@ -178,7 +252,7 @@ class GameViewController: UIViewController, UITableViewDelegate {
 
             // догрузка не дала вопросов (например, отказ от оффлайн-режима) — завершаем партию, не падаем по индексу
             if nextIndex >= game.gameQuestion.count {
-                showResults(earnedAmount: game.bankedAmount)
+                showResults(earnedAmount: game.bankedAmount, outcome: .quit)
                 return
             }
         }
@@ -187,8 +261,14 @@ class GameViewController: UIViewController, UITableViewDelegate {
         updateUI()
     }
 
-    func showResults(earnedAmount: Int) {
-        StatsStore.recordGameFinished(earnedAmount: earnedAmount)
+    func showResults(earnedAmount: Int, outcome: GameOutcome) {
+        stopTicking()
+        SoundPlayer.play(.gameover)
+
+        StatsStore.recordGameFinished(earnedAmount: earnedAmount,
+                                      correctAnswers: game.correctAnswersCount,
+                                      outcome: outcome,
+                                      usedHint: !game.isHintAvailable)
 
         let resultVC = ResultViewController(correctAnswersCount: game.correctAnswersCount,
                                              totalQuestionsCount: game.totalQuestionsCount,
@@ -201,30 +281,44 @@ class GameViewController: UIViewController, UITableViewDelegate {
     }
     
     func setupAction() {
-        gameView.onNextTapped = {[weak self] in
-            self?.gameView.nextButton.isEnabled = false
-            self?.isAnswerLocked = true
-            Task { await self?.chooseAnswerAndProceed() }
+        gameView.onNextTapped = { [weak self] in
+            guard let self, let selectedIndexPath else { return }
+            Task { await self.finishQuestion(chosen: self.answers[selectedIndexPath.row]) }
         }
 
-        
-        
-        
-        
+        gameView.onFiftyFiftyTapped = { [weak self] in
+            guard let self, game.isHintAvailable else { return }
+
+            hiddenAnswers = game.useHint()
+            gameView.setHintUsed()
+
+            if let selected = selectedIndexPath, hiddenAnswers.contains(answers[selected.row]) {
+                selectedIndexPath = nil
+                gameView.nextButton.isEnabled = false
+            }
+
+            gameView.answersTableView.reloadData()
+        }
+
         gameView.onQuitTapped = { [weak self] in
+            guard let self else { return }
+
+            let message = game.bankedAmount > 0
+                ? localized("Take \(game.bankedAmount.formattedScore) and quit?")
+                : localized("Do you really want to quit?")
+
             let alert = UIAlertController(title: nil,
-                                          message: localized("Do you really want to quit?"),
+                                          message: message,
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: localized("Yes"), style: .default) { [weak self] _ in
                 guard let self else { return }
-                // при досрочном выходе засчитываем несгораемую сумму (0, если правильных ответов меньше 5)
-                StatsStore.recordGameFinished(earnedAmount: self.game.safetyNetAmount)
-                self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+                // досрочный выход отдаёт банк — последнюю взятую ступень, иначе нажимать «Выйти» нет смысла
+                self.showResults(earnedAmount: self.game.bankedAmount, outcome: .quit)
             })
             alert.addAction(UIAlertAction(title: localized("No"), style: .cancel) { _ in
             })
-            self?.present(alert, animated: true)
-            
+            self.quitAlert = alert
+            self.present(alert, animated: true)
         }
 
         #if DEBUG
@@ -245,11 +339,6 @@ class GameViewController: UIViewController, UITableViewDelegate {
 }
 
 extension GameViewController: UITableViewDataSource {
-
-    //MARK: высота ячейки
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
-    }
 
     //MARK: задано количество ячеек
     func tableView(_ tableView: UITableView,
@@ -275,15 +364,19 @@ extension GameViewController: UITableViewDataSource {
 
         cell.accessibilityIdentifier = "game.answerCell.\(indexPath.row)"
 
-        let isSelected = (selectedIndexPath == indexPath)
-        cell.updateColorOfSelectedCell(isSelected)
+        if hiddenAnswers.contains(answerText) {
+            cell.apply(.eliminated)
+        } else {
+            cell.apply(selectedIndexPath == indexPath ? .selected : .normal)
+        }
 
         return cell
     }
 
     //MARK: ячейка выбрана
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard !isAnswerLocked else { return }
+        guard !hiddenAnswers.contains(answers[indexPath.row]) else { return }
+        Haptics.tap()
         selectedIndexPath = indexPath
         gameView.nextButton.isEnabled = true
         tableView.reloadData()
