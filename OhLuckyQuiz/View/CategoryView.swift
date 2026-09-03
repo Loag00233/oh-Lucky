@@ -10,21 +10,12 @@ class CategoryView: UIView {
     lazy var titleLabel = UILabel(text: localized("Choose a category"), isBold: false, isLarge: true)
     lazy var categoriesTableView = UITableView()
 
-    lazy var backButton: UIButton = {
-        let btn = UIButton(type: .system)
-        btn.setTitle(localized("Back"), for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
-        btn.backgroundColor = .exitBtnC
-        btn.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        btn.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        btn.layer.cornerRadius = 12
-        btn.accessibilityIdentifier = "category.backButton"
+    lazy var backButton = UIButton.backPill(identifier: "category.backButton")
 
-        return btn
-    }()
+    lazy var sourceBadge = makeSourceBadge()
 
     var onBackTapped: (() -> Void)?
+    var onSourceInfoTapped: (() -> Void)?
 
     init() {
         super.init(frame: .zero)
@@ -49,10 +40,12 @@ class CategoryView: UIView {
     func setConstraints() {
         addSubview(backButton)
         addSubview(titleLabel)
+        addSubview(sourceBadge)
         addSubview(categoriesTableView)
 
         backButton.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        sourceBadge.translatesAutoresizingMaskIntoConstraints = false
         categoriesTableView.translatesAutoresizingMaskIntoConstraints = false
 
         let content = makeContentGuide()
@@ -64,7 +57,12 @@ class CategoryView: UIView {
             titleLabel.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 24),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            categoriesTableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24),
+            sourceBadge.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            sourceBadge.centerXAnchor.constraint(equalTo: centerXAnchor),
+            sourceBadge.leadingAnchor.constraint(greaterThanOrEqualTo: content.leadingAnchor),
+            sourceBadge.trailingAnchor.constraint(lessThanOrEqualTo: content.trailingAnchor),
+
+            categoriesTableView.topAnchor.constraint(equalTo: sourceBadge.bottomAnchor, constant: 20),
             categoriesTableView.leadingAnchor.constraint(equalTo: content.leadingAnchor),
             categoriesTableView.trailingAnchor.constraint(equalTo: content.trailingAnchor),
             categoriesTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
@@ -75,6 +73,67 @@ class CategoryView: UIView {
         backButton.addAction(UIAction { [weak self] _ in
             self?.onBackTapped?()
         }, for: .touchUpInside)
+
+        sourceBadge.addAction(UIAction { [weak self] _ in
+            self?.onSourceInfoTapped?()
+        }, for: .touchUpInside)
+    }
+
+    /// Пилюля с режимом вопросов: значок режима, подпись и «i» — знак, что по ней можно нажать.
+    private func makeSourceBadge() -> UIControl {
+        let source = QuestionSource.current
+
+        let badge = UIControl()
+        badge.backgroundColor = .rectBankView
+        badge.layer.cornerRadius = Radius.pill(32)
+        badge.accessibilityIdentifier = "category.sourceBadge"
+        badge.isAccessibilityElement = true
+        badge.accessibilityTraits = .button
+        badge.accessibilityLabel = "\(source.title) · \(source.badgeDetail)"
+
+        let titleLabel = UILabel()
+        titleLabel.text = source.title
+        titleLabel.font = .montserrat(13, bold: true)
+        titleLabel.textColor = .white
+
+        let detailLabel = UILabel()
+        detailLabel.text = "· " + source.badgeDetail
+        detailLabel.font = .montserrat(13)
+        detailLabel.textColor = .bank
+        detailLabel.lineBreakMode = .byTruncatingTail
+        detailLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+
+        let stack = UIStackView(arrangedSubviews: [symbol(source.iconName, tint: .menuBtns, size: 16),
+                                                   titleLabel,
+                                                   detailLabel,
+                                                   symbol("info.circle", tint: .bank, size: 15)])
+        stack.axis = .horizontal
+        stack.spacing = 8
+        stack.alignment = .center
+        stack.isUserInteractionEnabled = false
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        badge.addSubview(stack)
+
+        NSLayoutConstraint.activate([
+            badge.heightAnchor.constraint(equalToConstant: 32),
+            stack.leadingAnchor.constraint(equalTo: badge.leadingAnchor, constant: 16),
+            stack.trailingAnchor.constraint(equalTo: badge.trailingAnchor, constant: -16),
+            stack.centerYAnchor.constraint(equalTo: badge.centerYAnchor)
+        ])
+
+        return badge
+    }
+
+    private func symbol(_ name: String, tint: UIColor, size: CGFloat) -> UIImageView {
+        let view = UIImageView(image: UIImage(systemName: name))
+        view.tintColor = tint
+        view.contentMode = .scaleAspectFit
+        view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(equalToConstant: size),
+            view.heightAnchor.constraint(equalToConstant: size)
+        ])
+        return view
     }
 
     required init?(coder: NSCoder) {

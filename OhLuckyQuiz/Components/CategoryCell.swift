@@ -22,7 +22,7 @@ class CategoryCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        cardView.layer.cornerRadius = 20
+        cardView.layer.cornerRadius = Radius.card
         cardView.layer.masksToBounds = true
     }
 

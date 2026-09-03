@@ -19,7 +19,7 @@ class MenuView: UIView {
     lazy var titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Oh, Lucky"
-        lbl.font = UIFont(name: "Montserrat-Bold", size: 32)
+        lbl.font = .montserrat(32, bold: true)
         lbl.textColor = .white
         return lbl
     }()
@@ -34,42 +34,18 @@ class MenuView: UIView {
 
     lazy var startButton: UIButton = {
         let btn = GradientButton(type: .system)
-        btn.setTitle(localized("Start Game!"), for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 20)
-        btn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        btn.layer.cornerRadius = 23
-        btn.accessibilityIdentifier = "menu.startButton"
-
+        btn.styleAsAction(title: localized("Start Game!"), titleColor: .white,
+                          identifier: "menu.startButton")
         return btn
     }()
 
-    lazy var settingsButton: UIButton = {
-        let setBtn = UIButton(type: .system)
-        setBtn.setTitle(localized("Settings"), for: .normal)
-        setBtn.setTitleColor(.black, for: .normal)
-        setBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
-        setBtn.backgroundColor = .menuBtns
-        setBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        setBtn.layer.cornerRadius = 23
-        setBtn.accessibilityIdentifier = "menu.settingsButton"
+    lazy var settingsButton = UIButton.action(title: localized("Settings"), titleColor: .black,
+                                              background: .menuBtns, isBold: false,
+                                              identifier: "menu.settingsButton")
 
-        return setBtn
-    }()
-
-    lazy var statisticButton: UIButton = {
-        let statBtn = UIButton(type: .system)
-        statBtn.setTitle(localized("My Statistics"), for: .normal)
-        statBtn.setTitleColor(.black, for: .normal)
-        statBtn.titleLabel?.font = UIFont(name: "Montserrat", size: 20)
-        statBtn.backgroundColor = .menuBtns
-        statBtn.heightAnchor.constraint(equalToConstant: 63).isActive = true
-        statBtn.layer.cornerRadius = 23
-        statBtn.accessibilityIdentifier = "menu.statisticButton"
-
-        return statBtn
-    }()
-
+    lazy var statisticButton = UIButton.action(title: localized("My Statistics"), titleColor: .black,
+                                               background: .menuBtns, isBold: false,
+                                               identifier: "menu.statisticButton")
 
     /// Логотип в шапке меню — конечное положение.
     private var logoTopConstraint: NSLayoutConstraint!
@@ -168,16 +144,23 @@ class MenuView: UIView {
     MenuView()
 }
 
-/// Кнопка с градиентной заливкой. Слой подгоняется в её собственном layoutSubviews:
-/// снаружи, из layoutSubviews родителя, размеры кнопки ещё не пересчитаны — при повороте
-/// градиент остался бы от прошлой ориентации. Тот же приём, что у GradientView в статистике.
-private final class GradientButton: UIButton {
+/// Кнопка с градиентным фоном: сам градиент — переиспользуемая GradientView позади контента.
+final class GradientButton: UIButton {
 
-    private let gradient = UIColor.makeGradientLayer()
+    private let gradientBackground = GradientView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layer.insertSublayer(gradient, at: 0)
+        gradientBackground.isUserInteractionEnabled = false
+        gradientBackground.translatesAutoresizingMaskIntoConstraints = false
+        insertSubview(gradientBackground, at: 0)
+
+        NSLayoutConstraint.activate([
+            gradientBackground.topAnchor.constraint(equalTo: topAnchor),
+            gradientBackground.bottomAnchor.constraint(equalTo: bottomAnchor),
+            gradientBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
+            gradientBackground.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
     }
 
     required init?(coder: NSCoder) {
@@ -186,7 +169,6 @@ private final class GradientButton: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        gradient.frame = bounds
-        gradient.cornerRadius = layer.cornerRadius
+        gradientBackground.layer.cornerRadius = layer.cornerRadius
     }
 }

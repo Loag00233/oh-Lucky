@@ -18,6 +18,9 @@ class CategoryViewController: UIViewController {
         categoryView.onBackTapped = { [weak self] in
             self?.dismiss(animated: true)
         }
+        categoryView.onSourceInfoTapped = { [weak self] in
+            self?.present(SourceInfoViewController(), animated: true)
+        }
     }
 
     func startGame(with category: QuizCategory) {
@@ -31,10 +34,6 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         categories.count
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

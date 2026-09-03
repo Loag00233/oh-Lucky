@@ -38,6 +38,16 @@ class MenuController: UIViewController {
         guard !isIntroPlayed else { return }
         isIntroPlayed = true
         mainView.playIntro()
+        presentOnboardingIfNeeded()
+    }
+
+    /// Первый запуск: правила и режимы вопросов до того, как игрок ткнёт «Начать игру!».
+    private func presentOnboardingIfNeeded() {
+        guard !AppSettings.hasSeenOnboarding else { return }
+
+        let vc = OnboardingViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     func addActions() {
@@ -67,6 +77,7 @@ class MenuController: UIViewController {
         }
 
         mainView.settingsButton.addAction(settingsAction, for: .touchUpInside)
+
     }
 }
 
