@@ -4,12 +4,14 @@
 
 ## Скриншоты
 
-![Главное меню](screenshots/menu.jpeg)
-![Экран игры](game1.jpeg)
-![Экран игры](game2.jpeg)
-![Результат](screenshots/gameover.jpeg)
-![Статистика](screenshots/statistics.jpeg)
-![Статистика](screenshots/achivements.jpeg)
+<p>
+  <img src="screenshots/menu.jpeg" width="200" alt="Главное меню">
+  <img src="screenshots/game2.jpeg" width="200" alt="Экран игры">
+  <img src="screenshots/game1.jpeg" width="200" alt="Экран игры">
+  <img src="screenshots/gameover.jpeg" width="200" alt="Результат">
+  <img src="screenshots/statistics.jpeg" width="200" alt="Статистика">
+  <img src="screenshots/achivements.jpeg" width="200" alt="Достижения">
+</p>
 
 ## Функционал
 
