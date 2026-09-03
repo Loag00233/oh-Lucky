@@ -8,23 +8,37 @@
 import Foundation
 
 protocol QuestionNetworkServiceType {
-    func fetchBatch(category: QuizCategory, difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion]
+    func fetchBatch(category: QuizCategory, difficulty: Difficulty) async throws -> [MultipleQuestion]
+}
+
+private struct RemoteConfig: Decodable {
+    let apiBaseURL: String
 }
 
 class QuestionNetworkService: QuestionNetworkServiceType {
-    private let baseURL = "https://opentdb.com/api.php"
+    /// Меняя apiBaseURL в этом файле, можно переключить источник вопросов без релиза приложения.
+    private let configURL = URL(string: "https://loag00233.github.io/ohluckyquiz-legal/config.json")!
+    private var cachedBaseURL: String?
     private let client = APIClient()
 
-    private func buildURL(amount: Int = 5,
+    private func resolveBaseURL() async throws -> String {
+        if let cachedBaseURL { return cachedBaseURL }
+        let config: RemoteConfig = try await client.request(url: configURL)
+        cachedBaseURL = config.apiBaseURL
+        return config.apiBaseURL
+    }
+
+    private func buildURL(baseURL: String,
+                          amount: Int = 5,
                           category: QuizCategory,
-                          difficulty: Difficulty,
-                          isMultiple: Bool) throws -> URL {
+                          difficulty: Difficulty
+    ) throws -> URL {
         var components = URLComponents(string: "\(baseURL)")
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "amount", value: amount.description),
             URLQueryItem(name: "category", value: category.rawValue.description),
             URLQueryItem(name: "difficulty", value: difficulty.rawValue),
-            URLQueryItem(name: "type", value: isMultiple ? "multiple" : "boolean"),
+            URLQueryItem(name: "type", value: "multiple"),
             URLQueryItem(name: "encode", value: "url3986")
 
         ]
@@ -33,8 +47,9 @@ class QuestionNetworkService: QuestionNetworkServiceType {
         return url
     }
 
-    func fetchBatch(category: QuizCategory, difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion] {
-        let url = try buildURL(category: category, difficulty: difficulty, isMultiple: isMultiple)
+    func fetchBatch(category: QuizCategory, difficulty: Difficulty) async throws -> [MultipleQuestion] {
+        let baseURL = try await resolveBaseURL()
+        let url = try buildURL(baseURL: baseURL, category: category, difficulty: difficulty)
         let response: NetworkModel = try await client.request(url: url)
         try response.validate()
 

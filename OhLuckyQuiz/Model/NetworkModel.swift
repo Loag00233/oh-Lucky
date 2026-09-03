@@ -16,15 +16,13 @@ struct NetworkModel: Decodable {
         case responseCode
     }
 
-    /// Проверяет responseCode из OpenTDB и выбрасывает соответствующую ошибку, если запрос не удался
+    /// responseCode от самого OpenTDB
     func validate() throws {
         switch responseCode {
         case 0: return
         case 1: throw APIError.noResults
-        case 2: throw APIError.invalidParametr
+        case 2: throw APIError.invalidParameter
         case 3: throw APIError.tokenNotFound
-        case 4: throw APIError.tokenEmpty
-        case 5: throw APIError.rateLimit
         default: throw APIError.noResults
         }
     }

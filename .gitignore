@@ -10,3 +10,4 @@ README.md
 *.md
 .xcodebuildmcp/config.yaml
 .claude/settings.local.json
+design

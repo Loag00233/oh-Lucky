@@ -1,686 +1,1743 @@
 {
-  "sourceLanguage": "en",
-  "version": "1.0",
-  "strings": {
-    "%lld of %lld correct\nEarned: %@": {
-      "comment": "Result screen score summary",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld of %lld correct\nEarned: %@"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%lld of %lld" : {
+      "comment" : "Achievements screen, progress counter",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld of %lld"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lld из %2$lld верно\nЗаработано: %3$@"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld из %lld"
           }
         }
       }
     },
-    "Animals": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Animals"
+    "%lld of %lld correct\nEarned: %@" : {
+      "comment" : "Result screen score summary",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld of %lld correct\nEarned: %@"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Животные"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld из %2$lld верно\nЗаработано: %3$@"
           }
         }
       }
     },
-    "Avg. answer time": {
-      "comment": "Statistics summary row",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avg. answer time"
+    "%lld s" : {
+      "comment" : "Statistics screen, average answer time in seconds",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld s"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Среднее время ответа"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld с"
           }
         }
       }
     },
-    "Avg. win per game": {
-      "comment": "Statistics summary row",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avg. win per game"
+    "15 questions to a million" : {
+      "comment" : "Onboarding slide title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "15 questions to a million"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Средний выигрыш за игру"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "15 вопросов до миллиона"
           }
         }
       }
     },
-    "Back": {
-      "comment": "Back button",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Back"
+    "330 questions" : {
+      "comment" : "Question source badge detail",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "330 questions"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Назад"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "330 вопросов"
           }
         }
       }
     },
-    "Back to menu": {
-      "comment": "Result screen button",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Back to menu"
+    "330 questions are already in the app. They work without a connection, but start repeating over time." : {
+      "comment" : "Offline mode explanation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "330 questions are already in the app. They work without a connection, but start repeating over time."
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "В меню"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "330 вопросов уже внутри приложения. Работают без сети, но со временем начинают повторяться."
           }
         }
       }
     },
-    "Bank:": {
-      "comment": "Game screen bank card label",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bank:"
+    "5 and 10 correct answers lock in your winnings — you keep them even if you lose." : {
+      "comment" : "Onboarding card text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 and 10 correct answers lock in your winnings — you keep them even if you lose."
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Банк:"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5 и 10 верных ответов закрепляют выигрыш — он останется даже при проигрыше."
           }
         }
       }
     },
-    "Best win": {
-      "comment": "Statistics summary row",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Best win"
+    "70% correct in all categories, 10+ answers each" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "70% correct in all categories, 10+ answers each"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Лучший выигрыш"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Верных 70% во всех категориях, по 10+ ответов в каждой"
           }
         }
       }
     },
-    "By category": {
-      "comment": "Statistics section header",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "By category"
+    "80% correct in a category with 20 answers or more" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "80% correct in a category with 20 answers or more"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "По категориям"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "80% верных в категории при 20 ответах и больше"
           }
         }
       }
     },
-    "Choose a category": {
-      "comment": "Category screen title",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choose a category"
+    "Achievements" : {
+      "comment" : "Menu button and achievements screen title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achievements"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Выберите категорию"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Достижения"
           }
         }
       }
     },
-    "Computers": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Computers"
+    "Animals" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animals"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Компьютеры"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Животные"
           }
         }
       }
     },
-    "Do you really want to quit?": {
-      "comment": "Quit confirmation alert",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Do you really want to quit?"
+    "Answer 10 questions in one game" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Answer 10 questions in one game"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Точно хотите выйти?"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ответьте на 10 вопросов за партию"
           }
         }
       }
     },
-    "Film": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Film"
+    "Answer 5 questions in one game" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Answer 5 questions in one game"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Кино"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ответьте на 5 вопросов за партию"
           }
         }
       }
     },
-    "Game over!": {
-      "comment": "Result screen title",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Game over!"
+    "Answer timer" : {
+      "comment" : "Onboarding card title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Answer timer"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Игра окончена!"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Таймер на ответ"
           }
         }
       }
     },
-    "General Knowledge": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "General Knowledge"
+    "Avg. answer time" : {
+      "comment" : "Statistics summary row",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avg. answer time"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Общие знания"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Среднее время ответа"
           }
         }
       }
     },
-    "Geography": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Geography"
+    "Avg. win per game" : {
+      "comment" : "Statistics summary row",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avg. win per game"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "География"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Средний выигрыш за игру"
           }
         }
       }
     },
-    "History": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "History"
+    "Back" : {
+      "comment" : "Back button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "История"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Назад"
           }
         }
       }
     },
-    "Language": {
-      "comment": "Settings section header",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Language"
+    "Back to menu" : {
+      "comment" : "Result screen button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back to menu"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Язык"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В меню"
           }
         }
       }
     },
-    "Loading questions...": {
-      "comment": "Game screen loading state",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Loading questions..."
+    "Bank:" : {
+      "comment" : "Game screen bank card label",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bank:"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Загружаем вопросы..."
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Банк:"
           }
         }
       }
     },
-    "Music": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Music"
+    "Best win" : {
+      "comment" : "Statistics summary row",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best win"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Музыка"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лучший выигрыш"
           }
         }
       }
     },
-    "My Statistics": {
-      "comment": "Menu button and statistics screen title",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "My Statistics"
+    "By category" : {
+      "comment" : "Statistics section header",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By category"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Моя статистика"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "По категориям"
           }
         }
       }
     },
-    "New question": {
-      "comment": "Game screen question number placeholder",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "New question"
+    "Choose a category" : {
+      "comment" : "Category screen title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a category"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Новый вопрос"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите категорию"
           }
         }
       }
     },
-    "Next": {
-      "comment": "Game screen next question button",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Next"
+    "Computers" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Computers"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Далее"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Компьютеры"
           }
         }
       }
     },
-    "No": {
-      "comment": "Alert cancel action",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No"
+    "Delete all results and achievements?" : {
+      "comment" : "Settings screen reset confirmation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete all results and achievements?"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Нет"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удалить все результаты и достижения?"
           }
         }
       }
     },
-    "No connection to the server. Switch to offline mode?": {
-      "comment": "Offline fallback alert",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No connection to the server. Switch to offline mode?"
+    "Do you really want to quit?" : {
+      "comment" : "Quit confirmation alert",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do you really want to quit?"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Нет связи с сервером. Переключиться в оффлайн-режим?"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Точно хотите выйти?"
           }
         }
       }
     },
-    "Question %lld/%lld:": {
-      "comment": "Game screen question counter",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Question %lld/%lld:"
+    "Every right answer takes you one step higher. One mistake ends the game." : {
+      "comment" : "Onboarding rules",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every right answer takes you one step higher. One mistake ends the game."
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Вопрос %1$lld/%2$lld:"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Каждый верный ответ поднимает на ступень выше. Одна ошибка — и игра заканчивается."
           }
         }
       }
     },
-    "Question for:": {
-      "comment": "Game screen bank card label",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Question for:"
+    "Film" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Film"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Вопрос на:"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кино"
           }
         }
       }
     },
-    "Quit": {
-      "comment": "Game screen quit button",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quit"
+    "First round" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First round"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Выйти"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Первая партия"
           }
         }
       }
     },
-    "Science & Nature": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Science & Nature"
+    "Fresh questions from the server, so every game is new. Needs the internet, and questions come in English only." : {
+      "comment" : "Online mode explanation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fresh questions from the server, so every game is new. Needs the internet, and questions come in English only."
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Наука и природа"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Свежие вопросы с сервера — каждая игра новая. Нужен интернет, вопросы приходят только на английском."
           }
         }
       }
     },
-    "Settings": {
-      "comment": "Menu button",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
+    "Game over!" : {
+      "comment" : "Result screen title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game over!"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Настройки"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Игра окончена!"
           }
         }
       }
     },
-    "Sports": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sports"
+    "General Knowledge" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General Knowledge"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Спорт"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Общие знания"
           }
         }
       }
     },
-    "Start Game!": {
-      "comment": "Menu button",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start Game!"
+    "Geography" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geography"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Начать игру!"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "География"
           }
         }
       }
     },
-    "Television": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Television"
+    "Got it" : {
+      "comment" : "Info card button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Got it"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Телевидение"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Понятно"
           }
         }
       }
     },
-    "Total questions": {
-      "comment": "Statistics summary row",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total questions"
+    "Halfway there" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halfway there"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Всего вопросов"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Половина пути"
           }
         }
       }
     },
-    "Total winnings": {
-      "comment": "Statistics summary row",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total winnings"
+    "History" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Всего выиграно"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "История"
           }
         }
       }
     },
-    "Video Games": {
-      "comment": "Quiz category",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Video Games"
+    "How to play" : {
+      "comment" : "Settings row",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to play"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Видеоигры"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Как играть"
           }
         }
       }
     },
-    "Yes": {
-      "comment": "Alert confirm action",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yes"
+    "Language" : {
+      "comment" : "Settings section header",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Да"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Язык"
           }
         }
       }
     },
-    "accuracy": {
-      "comment": "Statistics tile caption",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "accuracy"
+    "Loading questions..." : {
+      "comment" : "Game screen loading state",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading questions..."
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "точность"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загружаем вопросы..."
           }
         }
       }
     },
-    "correct answers": {
-      "comment": "Statistics tile caption",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "correct answers"
+    "Lose a game to the timer" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lose a game to the timer"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "верных ответов"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проиграйте по таймеру"
           }
         }
       }
     },
-    "games played": {
-      "comment": "Statistics tile caption",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "games played"
+    "Lose on the very first question" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lose on the very first question"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "сыграно игр"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проиграйте на первом вопросе"
+          }
+        }
+      }
+    },
+    "Millionaire" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Millionaire"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Миллионер"
+          }
+        }
+      }
+    },
+    "Music" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Music"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Музыка"
+          }
+        }
+      }
+    },
+    "My Statistics" : {
+      "comment" : "Menu button and statistics screen title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Statistics"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Моя статистика"
+          }
+        }
+      }
+    },
+    "New achievement: %@" : {
+      "comment" : "Result screen toast",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New achievement: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новое достижение: %@"
+          }
+        }
+      }
+    },
+    "New achievement: %@ +%lld" : {
+      "comment" : "Result screen toast when several unlocked at once",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New achievement: %@ +%lld"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новое достижение: %@ +%lld"
+          }
+        }
+      }
+    },
+    "New question" : {
+      "comment" : "Game screen question number placeholder",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New question"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новый вопрос"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "comment" : "Game screen next question button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Далее"
+          }
+        }
+      }
+    },
+    "No" : {
+      "comment" : "Alert cancel action",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет"
+          }
+        }
+      }
+    },
+    "No connection to the server. Switch to offline mode?" : {
+      "comment" : "Offline fallback alert",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No connection to the server. Switch to offline mode?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет связи с сервером. Переключиться в оффлайн-режим?"
+          }
+        }
+      }
+    },
+    "No help needed" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No help needed"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Без подсказок"
+          }
+        }
+      }
+    },
+    "Off the rails" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off the rails"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "С места в карьер"
+          }
+        }
+      }
+    },
+    "Offline" : {
+      "comment" : "Question source badge",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offline"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Офлайн"
+          }
+        }
+      }
+    },
+    "One hint" : {
+      "comment" : "Onboarding card title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One hint"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Одна подсказка"
+          }
+        }
+      }
+    },
+    "Online" : {
+      "comment" : "Question source badge",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Онлайн"
+          }
+        }
+      }
+    },
+    "Online and offline questions can be switched in Settings." : {
+      "comment" : "Footnote under the online/offline explanation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online and offline questions can be switched in Settings."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На русском языке вопросы уже внутри приложения — онлайн-версия для этого языка появится позже."
+          }
+        }
+      }
+    },
+    "Out of time" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Out of time"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Время вышло"
+          }
+        }
+      }
+    },
+    "Play 10 games" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play 10 games"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сыграйте 10 партий"
+          }
+        }
+      }
+    },
+    "Play 50 games" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play 50 games"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сыграйте 50 партий"
+          }
+        }
+      }
+    },
+    "Play Offline" : {
+      "comment" : "Label for the \"Play Offline\" toggle in the settings screen.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play Offline"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Играть оффлайн"
+          }
+        }
+      }
+    },
+    "Play a game in every category" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play a game in every category"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сыграйте в каждой категории"
+          }
+        }
+      }
+    },
+    "Play your first game" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play your first game"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сыграйте первую партию"
+          }
+        }
+      }
+    },
+    "Polymath" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Polymath"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эрудит"
+          }
+        }
+      }
+    },
+    "Privacy policy" : {
+      "comment" : "Settings screen link",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy policy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Политика конфиденциальности"
+          }
+        }
+      }
+    },
+    "Question %lld/%lld:" : {
+      "comment" : "Game screen question counter",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Question %lld/%lld:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вопрос %1$lld/%2$lld:"
+          }
+        }
+      }
+    },
+    "Question for:" : {
+      "comment" : "Game screen bank card label",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Question for:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вопрос на:"
+          }
+        }
+      }
+    },
+    "Quit" : {
+      "comment" : "Game screen quit button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quit"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выйти"
+          }
+        }
+      }
+    },
+    "Regular" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regular"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завсегдатай"
+          }
+        }
+      }
+    },
+    "Removes two wrong options. Once per game." : {
+      "comment" : "Onboarding card text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Removes two wrong options. Once per game."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Убирает два неверных варианта. Один раз за игру."
+          }
+        }
+      }
+    },
+    "Reset statistics" : {
+      "comment" : "Settings screen button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset statistics"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбросить статистику"
+          }
+        }
+      }
+    },
+    "Run out of time and the answer counts as wrong." : {
+      "comment" : "Onboarding card text",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Run out of time and the answer counts as wrong."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не успели — ответ считается неверным."
+          }
+        }
+      }
+    },
+    "Safety net" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safety net"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Несгораемая"
+          }
+        }
+      }
+    },
+    "Safety nets" : {
+      "comment" : "Onboarding card title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safety nets"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Несгораемые суммы"
+          }
+        }
+      }
+    },
+    "Science & Nature" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Science & Nature"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наука и природа"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "comment" : "Menu button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        }
+      }
+    },
+    "Skip" : {
+      "comment" : "Onboarding button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропустить"
+          }
+        }
+      }
+    },
+    "Sound" : {
+      "comment" : "Settings screen toggle",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sound"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Звук"
+          }
+        }
+      }
+    },
+    "Sound and vibration" : {
+      "comment" : "Settings screen section header",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sound and vibration"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Звук и вибрация"
+          }
+        }
+      }
+    },
+    "Specialist" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Specialist"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Специалист"
+          }
+        }
+      }
+    },
+    "Sports" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sports"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спорт"
+          }
+        }
+      }
+    },
+    "Start Game!" : {
+      "comment" : "Menu button",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Game!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начать игру!"
+          }
+        }
+      }
+    },
+    "Statistics" : {
+      "comment" : "Segment title on the statistics screen",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistics"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статистика"
+          }
+        }
+      }
+    },
+    "Support" : {
+      "comment" : "Settings screen link",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поддержка"
+          }
+        }
+      }
+    },
+    "Take %@ and quit?" : {
+      "comment" : "Game screen quit confirmation with the banked amount",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take %@ and quit?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забрать %@ и выйти?"
+          }
+        }
+      }
+    },
+    "Take the top prize" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take the top prize"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Возьмите главный приз"
+          }
+        }
+      }
+    },
+    "Take the top prize twice" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take the top prize twice"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Возьмите главный приз дважды"
+          }
+        }
+      }
+    },
+    "Take the top prize without using 50/50" : {
+      "comment" : "Achievement description",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take the top prize without using 50/50"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Возьмите главный приз, не тронув 50/50"
+          }
+        }
+      }
+    },
+    "Television" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Television"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Телевидение"
+          }
+        }
+      }
+    },
+    "Terms of Service" : {
+      "comment" : "Link to the app's Terms of Service.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Service"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Условия использования"
+          }
+        }
+      }
+    },
+    "Time is ticking, one hint" : {
+      "comment" : "Onboarding slide title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time is ticking, one hint"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Время идёт, подсказка одна"
+          }
+        }
+      }
+    },
+    "Total questions" : {
+      "comment" : "Statistics summary row",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total questions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Всего вопросов"
+          }
+        }
+      }
+    },
+    "Total winnings" : {
+      "comment" : "Statistics summary row",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total winnings"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Всего выиграно"
+          }
+        }
+      }
+    },
+    "Twice lucky" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twice lucky"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дважды везучий"
+          }
+        }
+      }
+    },
+    "Veteran" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veteran"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ветеран"
+          }
+        }
+      }
+    },
+    "Vibration" : {
+      "comment" : "Settings screen toggle",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vibration"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибрация"
+          }
+        }
+      }
+    },
+    "Video Games" : {
+      "comment" : "Quiz category",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video Games"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видеоигры"
+          }
+        }
+      }
+    },
+    "Well-rounded" : {
+      "comment" : "Achievement title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Well-rounded"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ровно везде"
+          }
+        }
+      }
+    },
+    "Where questions come from" : {
+      "comment" : "Onboarding slide and info card title",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Where questions come from"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Откуда берутся вопросы"
+          }
+        }
+      }
+    },
+    "Yes" : {
+      "comment" : "Alert confirm action",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Да"
+          }
+        }
+      }
+    },
+    "accuracy" : {
+      "comment" : "Statistics tile caption",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "accuracy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "точность"
+          }
+        }
+      }
+    },
+    "correct answers" : {
+      "comment" : "Statistics tile caption",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "correct answers"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "верных ответов"
+          }
+        }
+      }
+    },
+    "fresh questions" : {
+      "comment" : "Question source badge detail",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fresh questions"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "вопросы на английском"
+          }
+        }
+      }
+    },
+    "games played" : {
+      "comment" : "Statistics tile caption",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "games played"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "сыграно игр"
           }
         }
       }
     }
-  }
+  },
+  "version" : "1.1"
 }
