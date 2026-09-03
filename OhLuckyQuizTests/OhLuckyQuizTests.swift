@@ -67,18 +67,52 @@ struct OhLuckyQuizTests {
             #expect(game.currentQuestionSum == 1_000_000)
         }
 
-        @Test("Правильный ответ кладёт в банк сумму текущего вопроса")
+        @Test("Правильный ответ поднимает банк до ступени текущего вопроса")
         func correctAnswerBanksPrize() throws {
             let game = try makeGame()
 
             game.registerAnswer(correctAnswer)
             #expect(game.bankedAmount == 100)
-            #expect(game.correctAnswersCount == 1)
 
             game.goToNext()
             game.registerAnswer(correctAnswer)
-            #expect(game.bankedAmount == 300)
-            #expect(game.correctAnswersCount == 2)
+            #expect(game.bankedAmount == 200)
+        }
+
+        @Test("Правильный ответ увеличивает счётчик верных")
+        func correctAnswerIncrementsCount() throws {
+            let game = try makeGame()
+
+            game.registerAnswer(correctAnswer)
+            #expect(game.correctAnswersCount == 1)
+        }
+
+        /// Банк — последняя взятая ступень. Пока он был копилкой, за партию набегало 2 003 100.
+        @Test("Пятнадцать правильных ответов дают ровно миллион")
+        func fullGameBanksMillion() throws {
+            let game = try makeGame()
+
+            for _ in 0..<(game.totalQuestionsCount - 1) {
+                game.registerAnswer(correctAnswer)
+                game.goToNext()
+            }
+            game.registerAnswer(correctAnswer)
+
+            #expect(game.bankedAmount == 1_000_000)
+        }
+
+        /// Досрочный выход отдаёт банк, проигрыш — несгораемую. Суммы обязаны расходиться.
+        @Test("После семи верных ответов банк 4 000, а несгораемая 1 000")
+        func bankAndSafetyNetDiverge() throws {
+            let game = try makeGame()
+
+            for _ in 0..<7 {
+                game.registerAnswer(correctAnswer)
+                game.goToNext()
+            }
+
+            #expect(game.bankedAmount == 4_000)
+            #expect(game.safetyNetAmount == 1_000)
         }
 
         @Test("Неправильный ответ не трогает банк")
@@ -118,6 +152,116 @@ struct OhLuckyQuizTests {
             game.currentQuestionIndex = 14
             #expect(game.isLastQuestion)
         }
+
+        // MARK: Подсказка 50/50
+
+        @Test("Подсказка убирает ровно два варианта")
+        func hintRemovesTwoAnswers() throws {
+            let game = try makeGame()
+            game.prepareAnswers()
+
+            #expect(game.useHint().count == 2)
+        }
+
+        @Test("Правильный ответ подсказкой не убирается")
+        func hintKeepsCorrectAnswer() throws {
+            let game = try makeGame()
+            game.prepareAnswers()
+
+            #expect(game.useHint().contains(correctAnswer) == false)
+        }
+
+        @Test("После использования подсказка недоступна")
+        func hintIsSpentAfterUse() throws {
+            let game = try makeGame()
+            game.prepareAnswers()
+
+            _ = game.useHint()
+
+            #expect(game.isHintAvailable == false)
+        }
+
+        @Test("Повторная подсказка ничего не убирает")
+        func secondHintRemovesNothing() throws {
+            let game = try makeGame()
+            game.prepareAnswers()
+
+            _ = game.useHint()
+
+            #expect(game.useHint().isEmpty)
+        }
+
+        // MARK: Таймер
+        //
+        // Время считается от даты дедлайна, а не тиками: приложение сворачивают, и `Timer` в фоне
+        // не идёт. Поэтому всё проверяется подстановкой `now`, без run loop.
+
+        @Test("Сразу после старта на таймере полные двадцать секунд")
+        func timerStartsFull() throws {
+            let game = try makeGame()
+            let now = Date()
+
+            game.startTimer(now: now)
+
+            #expect(game.remainingSeconds(now: now) == 20)
+        }
+
+        @Test("Без запущенного таймера остаток нулевой")
+        func timerIsZeroBeforeStart() throws {
+            let game = try makeGame()
+
+            #expect(game.remainingSeconds() == 0)
+        }
+
+        @Test("К моменту дедлайна остаток обнуляется")
+        func timerEmptyAtDeadline() throws {
+            let game = try makeGame()
+            let now = Date()
+
+            game.startTimer(now: now)
+
+            #expect(game.remainingSeconds(now: now.addingTimeInterval(20)) == 0)
+        }
+
+        @Test("Просроченный дедлайн не уводит остаток в минус")
+        func timerNeverGoesNegative() throws {
+            let game = try makeGame()
+            let now = Date()
+
+            game.startTimer(now: now)
+
+            #expect(game.remainingSeconds(now: now.addingTimeInterval(100)) == 0)
+        }
+
+        @Test("Истёкшее время распознаётся только после дедлайна")
+        func timeIsUpOnlyAfterDeadline() throws {
+            let game = try makeGame()
+            let now = Date()
+
+            game.startTimer(now: now)
+
+            #expect(game.isTimeUp(now: now.addingTimeInterval(19)) == false)
+        }
+
+        @Test("Потраченное время — это разница между двадцатью секундами и остатком")
+        func elapsedGrowsWithTime() throws {
+            let game = try makeGame()
+            let now = Date()
+
+            game.startTimer(now: now)
+
+            #expect(game.elapsedSeconds(now: now.addingTimeInterval(7)) == 7)
+        }
+
+        @Test("Остановленный таймер время не копит")
+        func stoppedTimerHasNoElapsed() throws {
+            let game = try makeGame()
+
+            game.startTimer()
+            game.stopTimer()
+
+            #expect(game.elapsedSeconds() == 0)
+        }
     }
 
     // MARK: - Статистика
@@ -152,16 +296,115 @@ struct OhLuckyQuizTests {
             #expect(QuizStats().averageWinPerGame == 0)
         }
 
+        @Test("Без учтённых ответов среднее время равно нулю, а не делится на ноль")
+        func averageAnswerTimeWithoutAnswers() {
+            #expect(QuizStats().averageAnswerSeconds == 0)
+        }
+
+        /// Синтезированный init(from:) значения по умолчанию не использует и на пропущенном ключе
+        /// падает, а load() глушит ошибку через try? — то есть новое поле стёрло бы всю статистику.
+        @Test("Сохранённая статистика без новых ключей читается, а не обнуляется")
+        func decodesPayloadWithoutNewKeys() throws {
+            let legacy = #"{"gamesPlayed":7,"records":{},"totalEarned":5000,"bestWin":5000}"#
+
+            let stats = try JSONDecoder().decode(QuizStats.self, from: Data(legacy.utf8))
+
+            #expect(stats.gamesPlayed == 7)
+        }
+
+        @Test("Отсутствующее в данных поле читается нулём")
+        func missingFieldDecodesAsZero() throws {
+            let legacy = #"{"gamesPlayed":7,"records":{},"totalEarned":5000,"bestWin":5000}"#
+
+            let stats = try JSONDecoder().decode(QuizStats.self, from: Data(legacy.utf8))
+
+            #expect(stats.bestStreak == 0)
+        }
+
+        @Test("Лучшая серия берёт максимум по партиям, а не последнюю")
+        func bestStreakKeepsMaximum() {
+            let snapshot = StatsSnapshot()
+            defer { snapshot.restore() }
+
+            StatsStore.recordGameFinished(earnedAmount: 1_000, correctAnswers: 7, outcome: .lost)
+            StatsStore.recordGameFinished(earnedAmount: 0, correctAnswers: 2, outcome: .lost)
+
+            #expect(StatsStore.load().bestStreak == 7)
+        }
+
+        @Test("Миллион без подсказки попадает в чистые")
+        func cleanMillionCounted() {
+            let snapshot = StatsSnapshot()
+            defer { snapshot.restore() }
+
+            StatsStore.recordGameFinished(earnedAmount: 1_000_000, correctAnswers: 15, outcome: .won)
+
+            #expect(StatsStore.load().cleanMillions == 1)
+        }
+
+        @Test("Миллион с подсказкой в чистые не идёт")
+        func hintedMillionIsNotClean() {
+            let snapshot = StatsSnapshot()
+            defer { snapshot.restore() }
+
+            StatsStore.recordGameFinished(earnedAmount: 1_000_000, correctAnswers: 15, outcome: .won, usedHint: true)
+
+            #expect(StatsStore.load().cleanMillions == 0)
+        }
+
+        /// Выход с деньгами на первом вопросе — не проигрыш, ачивка «проиграл на первом» не должна открыться.
+        @Test("Досрочный выход не считается проигрышем на первом вопросе")
+        func quitIsNotFirstQuestionLoss() {
+            let snapshot = StatsSnapshot()
+            defer { snapshot.restore() }
+
+            StatsStore.recordGameFinished(earnedAmount: 0, correctAnswers: 0, outcome: .quit)
+
+            #expect(StatsStore.load().firstQuestionLosses == 0)
+        }
+
+        @Test("Проигрыш на первом вопросе засчитывается")
+        func firstQuestionLossCounted() {
+            let snapshot = StatsSnapshot()
+            defer { snapshot.restore() }
+
+            StatsStore.recordGameFinished(earnedAmount: 0, correctAnswers: 0, outcome: .lost)
+
+            #expect(StatsStore.load().firstQuestionLosses == 1)
+        }
+
+        @Test("Сброс очищает накопленную статистику")
+        func resetClearsStats() {
+            let snapshot = StatsSnapshot()
+            defer { snapshot.restore() }
+
+            StatsStore.recordGameStarted()
+            StatsStore.reset()
+
+            #expect(StatsStore.load().gamesPlayed == 0)
+        }
+
+        @Test("Среднее время ответа делит накопленные секунды на число ответов")
+        func averageAnswerTimeIsAveraged() {
+            let snapshot = StatsSnapshot()
+            defer { snapshot.restore() }
+
+            StatsStore.recordAnswer(category: .history, difficulty: .easy, isCorrect: true, seconds: 4)
+            StatsStore.recordAnswer(category: .history, difficulty: .easy, isCorrect: true, seconds: 8)
+
+            #expect(StatsStore.load().averageAnswerSeconds == 6)
+        }
+
         @Test("Записанные результаты читаются обратно")
         func recordsSurviveRoundTrip() {
             let snapshot = StatsSnapshot()
             defer { snapshot.restore() }
 
             StatsStore.recordGameStarted()
-            StatsStore.recordAnswer(category: .history, difficulty: .medium, isCorrect: true)
-            StatsStore.recordAnswer(category: .history, difficulty: .medium, isCorrect: false)
-            StatsStore.recordGameFinished(earnedAmount: 1_000)
-            StatsStore.recordGameFinished(earnedAmount: 32_000)
+            StatsStore.recordAnswer(category: .history, difficulty: .medium, isCorrect: true, seconds: 4)
+            StatsStore.recordAnswer(category: .history, difficulty: .medium, isCorrect: false, seconds: 8)
+            StatsStore.recordGameFinished(earnedAmount: 1_000, correctAnswers: 5, outcome: .lost)
+            StatsStore.recordGameFinished(earnedAmount: 32_000, correctAnswers: 10, outcome: .lost)
 
             let stats = StatsStore.load()
             #expect(stats.gamesPlayed == 1)
@@ -171,6 +414,74 @@ struct OhLuckyQuizTests {
             let record = stats.records[StatsStore.key(category: .history, difficulty: .medium)]
             #expect(record?.total == 2)
             #expect(record?.correct == 1)
+        }
+    }
+
+    // MARK: - Достижения
+
+    @Suite("Достижения")
+    struct Achievements {
+
+        @Test("До порога достижение закрыто")
+        func lockedBelowThreshold() {
+            var stats = QuizStats()
+            stats.gamesPlayed = 9
+
+            #expect(Achievement.tenGames.isUnlocked(in: stats) == false)
+        }
+
+        @Test("Ровно на пороге достижение открывается")
+        func unlocksExactlyAtThreshold() {
+            var stats = QuizStats()
+            stats.gamesPlayed = 10
+
+            #expect(Achievement.tenGames.isUnlocked(in: stats))
+        }
+
+        @Test("Миллион с подсказкой чистым не считается")
+        func cleanMillionNeedsCleanRun() {
+            var stats = QuizStats()
+            stats.millionsWon = 1
+
+            #expect(Achievement.cleanMillion.isUnlocked(in: stats) == false)
+        }
+
+        @Test("Десять категорий из одиннадцати достижение не открывают")
+        func allCategoriesNeedsEveryCategory() {
+            var stats = QuizStats()
+            for category in QuizCategory.allCases.dropLast() {
+                stats.records[StatsStore.key(category: category, difficulty: .easy)] = QuizStats.Record(correct: 1, total: 1)
+            }
+
+            #expect(Achievement.allCategories.isUnlocked(in: stats) == false)
+        }
+
+        @Test("Точность в категории засчитывается только при двадцати ответах")
+        func sharpCategoryNeedsEnoughAnswers() {
+            var stats = QuizStats()
+            stats.records[StatsStore.key(category: .history, difficulty: .easy)] = QuizStats.Record(correct: 19, total: 19)
+
+            #expect(Achievement.sharpCategory.isUnlocked(in: stats) == false)
+        }
+
+        /// Опечатка в имени символа даст пустой квадрат на экране, а не ошибку сборки.
+        @Test("Иконка каждого достижения есть в SF Symbols")
+        func everyIconResolves() {
+            let broken = Achievement.allCases.filter { UIImage(systemName: $0.icon) == nil }
+
+            #expect(broken.isEmpty)
+        }
+
+        @Test("Открытое достижение показывается один раз")
+        func achievementIsAnnouncedOnce() {
+            let snapshot = AchievementsSnapshot()
+            defer { snapshot.restore() }
+
+            var stats = QuizStats()
+            stats.gamesPlayed = 1
+            _ = AchievementsStore.consumeNewlyUnlocked(in: stats)
+
+            #expect(AchievementsStore.consumeNewlyUnlocked(in: stats).isEmpty)
         }
     }
 
@@ -238,7 +549,7 @@ private func makeGame() throws -> QuizGame {
 
 /// Сеть в этих тестах вызываться не должна — если вызвалась, тест обязан упасть с внятной причиной.
 private struct UnusedNetworkService: QuestionNetworkServiceType {
-    func fetchBatch(category: QuizCategory, difficulty: Difficulty, isMultiple: Bool) async throws -> [MultipleQuestion] {
+    func fetchBatch(category: QuizCategory, difficulty: Difficulty) async throws -> [MultipleQuestion] {
         Issue.record("Сеть не должна вызываться: русский язык играет из локального банка")
         throw APIError.noResults
     }
@@ -289,6 +600,23 @@ private struct StatsSnapshot {
             UserDefaults.standard.set(stored, forKey: "quizStats")
         } else {
             UserDefaults.standard.removeObject(forKey: "quizStats")
+        }
+    }
+}
+
+private struct AchievementsSnapshot {
+    private let stored: [String]?
+
+    init() {
+        stored = UserDefaults.standard.stringArray(forKey: "shownAchievements")
+        AchievementsStore.reset()
+    }
+
+    func restore() {
+        if let stored {
+            UserDefaults.standard.set(stored, forKey: "shownAchievements")
+        } else {
+            AchievementsStore.reset()
         }
     }
 }
