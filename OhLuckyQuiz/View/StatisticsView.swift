@@ -5,48 +5,51 @@
 
 import UIKit
 
-final class StatisticsView: UIView {
+/// Статистика и достижения — один экран: достижение это порог над той же цифрой,
+/// что уже лежит в статистике. Разделы переключаются сегментами, данные общие.
+final class StatisticsView: ScrollableCardsView {
 
-    var onBackTapped: (() -> Void)?
+    private enum Tab: Int { case statistics, achievements }
 
-    private let scrollView = UIScrollView()
-    private let contentStack = UIStackView()
+    override var backButtonIdentifier: String { "statistics.backButton" }
 
-    lazy var backButton: UIButton = {
-        let btn = UIButton(type: .system)
-        btn.setTitle(localized("Back"), for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: "Montserrat-Bold", size: 16)
-        btn.backgroundColor = .exitBtnC
-        btn.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        btn.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        btn.layer.cornerRadius = 12
-        return btn
+    private var stats = QuizStats()
+    private var tab: Tab = .statistics
+
+    private lazy var tabs: SegmentedTabs = {
+        let control = SegmentedTabs(titles: [localized("Statistics"), localized("Achievements")],
+                                    identifiers: ["statistics.tab.statistics", "statistics.tab.achievements"])
+        control.onSelect = { [weak self] index in
+            self?.tab = Tab(rawValue: index) ?? .statistics
+            self?.rebuild()
+        }
+        return control
     }()
 
-    init() {
-        super.init(frame: .zero)
-        backgroundColor = .bgCol
-        setupScroll()
-        setupActions()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     func render(_ stats: QuizStats) {
-        contentStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        self.stats = stats
+        rebuild()
+    }
 
-        let backRow = UIStackView(arrangedSubviews: [backButton, UIView()])
-        backRow.axis = .horizontal
-        contentStack.addArrangedSubview(backRow)
-        contentStack.setCustomSpacing(20, after: backRow)
+    private func rebuild() {
+        resetContent()
 
-        let title = sectionTitle(localized("My Statistics"), size: 26)
+        let title = label(localized("My Statistics"), size: 26, color: .white, align: .left)
         contentStack.addArrangedSubview(title)
-        contentStack.setCustomSpacing(20, after: title)
+        contentStack.setCustomSpacing(16, after: title)
 
+        contentStack.addArrangedSubview(tabs)
+        contentStack.setCustomSpacing(20, after: tabs)
+
+        switch tab {
+        case .statistics: appendStatistics()
+        case .achievements: appendAchievements()
+        }
+    }
+
+    // MARK: - Статистика
+
+    private func appendStatistics() {
         let tilesRow = UIStackView(arrangedSubviews: [
             tile(number: "\(stats.gamesPlayed)", caption: localized("games played"), style: .yellow),
             tile(number: "\(stats.totalCorrect)", caption: localized("correct answers"), style: .yellow)
@@ -64,11 +67,12 @@ final class StatisticsView: UIView {
         contentStack.addArrangedSubview(summaryRow(title: localized("Total winnings"), value: stats.totalEarned.formattedScore))
         contentStack.addArrangedSubview(summaryRow(title: localized("Best win"), value: stats.bestWin.formattedScore))
         contentStack.addArrangedSubview(summaryRow(title: localized("Avg. win per game"), value: stats.averageWinPerGame.formattedScore))
-        let lastSummary = summaryRow(title: localized("Avg. answer time"), value: "—")
+        let lastSummary = summaryRow(title: localized("Avg. answer time"),
+                                     value: localized("\(stats.averageAnswerSeconds) s"))
         contentStack.addArrangedSubview(lastSummary)
         contentStack.setCustomSpacing(24, after: lastSummary)
 
-        let categoriesHeader = sectionTitle(localized("By category"), size: 17)
+        let categoriesHeader = label(localized("By category"), size: 17, color: .white, align: .left)
         contentStack.addArrangedSubview(categoriesHeader)
         contentStack.setCustomSpacing(12, after: categoriesHeader)
 
@@ -79,8 +83,6 @@ final class StatisticsView: UIView {
         }
     }
 
-    // MARK: - Building blocks
-
     private enum TileStyle { case yellow, purple }
 
     private func tile(number: String, caption: String, style: TileStyle) -> UIView {
@@ -88,11 +90,11 @@ final class StatisticsView: UIView {
         switch style {
         case .yellow:
             card = UIView()
-            card.backgroundColor = UIColor(named: "menuBtns")
+            card.backgroundColor = .menuBtns
         case .purple:
             card = GradientView()
         }
-        card.layer.cornerRadius = 22
+        card.layer.cornerRadius = Radius.card
         card.layer.masksToBounds = true
 
         let numberColor: UIColor = style == .yellow ? .black : .white
@@ -112,7 +114,7 @@ final class StatisticsView: UIView {
     private func summaryRow(title: String, value: String) -> UIView {
         let card = UIView()
         card.backgroundColor = .white
-        card.layer.cornerRadius = 20
+        card.layer.cornerRadius = Radius.card
 
         let titleLabel = label(title, size: 14, color: .bgCol, align: .left)
         let valueLabel = label(value, size: 19, color: .bgCol, align: .right)
@@ -128,7 +130,7 @@ final class StatisticsView: UIView {
     private func categoryRow(name: String, percent: Int) -> UIView {
         let card = UIView()
         card.backgroundColor = .white
-        card.layer.cornerRadius = 16
+        card.layer.cornerRadius = Radius.card
 
         let nameLabel = label(name, size: 13, color: .bgCol, align: .left)
         let percentLabel = label("\(percent)%", size: 13, color: .bgCol, align: .right)
@@ -138,16 +140,16 @@ final class StatisticsView: UIView {
         header.alignment = .center
 
         let track = UIView()
-        track.backgroundColor = UIColor(named: "bankColor")
-        track.layer.cornerRadius = 4
+        track.backgroundColor = .bank
+        track.layer.cornerRadius = Radius.pill(8)
         track.translatesAutoresizingMaskIntoConstraints = false
         track.heightAnchor.constraint(equalToConstant: 8).isActive = true
 
         let fillWidth = CGFloat(max(0, min(percent, 100))) / 100.0
         if fillWidth > 0 {
             let fill = UIView()
-            fill.backgroundColor = UIColor(named: "menuBtns")
-            fill.layer.cornerRadius = 4
+            fill.backgroundColor = .menuBtns
+            fill.layer.cornerRadius = Radius.pill(8)
             fill.translatesAutoresizingMaskIntoConstraints = false
             track.addSubview(fill)
             NSLayoutConstraint.activate([
@@ -165,86 +167,55 @@ final class StatisticsView: UIView {
         return card
     }
 
-    // MARK: - Helpers
+    // MARK: - Достижения
 
-    private func sectionTitle(_ text: String, size: CGFloat) -> UILabel {
-        label(text, size: size, color: .white, align: .left)
+    private func appendAchievements() {
+        let unlocked = Achievement.allCases.filter { $0.isUnlocked(in: stats) }
+
+        let counter = label(localized("\(unlocked.count) of \(Achievement.allCases.count)"),
+                            size: 14, color: UIColor(white: 1, alpha: 0.7), align: .left)
+        contentStack.addArrangedSubview(counter)
+        contentStack.setCustomSpacing(16, after: counter)
+
+        // заблокированные не прячем: без них непонятно, к чему стремиться
+        Achievement.allCases.forEach { contentStack.addArrangedSubview(achievementCard($0)) }
     }
 
-    private func label(_ text: String, size: CGFloat, color: UIColor, align: NSTextAlignment) -> UILabel {
-        let l = UILabel()
-        l.text = text
-        l.font = UIFont(name: "Montserrat-Regular", size: size)
-        l.textColor = color
-        l.textAlignment = align
-        l.numberOfLines = 0
-        return l
-    }
+    private func achievementCard(_ achievement: Achievement) -> UIView {
+        let progress = achievement.progress(in: stats)
+        let isUnlocked = progress.current >= progress.goal
 
-    private func pin(_ inner: UIView, in card: UIView, insetsV: CGFloat, insetsH: CGFloat) {
-        inner.translatesAutoresizingMaskIntoConstraints = false
-        card.addSubview(inner)
-        NSLayoutConstraint.activate([
-            inner.topAnchor.constraint(equalTo: card.topAnchor, constant: insetsV),
-            inner.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -insetsV),
-            inner.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: insetsH),
-            inner.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -insetsH)
-        ])
-    }
+        let card = UIView()
+        card.backgroundColor = .white
+        card.layer.cornerRadius = Radius.card
+        card.alpha = isUnlocked ? 1 : 0.55
+        card.accessibilityIdentifier = "achievements.card.\(achievement.rawValue)"
 
-    private func setupScroll() {
-        scrollView.showsVerticalScrollIndicator = false
-        contentStack.axis = .vertical
-        contentStack.spacing = 12
-        contentStack.isLayoutMarginsRelativeArrangement = true // отступы задают ширину колонки
+        let iconView = UIImageView(image: UIImage(systemName: isUnlocked ? achievement.icon : "lock.fill"))
+        iconView.tintColor = isUnlocked ? .exitBtnC : .darkGray
+        iconView.contentMode = .scaleAspectFit
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        iconView.setContentHuggingPriority(.required, for: .horizontal)
 
-        addSubview(scrollView)
-        scrollView.addSubview(contentStack)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        contentStack.translatesAutoresizingMaskIntoConstraints = false
+        let titleLabel = label(achievement.title, size: 16, color: .bgCol, align: .left)
+        let detailsLabel = label(achievement.details, size: 12, color: .darkGray, align: .left)
 
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        let textStack = UIStackView(arrangedSubviews: [titleLabel, detailsLabel])
+        textStack.axis = .vertical
+        textStack.spacing = 2
 
-            contentStack.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor, constant: 16),
-            contentStack.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -28),
-            contentStack.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
-            contentStack.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor)
-        ])
-    }
+        // у взятого достижения цифры уже ничего не сообщают — там галочка
+        let statusText = isUnlocked ? "✓" : localized("\(progress.current) of \(progress.goal)")
+        let statusLabel = label(statusText, size: 13, color: .bgCol, align: .right)
+        statusLabel.setContentHuggingPriority(.required, for: .horizontal)
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+        let row = UIStackView(arrangedSubviews: [iconView, textStack, statusLabel])
+        row.axis = .horizontal
+        row.alignment = .center
+        row.spacing = 14
+        pin(row, in: card, insetsV: 14, insetsH: 18)
 
-        // На широком экране контент собирается в колонку не шире 700pt, на iPhone упирается в 24pt.
-        let side = max(24, (bounds.width - 700) / 2)
-        contentStack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: side, bottom: 0, trailing: side)
-    }
-
-    private func setupActions() {
-        backButton.addAction(UIAction { [weak self] _ in
-            self?.onBackTapped?()
-        }, for: .touchUpInside)
-    }
-}
-
-private final class GradientView: UIView {
-    private let gradient = UIColor.makeGradientLayer()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        layer.insertSublayer(gradient, at: 0)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        gradient.frame = bounds
+        return card
     }
 }
